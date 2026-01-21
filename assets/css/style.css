@@ -12,7 +12,8 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #fff;
   position: relative;
-  background: transparent;
+  background-color: #050505; /* Fallback background */
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 body::before {
@@ -24,6 +25,9 @@ body::before {
   right: 0;
   top: 0;
   height: 100vh;
+  /* Use dynamic viewport height for mobile if supported */
+  height: 100dvh; 
+  z-index: -1; /* Ensure it stays behind */
 }
 
 @media (min-width: 1024px) {
