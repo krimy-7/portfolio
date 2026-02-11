@@ -4,11 +4,11 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-!(function($) {
+!(function ($) {
   "use strict";
 
   // Nav Menu
-  $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
+  $(document).on('click', '.nav-menu a, .mobile-nav a', function (e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var hash = this.hash;
       var target = $(hash);
@@ -28,7 +28,7 @@
 
         if (!$('#header').hasClass('header-top')) {
           $('#header').addClass('header-top');
-          setTimeout(function() {
+          setTimeout(function () {
             $("section").removeClass('section-show');
             $(hash).addClass('section-show');
           }, 350);
@@ -56,7 +56,7 @@
       $('#header').addClass('header-top');
       $('.nav-menu .active, .mobile-nav .active').removeClass('active');
       $('.nav-menu, .mobile-nav').find('a[href="' + initial_nav + '"]').parent('li').addClass('active');
-      setTimeout(function() {
+      setTimeout(function () {
         $("section").removeClass('section-show');
         $(initial_nav).addClass('section-show');
       }, 350);
@@ -72,13 +72,13 @@
     $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
     $('body').append('<div class="mobile-nav-overly"></div>');
 
-    $(document).on('click', '.mobile-nav-toggle', function(e) {
+    $(document).on('click', '.mobile-nav-toggle', function (e) {
       $('body').toggleClass('mobile-nav-active');
       $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
       $('.mobile-nav-overly').toggle();
     });
 
-    $(document).click(function(e) {
+    $(document).click(function (e) {
       var container = $(".mobile-nav, .mobile-nav-toggle");
       if (!container.is(e.target) && container.has(e.target).length === 0) {
         if ($('body').hasClass('mobile-nav-active')) {
@@ -99,8 +99,8 @@
   });
 
   // Skills section
-  $('.skills-content').waypoint(function() {
-    $('.progress .progress-bar').each(function() {
+  $('.skills-content').waypoint(function () {
+    $('.progress .progress-bar').each(function () {
       $(this).css("width", $(this).attr("aria-valuenow") + '%');
     });
   }, {
@@ -126,13 +126,13 @@
   });
 
   // Porfolio isotope and filter
-  $(window).on('load', function() {
+  $(window).on('load', function () {
     var portfolioIsotope = $('.portfolio-container').isotope({
       itemSelector: '.portfolio-item',
       layoutMode: 'fitRows'
     });
 
-    $('#portfolio-flters li').on('click', function() {
+    $('#portfolio-flters li').on('click', function () {
       $("#portfolio-flters li").removeClass('filter-active');
       $(this).addClass('filter-active');
 
@@ -144,8 +144,39 @@
   });
 
   // Initiate venobox (lightbox feature used in portofilo)
-  $(document).ready(function() {
+  $(document).ready(function () {
     $('.venobox').venobox();
+
+    // Cyberpunk Music Player Logic
+    const audio = document.getElementById('cyberpunk-ost');
+    const musicBtn = document.getElementById('music-toggle');
+    const musicIcon = musicBtn.querySelector('i');
+    const musicText = musicBtn.querySelector('span');
+
+    if (musicBtn && audio) {
+      musicBtn.addEventListener('click', function () {
+        if (audio.paused) {
+          const playPromise = audio.play();
+          if (playPromise !== undefined) {
+            playPromise.then(_ => {
+              // Playback started
+              musicBtn.classList.add('playing');
+              musicIcon.className = 'bx bx-pause';
+              musicText.innerText = 'Pause Music';
+            })
+              .catch(error => {
+                console.error("Audio playback failed:", error);
+                alert("Please interact with the page first or ensure audio file exists.");
+              });
+          }
+        } else {
+          audio.pause();
+          musicBtn.classList.remove('playing');
+          musicIcon.className = 'bx bx-music';
+          musicText.innerText = 'Play Music';
+        }
+      });
+    }
   });
 
 })(jQuery);

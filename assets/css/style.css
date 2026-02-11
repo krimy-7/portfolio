@@ -12,8 +12,10 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #fff;
   position: relative;
-  background-color: #050505; /* Fallback background */
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  background-color: #050505;
+  /* Fallback background */
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
 }
 
 body::before {
@@ -26,8 +28,9 @@ body::before {
   top: 0;
   height: 100vh;
   /* Use dynamic viewport height for mobile if supported */
-  height: 100dvh; 
-  z-index: -1; /* Ensure it stays behind */
+  height: 100dvh;
+  z-index: -1;
+  /* Ensure it stays behind */
 }
 
 @media (min-width: 1024px) {
@@ -45,7 +48,12 @@ a:hover {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Raleway", sans-serif;
 }
 
@@ -75,7 +83,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Poppins", sans-serif;
 }
 
-#header h1 a, #header h1 a:hover {
+#header h1 a,
+#header h1 a:hover {
   color: #dee2e6;
   line-height: 1;
   display: inline-block;
@@ -125,13 +134,16 @@ h1, h2, h3, h4, h5, h6 {
   #header h1 {
     font-size: 36px;
   }
+
   #header h2 {
     font-size: 20px;
     line-height: 30px;
   }
+
   #header .social-links {
     margin-top: 15px;
   }
+
   #header .container {
     display: flex;
     flex-direction: column;
@@ -154,7 +166,7 @@ h1, h2, h3, h4, h5, h6 {
   list-style: none;
 }
 
-.nav-menu li + li {
+.nav-menu li+li {
   margin-left: 30px;
 }
 
@@ -180,12 +192,16 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease-in-out 0s;
 }
 
-.nav-menu a:hover:before, .nav-menu li:hover > a:before, .nav-menu .active > a:before {
+.nav-menu a:hover:before,
+.nav-menu li:hover>a:before,
+.nav-menu .active>a:before {
   visibility: visible;
   width: 25px;
 }
 
-.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+.nav-menu a:hover,
+.nav-menu .active>a,
+.nav-menu li:hover>a {
   color: #BB86FC;
   text-decoration: none;
 }
@@ -242,7 +258,9 @@ h1, h2, h3, h4, h5, h6 {
   outline: none;
 }
 
-.mobile-nav a:hover, .mobile-nav .active > a, .mobile-nav li:hover > a {
+.mobile-nav a:hover,
+.mobile-nav .active>a,
+.mobile-nav li:hover>a {
   color: #7F39FB;
   text-decoration: none;
 }
@@ -283,7 +301,8 @@ h1, h2, h3, h4, h5, h6 {
   background: #1E1E1E;
 }
 
-#header.header-top .social-links, #header.header-top h2 {
+#header.header-top .social-links,
+#header.header-top h2 {
   display: none;
 }
 
@@ -305,6 +324,7 @@ h1, h2, h3, h4, h5, h6 {
   #header.header-top {
     height: 60px;
   }
+
   #header.header-top h1 {
     font-size: 26px;
   }
@@ -339,6 +359,7 @@ section .container {
   section {
     top: 120px;
   }
+
   section.section-show {
     top: 80px;
   }
@@ -540,7 +561,8 @@ section .container {
   margin: 0 0 0 45px;
 }
 
-.testimonials .testimonial-item .quote-icon-left, .testimonials .testimonial-item .quote-icon-right {
+.testimonials .testimonial-item .quote-icon-left,
+.testimonials .testimonial-item .quote-icon-right {
   color: rgba(255, 255, 255, 0.25);
   font-size: 26px;
 }
@@ -569,7 +591,8 @@ section .container {
   z-index: 1;
 }
 
-.testimonials .owl-nav, .testimonials .owl-dots {
+.testimonials .owl-nav,
+.testimonials .owl-dots {
   margin-top: 5px;
   text-align: center;
 }
@@ -730,7 +753,8 @@ section .container {
   background: #D7B7FD;
 }
 
-.services .icon-box:hover h4 a, .services .icon-box:hover p {
+.services .icon-box:hover h4 a,
+.services .icon-box:hover p {
   color: #BB86FC;
 }
 
@@ -765,7 +789,8 @@ section .container {
   border-radius: 4px;
 }
 
-.portfolio #portfolio-flters li:hover, .portfolio #portfolio-flters li.filter-active {
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active {
   background: #7F39FB;
 }
 
@@ -994,7 +1019,8 @@ section .container {
   animation: animate-loading 1s linear infinite;
 }
 
-.contact .php-email-form input, .contact .php-email-form textarea {
+.contact .php-email-form input,
+.contact .php-email-form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
@@ -1004,31 +1030,37 @@ section .container {
   color: #fff;
 }
 
-.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
   background-color: rgba(255, 255, 255, 0.11);
 }
 
-.contact .php-email-form input::-webkit-input-placeholder, .contact .php-email-form textarea::-webkit-input-placeholder {
+.contact .php-email-form input::-webkit-input-placeholder,
+.contact .php-email-form textarea::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
-.contact .php-email-form input::-moz-placeholder, .contact .php-email-form textarea::-moz-placeholder {
+.contact .php-email-form input::-moz-placeholder,
+.contact .php-email-form textarea::-moz-placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
-.contact .php-email-form input:-ms-input-placeholder, .contact .php-email-form textarea:-ms-input-placeholder {
+.contact .php-email-form input:-ms-input-placeholder,
+.contact .php-email-form textarea:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
-.contact .php-email-form input::-ms-input-placeholder, .contact .php-email-form textarea::-ms-input-placeholder {
+.contact .php-email-form input::-ms-input-placeholder,
+.contact .php-email-form textarea::-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
-.contact .php-email-form input::placeholder, .contact .php-email-form textarea::placeholder {
+.contact .php-email-form input::placeholder,
+.contact .php-email-form textarea::placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
@@ -1058,6 +1090,7 @@ section .container {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -1067,6 +1100,7 @@ section .container {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -1099,4 +1133,51 @@ section .container {
     right: 0;
     transform: translateX(-50%);
   }
+}
+
+/*--------------------------------------------------------------
+# Cyberpunk Music Button
+--------------------------------------------------------------*/
+.cyberpunk-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: rgba(5, 5, 5, 0.8);
+  border: 2px solid #03DAC6;
+  color: #03DAC6;
+  padding: 10px 20px;
+  font-family: "Orbitron", sans-serif;
+  /* Fallback if not loaded, but good for aesthetic */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #03DAC6, inset 0 0 5px #03DAC6;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cyberpunk-btn:hover {
+  background-color: #03DAC6;
+  color: #050505;
+  box-shadow: 0 0 20px #03DAC6, inset 0 0 10px #03DAC6;
+}
+
+.cyberpunk-btn.playing {
+  border-color: #7F39FB;
+  color: #7F39FB;
+  box-shadow: 0 0 10px #7F39FB, inset 0 0 5px #7F39FB;
+}
+
+.cyberpunk-btn.playing:hover {
+  background-color: #7F39FB;
+  color: #050505;
+  box-shadow: 0 0 20px #7F39FB, inset 0 0 10px #7F39FB;
+}
+
+.cyberpunk-btn i {
+  font-size: 1.2rem;
 }
