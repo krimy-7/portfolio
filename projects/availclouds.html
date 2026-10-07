@@ -1,0 +1,1108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>White-Label After-Hours Help Desk for MSPs | Availclouds</title>
+<meta name="description" content="Overnight and weekend help desk for MSPs, delivered under your brand inside your PSA. QuickBooks and tax-software tickets included. Two-week paid pilot.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;700&family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap">
+<style>
+/* Layout: one left-aligned reading column (about 68 characters) inside a 1120px frame.
+   The hero, coverage strip, handoff note and report break out to the full frame. Single light theme, by choice: this is the production look. */
+:root {
+  --night: #16264A;        /* New York after dark, booking band */
+  --night-hover: #24375F;
+  --day: #D9EAF5;          /* team panel in daylight */
+  --page: #FFFFFF;
+  --ink: #1E2635;
+  --muted: #5A6475;        /* 5.98:1 on white */
+  --lamp: #F2B705;         /* on-shift dot only (and buttons on night backgrounds) */
+  --resolved: #2A7F4F;     /* brief's #2E8B57 is 4.25:1 on white; darkened to 4.94:1 for AA */
+  --tint: #E9F1F8;         /* "Your team" hours on the coverage strip */
+  --rule: #CDD3DC;
+  --field: #5A6475;
+  --ph-bg: #FFF0B3;        /* staging-only placeholder highlight */
+  --ph-line: #B98F00;
+  --sans: "Atkinson Hyperlegible Next", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "Atkinson Hyperlegible Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --gutter: clamp(16px, 4vw, 40px);
+  --frame: 1120px;
+  --measure: 68ch;
+  --header-h: 64px;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+@media (min-width: 768px) { body { font-size: 18px; } }
+
+h1, h2, h3 { margin: 0; font-weight: 700; line-height: 1.15; text-wrap: balance; }
+h2 { font-size: clamp(28px, 3.3vw, 40px); letter-spacing: -0.01em; }
+h3 { font-size: clamp(21px, 2vw, 24px); }
+p, ul, ol { margin: 0; }
+a { color: var(--night); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: calc(var(--frame) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+.col { max-width: var(--measure); }
+.stack { display: flex; flex-direction: column; gap: 20px; }
+.muted { color: var(--muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+section[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
+
+/* Placeholders: visible on staging, listed in the phase report */
+.ph {
+  background: var(--ph-bg);
+  color: var(--ink);
+  box-shadow: inset 0 -1.5px 0 var(--ph-line);
+  padding: 0 0.2em;
+  border-radius: 2px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.ph-note { font-size: 15px; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 22px; border-radius: 6px;
+  font: 700 17px/1.2 var(--sans); text-decoration: none; text-align: center;
+  border: 0; cursor: pointer;
+}
+.btn-primary { background: var(--night); color: #FFFFFF; }
+.btn-primary:hover { background: var(--night-hover); }
+.btn-lamp { background: var(--lamp); color: var(--ink); }
+.btn-lg { min-height: 54px; padding: 0 28px; font-size: 18px; }
+
+/* 1. Header */
+.skip { position: absolute; left: 12px; top: -60px; z-index: 60; background: var(--ink); color: #FFFFFF; padding: 10px 14px; border-radius: 4px; }
+.skip:focus { top: 12px; }
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30;
+  background: var(--page); border-bottom: 1px solid var(--rule);
+}
+.header-row { display: flex; align-items: center; gap: 24px; min-height: var(--header-h); }
+.logo { font-weight: 700; font-size: 21px; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; margin-right: auto; white-space: nowrap; }
+.anchors { display: flex; gap: 22px; font-size: 16px; }
+.anchors a { color: var(--ink); text-decoration: none; padding-block: 8px; }
+.anchors a:hover { text-decoration: underline; }
+.header-row .btn { min-height: 44px; padding: 0 16px; font-size: 16px; white-space: nowrap; }
+.menu { position: relative; display: none; }
+.menu summary {
+  list-style: none; cursor: pointer; min-height: 44px; display: flex; align-items: center;
+  justify-content: center; width: 44px; border: 1px solid var(--rule); border-radius: 6px; color: var(--ink);
+}
+.menu summary::-webkit-details-marker { display: none; }
+.menu nav {
+  position: absolute; right: 0; top: calc(100% + 8px); min-width: 220px;
+  background: var(--page); border: 1px solid var(--rule); border-radius: 6px;
+  display: flex; flex-direction: column; padding: 6px;
+}
+.menu nav a { color: var(--ink); text-decoration: none; padding: 12px 14px; border-radius: 4px; }
+.menu nav a:hover { background: var(--tint); }
+@media (max-width: 900px) {
+  .anchors { display: none; }
+  .menu { display: block; }
+  .header-row { gap: 8px; }
+  :root { --header-h: 60px; }
+}
+@media (max-width: 480px) {
+  .logo { font-size: 19px; }
+  .header-row .btn { padding: 0 12px; font-size: 15px; }
+}
+@media (max-width: 379px) {
+  .logo { font-size: 17px; }
+  .header-row { gap: 6px; }
+  .header-row .btn { padding: 0 10px; font-size: 14px; }
+}
+
+/* 2. Hero */
+.hero { padding-block: clamp(16px, 3vw, 40px) clamp(48px, 7vw, 96px); }
+.skies { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.sky {
+  --sky: var(--night); --sky-ink: #FFFFFF;
+  background: var(--sky); color: var(--sky-ink);
+  border-radius: 6px;
+  padding: clamp(14px, 2.6vw, 34px);
+  min-height: clamp(150px, 23vw, 310px);
+  display: flex; flex-direction: column; gap: 6px;
+  min-width: 0;
+}
+.sky-team { --sky: var(--day); --sky-ink: var(--ink); }
+.sky-top { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; }
+.sky-city { font-weight: 700; font-size: clamp(15px, 1.7vw, 21px); }
+.sky-time {
+  margin-top: auto;
+  font-family: var(--mono); font-weight: 400;
+  font-size: clamp(38px, 9.2vw, 136px); line-height: 0.95;
+  font-variant-numeric: tabular-nums; letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+.sky-time .colon { margin-inline: -0.14em; }
+.sky-time .ampm { font-size: 0.3em; letter-spacing: 0; margin-left: 0.3em; vertical-align: 0.1em; }
+.sky-day { font-size: clamp(14px, 1.5vw, 19px); }
+.sky-status { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; font-size: clamp(13px, 1.45vw, 18px); }
+.sky-status .dot { width: 0.72em; height: 0.72em; border-radius: 50%; background: var(--lamp); border: 1.5px solid currentColor; flex: none; }
+.sky-status[data-on="false"] .dot { display: none; }
+.nojs-note { margin-top: 12px; font-size: 16px; color: var(--muted); }
+.js .nojs-note { display: none; }
+.hero-copy { margin-top: clamp(24px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px; }
+.hero h1 { font-size: clamp(34px, 5.4vw, 66px); line-height: 1.05; letter-spacing: -0.02em; max-width: 16ch; }
+.lede { font-size: clamp(17px, 1.6vw, 21px); max-width: 60ch; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 4px; }
+.actions .text-link { font-weight: 700; padding-block: 10px; }
+.fine { font-size: 15px; color: var(--muted); }
+
+/* Sections */
+.section { padding-block: clamp(36px, 5vw, 64px); }
+.lines { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 14px; font-size: clamp(19px, 1.9vw, 23px); line-height: 1.35; }
+.closing { font-weight: 700; }
+.list { padding-left: 1.2em; display: flex; flex-direction: column; gap: 8px; }
+.list li::marker { color: var(--muted); }
+
+/* 4. Coverage strip */
+.strip { margin-top: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 18px; }
+.tz { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.tz legend { float: left; font-weight: 700; font-size: 16px; margin-right: 4px; padding: 0; }
+.tz-options { display: flex; flex-wrap: wrap; border: 1px solid var(--field); border-radius: 6px; overflow: hidden; }
+.tz-options input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.tz-options label {
+  min-height: 44px; min-width: 44px; padding: 0 16px; display: flex; align-items: center; justify-content: center;
+  font-size: 16px; cursor: pointer; color: var(--ink); background: var(--page);
+}
+.tz-options input + label ~ label { border-left: 1px solid var(--rule); }
+.tz-options input:checked + label { background: var(--night); color: #FFFFFF; font-weight: 700; }
+.tz-options input:focus-visible + label { outline: 3px solid var(--ink); outline-offset: -5px; }
+.strip-row { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 8px 20px; align-items: start; }
+.row-label { font-size: 15px; font-weight: 700; padding-top: 30px; }
+.row-label.team { padding-top: 2px; }
+.track { position: relative; padding-top: 28px; min-width: 0; }
+.bar { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); height: 76px; }
+.seg { grid-row: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; text-align: left; padding: 4px 12px; font-size: 15px; line-height: 1.2; min-width: 0; }
+.seg small { font-size: 14px; font-weight: 400; }
+.seg .lab { position: relative; z-index: 2; background: inherit; display: flex; flex-direction: column; padding: 2px 6px; margin: -2px -6px; border-radius: 2px; }
+.seg-you { background: var(--tint); color: var(--ink); }
+.seg-us { background: var(--night); color: #FFFFFF; font-weight: 700; border-left: 2px solid var(--page); border-right: 2px solid var(--page); }
+.seg:first-child { border-radius: 4px 0 0 4px; }
+.seg:last-of-type { border-radius: 0 4px 4px 0; }
+.now { position: absolute; top: 0; height: calc(28px + 76px + 6px); left: calc(var(--at, 0.5) * 100%); width: 2px; margin-left: -1px; background: var(--ink); box-shadow: 0 0 0 2px var(--page); display: none; z-index: 1; }
+.js .now { display: block; }
+.now span { position: absolute; top: 0; left: 50%; transform: translateX(-50%); font-size: 14px; font-weight: 700; background: var(--page); padding: 0 6px; line-height: 22px; white-space: nowrap; }
+.ticks { list-style: none; padding: 0; margin: 0; position: relative; height: 46px; }
+.ticks li {
+  position: absolute; top: 0; left: calc(var(--i) / 24 * 100%); transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; font-size: 14px; line-height: 1.15;
+  color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.ticks li::before { content: ""; width: 1px; height: 7px; background: var(--muted); margin-bottom: 4px; }
+.ticks li[style="--i:0"] { transform: none; align-items: flex-start; }
+.ticks li[style="--i:24"] { transform: translateX(-100%); align-items: flex-end; }
+.ticks li span:first-child { color: var(--ink); }
+.ticks li[data-k2="0"] { display: none; }
+.ticks.team { margin-top: 2px; }
+@media (max-width: 720px) {
+  .strip-row { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .row-label { padding-top: 0; }
+  .row-label.team { padding-top: 6px; }
+  .ticks li[data-k2="0"] { display: flex; }
+  .ticks li[data-k3="0"] { display: none; }
+  .seg { font-size: 13px; padding: 2px 6px; }
+  .ticks li[style="--i:0"], .ticks li[style="--i:24"] { display: none !important; }
+  .ticks li { font-size: 13px; }
+  .seg small { font-size: 12px; }
+}
+
+/* 5. Two lists */
+.two-lists { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; max-width: 940px; margin-block: 28px; }
+.list-head { font-weight: 700; margin-bottom: 12px; }
+@media (max-width: 720px) { .two-lists { grid-template-columns: minmax(0, 1fr); } }
+
+/* 7. Handoff note */
+.note-wrap { max-width: 800px; margin-top: 28px; }
+.note-label { font-size: 15px; color: var(--muted); margin-bottom: 8px; }
+.note {
+  background: #FFFFFF; border: 1px solid var(--muted); border-radius: 4px;
+  padding: clamp(16px, 3vw, 28px);
+  font-family: var(--mono); font-size: 15px; line-height: 1.55; color: var(--ink);
+  overflow-wrap: anywhere;
+}
+.note-head { display: flex; flex-direction: column; gap: 2px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+.note-title { font-weight: 700; }
+.note-summary { display: flex; flex-wrap: wrap; gap: 2px 24px; margin-top: 8px; }
+.tickets { list-style: none; padding: 0; margin: 0; }
+.tickets li { display: flex; flex-direction: column; gap: 2px; padding-block: 16px; border-bottom: 1px solid var(--rule); }
+.tickets li:last-child { border-bottom: 0; padding-bottom: 0; }
+.t-meta { display: flex; flex-wrap: wrap; gap: 0 18px; font-weight: 700; }
+.t-status { font-weight: 700; margin-top: 4px; }
+.t-status.is-closed { color: var(--resolved); }
+
+/* 8. Pilot */
+.steps { list-style: none; padding: 0; margin-top: 8px; display: flex; flex-direction: column; }
+.steps li { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 16px; padding-block: 14px; border-top: 1px solid var(--rule); }
+.steps li:last-child { border-bottom: 1px solid var(--rule); }
+.steps .day { font-weight: 700; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .steps li { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+.price {
+  background: var(--tint); border-radius: 6px; padding: clamp(20px, 3vw, 28px);
+  display: flex; flex-direction: column; gap: 10px; align-items: flex-start;
+}
+.price-line { font-size: clamp(20px, 2vw, 24px); font-weight: 700; line-height: 1.3; }
+.price .btn { margin-top: 8px; }
+
+/* 10. Report */
+.report-wrap { max-width: 900px; margin-top: 28px; }
+.report { border: 1px solid var(--rule); border-radius: 4px; padding: clamp(16px, 3vw, 32px); display: flex; flex-direction: column; gap: 24px; background: #FFFFFF; }
+.report-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+.report-head h3 { font-size: 20px; }
+.report-head p { font-size: 15px; color: var(--muted); }
+.chart-title { font-size: 16px; font-weight: 700; }
+.chart-sub { font-size: 14px; color: var(--muted); }
+.chart-box { position: relative; margin-top: 8px; }
+.chart { display: block; width: 100%; height: auto; overflow: visible; }
+.chart .grid { stroke: var(--rule); stroke-width: 1; }
+.chart .axis { stroke: var(--muted); stroke-width: 1; }
+.chart .tick { fill: var(--muted); font: 13px var(--sans); font-variant-numeric: tabular-nums; }
+.chart .axis-title { fill: var(--muted); font: 13px var(--sans); }
+.chart .bar { fill: var(--night); }
+.chart .hit { fill: transparent; }
+.chart .bar-g:hover .bar, .chart .bar-g.is-hover .bar { fill: var(--night-hover); }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: #FFFFFF; font-size: 14px; padding: 4px 8px; border-radius: 4px; white-space: nowrap; transform: translate(-50%, -100%); margin-top: -8px; }
+.report-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 40px; }
+@media (max-width: 640px) { .report-cols { grid-template-columns: minmax(0, 1fr); } }
+.report-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+.report-table caption, .issues-title { text-align: left; font-weight: 700; font-size: 16px; padding-bottom: 6px; }
+.report-table th { text-align: left; font-weight: 400; padding: 8px 0; border-top: 1px solid var(--rule); }
+.report-table td { text-align: right; padding: 8px 0; border-top: 1px solid var(--rule); font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+.issues { list-style: none; padding: 0; font-size: 16px; }
+.issues li { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-top: 1px solid var(--rule); }
+.issues li span:last-child { font-variant-numeric: tabular-nums; font-weight: 700; }
+
+/* 11. Team */
+.founders { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 230px)); gap: 28px 32px; margin-top: 12px; }
+.founder { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.photo { aspect-ratio: 4 / 5; max-width: 100%; background: var(--tint); border-radius: 4px; display: grid; place-items: center; padding: 12px; text-align: center; font-size: 15px; margin-bottom: 10px; }
+.founder-name { font-weight: 700; font-size: 20px; }
+.founder-role { color: var(--muted); }
+
+/* 12. Questions */
+.faq { border-bottom: 1px solid var(--rule); }
+.faq details { border-top: 1px solid var(--rule); }
+.faq summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding-block: 18px; font-weight: 700; font-size: clamp(18px, 1.7vw, 20px);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 26px; line-height: 1; font-weight: 400; color: var(--muted); flex: none; width: 20px; text-align: center; }
+.faq details[open] summary::after { content: "\2212"; }
+.faq details p { padding-bottom: 20px; max-width: 62ch; }
+
+/* 13. Booking */
+.booking { background: var(--night); color: #FFFFFF; padding-block: clamp(56px, 8vw, 104px); }
+.booking :focus-visible { outline-color: #FFFFFF; }
+.booking h2 { color: #FFFFFF; }
+.booking .lede-n { color: var(--day); }
+.booking a { color: #FFFFFF; }
+.scheduler {
+  margin-top: 28px; max-width: 760px; min-height: 300px; background: #FFFFFF; color: var(--ink); border-radius: 6px;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: clamp(20px, 4vw, 40px);
+}
+.scheduler p:last-child { color: var(--muted); font-size: 16px; max-width: 46ch; }
+.contact { margin-top: 24px; display: flex; flex-direction: column; gap: 6px; color: var(--day); }
+.contact a { font-weight: 700; }
+.pilot-form { margin-top: 28px; max-width: 760px; }
+.pilot-form > summary { cursor: pointer; font-weight: 700; color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px; padding-block: 10px; width: fit-content; list-style: none; }
+.pilot-form > summary::-webkit-details-marker { display: none; }
+.form-panel { margin-top: 12px; background: #FFFFFF; color: var(--ink); border-radius: 6px; padding: clamp(20px, 4vw, 36px); }
+.form-panel :focus-visible { outline-color: var(--ink); }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; }
+.form-grid .full { grid-column: 1 / -1; }
+@media (max-width: 640px) { .form-grid { grid-template-columns: minmax(0, 1fr); } }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field label { font-weight: 700; font-size: 15px; }
+.field label span { font-weight: 400; color: var(--muted); }
+.field input, .field select, .field textarea {
+  font: 17px/1.4 var(--sans); color: var(--ink); background: #FFFFFF;
+  border: 1px solid var(--field); border-radius: 4px; padding: 11px 12px; min-height: 48px; width: 100%;
+}
+.field textarea { min-height: 96px; resize: vertical; }
+.form-actions { margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.form-status { font-size: 15px; color: var(--ink); }
+
+/* 14. Footer */
+.site-footer { padding-block: 40px 56px; font-size: 15px; color: var(--muted); }
+.footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px 22px; list-style: none; padding: 0; }
+.footer-links a { color: var(--ink); }
+
+/* Prototype review tools: not part of the page; delete before the WordPress port */
+.proto { position: fixed; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 50; font-family: var(--sans); font-size: 14px; }
+.proto > details > summary {
+  list-style: none; cursor: pointer; background: var(--ink); color: #FFFFFF; border-radius: 999px;
+  padding: 10px 16px; font-weight: 700; margin-left: auto; width: fit-content; box-shadow: 0 2px 8px rgba(30, 38, 53, 0.25);
+}
+.proto > details > summary::-webkit-details-marker { display: none; }
+.proto-body {
+  position: absolute; right: 0; bottom: calc(100% + 8px); width: min(320px, calc(100vw - 24px));
+  background: #FFFFFF; color: var(--ink); border: 1px solid var(--rule); border-radius: 8px; padding: 16px;
+  box-shadow: 0 8px 24px rgba(30, 38, 53, 0.18); display: flex; flex-direction: column; gap: 14px;
+}
+.proto-body fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.proto-body legend { font-weight: 700; margin-bottom: 4px; padding: 0; }
+.proto-body label { display: flex; align-items: center; gap: 8px; }
+.proto-body select, .proto-body input[type="range"] { width: 100%; font: 14px var(--sans); }
+.proto-body select { min-height: 36px; border: 1px solid var(--field); border-radius: 4px; padding: 4px 6px; background: #FFFFFF; color: var(--ink); }
+.proto-body .hint { color: var(--muted); font-size: 13px; }
+.proto-body output { font-weight: 700; font-variant-numeric: tabular-nums; margin-left: auto; }
+</style>
+</head>
+<body class="msp-page">
+<script>document.documentElement.classList.add('js');</script>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-row">
+    <a class="logo" href="#top" title="Existing Availclouds logo goes here">Availclouds</a>
+    <nav class="anchors" aria-label="Page sections">
+      <a href="#coverage">Coverage</a>
+      <a href="#handle">What we handle</a>
+      <a href="#pilot">Pilot</a>
+      <a href="#security">Security</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <details class="menu" id="menu">
+      <summary aria-label="Menu"><svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="2"/></svg><span class="sr-only">Menu</span></summary>
+      <nav aria-label="Page sections">
+        <a href="#coverage">Coverage</a>
+        <a href="#handle">What we handle</a>
+        <a href="#pilot">Pilot</a>
+        <a href="#security">Security</a>
+        <a href="#questions">Questions</a>
+      </nav>
+    </details>
+    <a class="btn btn-primary" href="#book" data-book="header">Book a 20-minute call</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 2. Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <section class="skies" id="skies" aria-label="Current time in New York and [TEAM CITY]">
+        <div class="sky sky-ny" id="sky-ny">
+          <div class="sky-top"><p class="sky-city">New York</p></div>
+          <p class="sky-time"><time id="ny-time" datetime="02:00"><span class="hm">2<span class="colon">:</span>00</span><span class="ampm">AM</span></time></p>
+          <p class="sky-day" id="ny-day">Tuesday</p>
+        </div>
+        <div class="sky sky-team" id="sky-team">
+          <div class="sky-top">
+            <p class="sky-city"><span data-default="Kathmandu"><span class="ph">[TEAM CITY]</span></span></p>
+            <p class="sky-status" id="team-status" data-on="true"><span class="dot" aria-hidden="true"></span><span id="team-status-text">On shift now</span></p>
+          </div>
+          <p class="sky-time"><time id="team-time" datetime="12:45"><span class="hm">12<span class="colon">:</span>45</span><span class="ampm">PM</span></time></p>
+          <p class="sky-day" id="team-day">Tuesday</p>
+        </div>
+      </section>
+      <p class="nojs-note">When it's 2 AM in New York, it's midday in <span data-default="Kathmandu"><span class="ph">[TEAM CITY]</span></span>.</p>
+
+      <div class="hero-copy">
+        <h1 id="hero-title">Your overnight help desk, under your name.</h1>
+        <p class="lede">We answer your clients' tickets from 6 PM to 8 AM Eastern and through the weekend. We work inside your PSA, sign every reply as your team, and leave clean notes for the morning.</p>
+        <div class="actions">
+          <a class="btn btn-primary btn-lg" href="#book" data-book="hero">Book a 20-minute call</a>
+          <a class="text-link" href="#pilot">How the two-week pilot works</a>
+        </div>
+        <p class="fine">Availclouds LLC, a Nevada company. Supporting US accounting firms since <span class="ph">[FOUNDED YEAR]</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. The problem -->
+  <section class="section" id="problem" aria-labelledby="problem-title">
+    <div class="wrap">
+      <div class="col stack">
+        <h2 id="problem-title">After-hours tickets don't wait for morning.</h2>
+        <ul class="lines">
+          <li>A partner can't open QuickBooks at 9:40 PM, the night before a filing deadline.</li>
+          <li>Your on-call tech has reset three passwords since dinner.</li>
+          <li>Every January, your accounting clients' tickets double.</li>
+        </ul>
+        <p>A US night shift is expensive to hire and hard to keep. We're the night shift you don't have to hire.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Coverage -->
+  <section class="section" id="coverage" aria-labelledby="coverage-title">
+    <div class="wrap">
+      <div class="col stack">
+        <h2 id="coverage-title">Coverage that starts when your day ends.</h2>
+        <p>Weekdays 6 PM to 8 AM Eastern, and weekends from Friday 6 PM to Monday 8 AM<span data-default=""> <span class="ph">[CONFIRM]</span></span>. We set the hours and escalation rules with you during the pilot.</p>
+      </div>
+
+      <div class="strip" role="group" aria-labelledby="strip-label" aria-describedby="strip-desc">
+        <fieldset class="tz">
+          <legend id="strip-label">Your time zone</legend>
+          <div class="tz-options">
+            <input type="radio" name="tz" id="tz-eastern" value="eastern" checked><label for="tz-eastern">Eastern</label>
+            <input type="radio" name="tz" id="tz-central" value="central"><label for="tz-central">Central</label>
+            <input type="radio" name="tz" id="tz-mountain" value="mountain"><label for="tz-mountain">Mountain</label>
+            <input type="radio" name="tz" id="tz-pacific" value="pacific"><label for="tz-pacific">Pacific</label>
+          </div>
+        </fieldset>
+        <p class="sr-only" id="strip-desc">Availclouds covers 6 PM to 8 AM Eastern time, which is 3:45 AM to 5:45 PM in [TEAM CITY]. Your team covers 8 AM to 6 PM.</p>
+
+        <div class="strip-row">
+          <p class="row-label">Your time, <span id="tz-name">Eastern</span></p>
+          <div class="track">
+            <div class="bar" aria-hidden="true">
+              <div class="seg seg-you" style="grid-column: 1 / 7"><span class="lab">Your team</span></div>
+              <div class="seg seg-us" style="grid-column: 7 / 21"><span class="lab">Availclouds<small>6 PM to 8 AM</small></span></div>
+              <div class="seg seg-you" style="grid-column: 21 / 25"><span class="lab">Your team</span></div>
+            </div>
+            <div class="now" id="now-marker" aria-hidden="true"><span>Now</span></div>
+            <ol class="ticks" id="ticks-msp" aria-hidden="true"><li style="--i:0" data-k2="1" data-k3="1"><span>12</span><span>PM</span></li><li style="--i:1" data-k2="0" data-k3="0"><span>1</span><span>PM</span></li><li style="--i:2" data-k2="1" data-k3="0"><span>2</span><span>PM</span></li><li style="--i:3" data-k2="0" data-k3="1"><span>3</span><span>PM</span></li><li style="--i:4" data-k2="1" data-k3="0"><span>4</span><span>PM</span></li><li style="--i:5" data-k2="0" data-k3="0"><span>5</span><span>PM</span></li><li style="--i:6" data-k2="1" data-k3="1"><span>6</span><span>PM</span></li><li style="--i:7" data-k2="0" data-k3="0"><span>7</span><span>PM</span></li><li style="--i:8" data-k2="1" data-k3="0"><span>8</span><span>PM</span></li><li style="--i:9" data-k2="0" data-k3="1"><span>9</span><span>PM</span></li><li style="--i:10" data-k2="1" data-k3="0"><span>10</span><span>PM</span></li><li style="--i:11" data-k2="0" data-k3="0"><span>11</span><span>PM</span></li><li style="--i:12" data-k2="1" data-k3="1"><span>12</span><span>AM</span></li><li style="--i:13" data-k2="0" data-k3="0"><span>1</span><span>AM</span></li><li style="--i:14" data-k2="1" data-k3="0"><span>2</span><span>AM</span></li><li style="--i:15" data-k2="0" data-k3="1"><span>3</span><span>AM</span></li><li style="--i:16" data-k2="1" data-k3="0"><span>4</span><span>AM</span></li><li style="--i:17" data-k2="0" data-k3="0"><span>5</span><span>AM</span></li><li style="--i:18" data-k2="1" data-k3="1"><span>6</span><span>AM</span></li><li style="--i:19" data-k2="0" data-k3="0"><span>7</span><span>AM</span></li><li style="--i:20" data-k2="1" data-k3="0"><span>8</span><span>AM</span></li><li style="--i:21" data-k2="0" data-k3="1"><span>9</span><span>AM</span></li><li style="--i:22" data-k2="1" data-k3="0"><span>10</span><span>AM</span></li><li style="--i:23" data-k2="0" data-k3="0"><span>11</span><span>AM</span></li><li style="--i:24" data-k2="1" data-k3="1"><span>12</span><span>PM</span></li></ol>
+          </div>
+        </div>
+        <div class="strip-row">
+          <p class="row-label team">Same moments in <span data-default="Kathmandu"><span class="ph">[TEAM CITY]</span></span></p>
+          <ol class="ticks team" id="ticks-team" aria-hidden="true"><li style="--i:0" data-k2="1" data-k3="1"><span>9:45</span><span>PM</span></li><li style="--i:1" data-k2="0" data-k3="0"><span>10:45</span><span>PM</span></li><li style="--i:2" data-k2="1" data-k3="0"><span>11:45</span><span>PM</span></li><li style="--i:3" data-k2="0" data-k3="1"><span>12:45</span><span>AM</span></li><li style="--i:4" data-k2="1" data-k3="0"><span>1:45</span><span>AM</span></li><li style="--i:5" data-k2="0" data-k3="0"><span>2:45</span><span>AM</span></li><li style="--i:6" data-k2="1" data-k3="1"><span>3:45</span><span>AM</span></li><li style="--i:7" data-k2="0" data-k3="0"><span>4:45</span><span>AM</span></li><li style="--i:8" data-k2="1" data-k3="0"><span>5:45</span><span>AM</span></li><li style="--i:9" data-k2="0" data-k3="1"><span>6:45</span><span>AM</span></li><li style="--i:10" data-k2="1" data-k3="0"><span>7:45</span><span>AM</span></li><li style="--i:11" data-k2="0" data-k3="0"><span>8:45</span><span>AM</span></li><li style="--i:12" data-k2="1" data-k3="1"><span>9:45</span><span>AM</span></li><li style="--i:13" data-k2="0" data-k3="0"><span>10:45</span><span>AM</span></li><li style="--i:14" data-k2="1" data-k3="0"><span>11:45</span><span>AM</span></li><li style="--i:15" data-k2="0" data-k3="1"><span>12:45</span><span>PM</span></li><li style="--i:16" data-k2="1" data-k3="0"><span>1:45</span><span>PM</span></li><li style="--i:17" data-k2="0" data-k3="0"><span>2:45</span><span>PM</span></li><li style="--i:18" data-k2="1" data-k3="1"><span>3:45</span><span>PM</span></li><li style="--i:19" data-k2="0" data-k3="0"><span>4:45</span><span>PM</span></li><li style="--i:20" data-k2="1" data-k3="0"><span>5:45</span><span>PM</span></li><li style="--i:21" data-k2="0" data-k3="1"><span>6:45</span><span>PM</span></li><li style="--i:22" data-k2="1" data-k3="0"><span>7:45</span><span>PM</span></li><li style="--i:23" data-k2="0" data-k3="0"><span>8:45</span><span>PM</span></li><li style="--i:24" data-k2="1" data-k3="1"><span>9:45</span><span>PM</span></li></ol>
+        </div>
+      </div>
+
+      <div class="col stack" style="margin-top: 20px;">
+        <p><strong>Weekends:</strong> Friday 6 PM to Monday 8 AM, your time.</p>
+        <p class="muted">We don't offer US daytime coverage yet. If you need it, ask.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. What we handle -->
+  <section class="section" id="handle" aria-labelledby="handle-title">
+    <div class="wrap">
+      <div class="col"><h2 id="handle-title">What we fix, and what we hand back.</h2></div>
+      <div class="two-lists">
+        <div>
+          <p class="list-head">We resolve, following your runbook:</p>
+          <ul class="list">
+            <li>Password resets and MFA re-enrollment</li>
+            <li>Microsoft 365, Outlook and Teams problems</li>
+            <li>Printers, scanners and mapped drives</li>
+            <li>VPN and Remote Desktop access</li>
+            <li>RMM alerts: disk space, stopped services, failed backups, offline devices</li>
+            <li>Failed patches and reboots inside agreed windows</li>
+            <li>New-user and leaver requests from your checklist</li>
+            <li>Windows Server and Remote Desktop session problems</li>
+          </ul>
+        </div>
+        <div>
+          <p class="list-head">We escalate to your on-call right away:</p>
+          <ul class="list">
+            <li>Suspected security incidents</li>
+            <li>Outages affecting a whole site or client</li>
+            <li>Anything that needs hands on site</li>
+            <li>Anything outside your runbook or approval limits</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col"><p>We work only inside your PSA and remote tools, under accounts you control. We never contact your clients outside your ticket system, and we never sell to them.</p></div>
+    </div>
+  </section>
+
+  <!-- 6. Accounting specialty -->
+  <section class="section" id="accounting" aria-labelledby="accounting-title">
+    <div class="wrap">
+      <div class="col stack">
+        <h2 id="accounting-title">The tickets your techs would rather skip.</h2>
+        <p>From <span class="ph">[FOUNDED YEAR]</span> to 2026 we ran hosted Windows servers for US accounting and tax firms. These are tickets we know well:</p>
+        <ul class="list">
+          <li>QuickBooks Desktop Pro, Premier and Enterprise: multi-user mode, Database Server Manager, H-series errors and damaged company files</li>
+          <li>Sage 50<span data-default=""> <span class="ph">[CONFIRM]</span></span></li>
+          <li>Drake, ATX and ProSeries tax software<span data-default=""> <span class="ph">[CONFIRM]</span></span></li>
+          <li>Accounting and tax apps on Remote Desktop servers: printing, PDF output and frozen sessions</li>
+        </ul>
+        <h3 style="margin-top: 16px;">Tax-season overflow, January to April.</h3>
+        <p>Accounting clients' tickets spike from January to April. Add us for the season, then decide whether to keep us.</p>
+        <p>We fix the software, not the books. Our technicians don't open client tax returns or financial files to solve IT problems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. The morning handoff -->
+  <section class="section" id="handoff" aria-labelledby="handoff-title">
+    <div class="wrap">
+      <div class="col stack">
+        <h2 id="handoff-title">What your team finds at 8 AM.</h2>
+        <p>Every weekday morning you get a handoff note: what we closed, what we escalated, and what needs a daytime decision. This example uses invented clients.</p>
+      </div>
+      <div class="note-wrap">
+        <p class="note-label">Example with invented clients.</p>
+        <div class="note" role="region" aria-label="Example morning handoff note">
+          <div class="note-head">
+            <p class="note-title">Morning handoff for <span data-default="your MSP"><span class="ph">[YOUR MSP NAME]</span></span></p>
+            <p>Tue, Jan 12, 6:00 PM to Wed, Jan 13, 8:00 AM Eastern</p>
+            <p class="note-summary"><span>Closed 9</span><span>Escalated 1</span><span>Needs a daytime decision 1</span></p>
+          </div>
+          <ul class="tickets">
+            <li>
+              <p class="t-meta"><span>#48213</span><span>9:40 PM</span><span>Client A (CPA firm)</span></p>
+              <p>QuickBooks Enterprise won't open in multi-user mode.</p>
+              <p>Restarted the QuickBooks database service on the Remote Desktop host and rescanned the company folder. User confirmed access at 9:58 PM.</p>
+              <p class="t-status is-closed">Closed</p>
+            </li>
+            <li>
+              <p class="t-meta"><span>#48217</span><span>11:05 PM</span><span>Client B (dental office)</span></p>
+              <p>Outlook stuck on "Updating" for two users.</p>
+              <p>Rebuilt both mail profiles and confirmed send and receive.</p>
+              <p class="t-status is-closed">Closed</p>
+            </li>
+            <li>
+              <p class="t-meta"><span>#48220</span><span>2:14 AM</span><span>Client C (distributor)</span></p>
+              <p>RMM alert: nightly backup failed on the file server.</p>
+              <p>Re-ran the job; it completed at 2:51 AM. The disk is 91% full.</p>
+              <p class="t-status">Needs a daytime decision</p>
+            </li>
+            <li>
+              <p class="t-meta"><span>#48224</span><span>4:30 AM</span><span>Client A (CPA firm)</span></p>
+              <p>A user entered their password on a fake sign-in page.</p>
+              <p>Reset the password, signed out all sessions and re-enrolled MFA. Called your on-call at 4:36 AM, per your runbook.</p>
+              <p class="t-status">Escalated</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. The pilot -->
+  <section class="section" id="pilot" aria-labelledby="pilot-title">
+    <div class="wrap">
+      <div class="col stack">
+        <h2 id="pilot-title">Two paid weeks before you commit.</h2>
+        <ol class="steps">
+          <li><span class="day">Day 0</span><span>A 20-minute call about your stack, your clients and your escalation rules.</span></li>
+          <li><span class="day">Days 1 to 3</span><span>You create our accounts in your PSA and RMM and share your runbook. We sign a confidentiality and non-solicitation agreement.</span></li>
+          <li><span class="day">Days 4 and 5</span><span>We shadow your after-hours queue and review our notes with you each morning.</span></li>
+          <li><span class="day">Days 6 to 14</span><span>We run your after-hours queue live.</span></li>
+          <li><span class="day">Day 15</span><span>You get a pilot report: tickets handled, response and resolution times, escalations. You decide.</span></li>
+        </ol>
+        <div class="price">
+          <p class="price-line">Pilot: <span class="ph">[PILOT PRICE]</span>, flat, for <span data-default="two weeks of after-hours coverage"><span class="ph">[PILOT SCOPE: two weeks of after-hours coverage, or the first 25 tickets]</span></span>.</p>
+          <p>After the pilot: <span class="ph">[MONTHLY PRICING MODEL]</span>, <span data-default="month to month with 30 days' notice"><span class="ph">[CONTRACT TERMS]</span></span>.</p>
+          <a class="btn btn-primary" href="#book" data-book="pilot">Book a 20-minute call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Security -->
+  <section class="section" id="security" aria-labelledby="security-title">
+    <div class="wrap">
+      <div class="col stack">
+        <h2 id="security-title">How we handle access to your clients.</h2>
+        <p class="ph-note" data-default=""><span class="ph">[FOUNDERS: keep only the items below that are true before launch. Add an insurance line only once a policy is bound. Show the BBB badge only if current.]</span></p>
+        <ul class="list">
+          <li>Each technician has passed a background check <span class="ph">[CONFIRM METHOD]</span> and signed a confidentiality agreement.</li>
+          <li>Multi-factor sign-in on every account we use.</li>
+          <li>We work under accounts you create in your tools, and you can switch them off at any time.</li>
+          <li>Access is limited to what each client's tickets need.</li>
+          <li>A written security policy and incident-response steps, shared with you before the pilot.</li>
+          <li>We don't open client tax returns or financial files to fix IT problems.</li>
+        </ul>
+        <p>On request: our security policy and a sample agreement.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Monthly report -->
+  <section class="section" id="report" aria-labelledby="report-title">
+    <div class="wrap">
+      <div class="col stack">
+        <h2 id="report-title">A monthly report you can show your clients.</h2>
+        <p>Each month you get a coverage report: tickets handled, median response and resolution times, escalations, and the most common issues by client. It's ready for your quarterly reviews.</p>
+      </div>
+      <figure class="report-wrap" style="margin-inline: 0; margin-bottom: 0;">
+        <figcaption class="note-label">Sample report with invented data</figcaption>
+        <div class="report">
+          <div class="report-head">
+            <h3>Monthly coverage report</h3>
+            <p>Prepared for <span data-default="your MSP"><span class="ph">[YOUR MSP NAME]</span></span>, 30 nights in January</p>
+          </div>
+          <div>
+            <p class="chart-title">Tickets per night</p>
+            <p class="chart-sub">Weekend nights run from 6 PM Friday to 8 AM Monday, so they carry more tickets.</p>
+            <div class="chart-box" id="chart-box"><svg class="chart" viewBox="0 0 720 210" role="img" aria-label="Bar chart of tickets per night across 30 nights, between 4 and 11 a night, 214 in total. Invented data."><line class="axis" x1="34" x2="714" y1="164" y2="164"></line><text class="tick" x="26" y="168" text-anchor="end">0</text><line class="grid" x1="34" x2="714" y1="114" y2="114"></line><text class="tick" x="26" y="118" text-anchor="end">4</text><line class="grid" x1="34" x2="714" y1="64" y2="64"></line><text class="tick" x="26" y="68" text-anchor="end">8</text><line class="grid" x1="34" x2="714" y1="14" y2="14"></line><text class="tick" x="26" y="18" text-anchor="end">12</text><g class="bar-g" data-night="1" data-v="7"><rect class="hit" x="34" y="14" width="22.7" height="150"></rect><path class="bar" d="M37.4,164V79.5Q37.4,76.5 40.4,76.5H50.3Q53.3,76.5 53.3,79.5V164Z"></path><title>Night 1: 7 tickets</title></g><g class="bar-g" data-night="2" data-v="10"><rect class="hit" x="56.7" y="14" width="22.7" height="150"></rect><path class="bar" d="M60.1,164V42Q60.1,39 63.1,39H72.9Q75.9,39 75.9,42V164Z"></path><title>Night 2: 10 tickets</title></g><g class="bar-g" data-night="3" data-v="9"><rect class="hit" x="79.3" y="14" width="22.7" height="150"></rect><path class="bar" d="M82.7,164V54.5Q82.7,51.5 85.7,51.5H95.6Q98.6,51.5 98.6,54.5V164Z"></path><title>Night 3: 9 tickets</title></g><g class="bar-g" data-night="4" data-v="6"><rect class="hit" x="102" y="14" width="22.7" height="150"></rect><path class="bar" d="M105.4,164V92Q105.4,89 108.4,89H118.3Q121.3,89 121.3,92V164Z"></path><title>Night 4: 6 tickets</title></g><g class="bar-g" data-night="5" data-v="5"><rect class="hit" x="124.7" y="14" width="22.7" height="150"></rect><path class="bar" d="M128.1,164V104.5Q128.1,101.5 131.1,101.5H140.9Q143.9,101.5 143.9,104.5V164Z"></path><title>Night 5: 5 tickets</title></g><g class="bar-g" data-night="6" data-v="7"><rect class="hit" x="147.3" y="14" width="22.7" height="150"></rect><path class="bar" d="M150.7,164V79.5Q150.7,76.5 153.7,76.5H163.6Q166.6,76.5 166.6,79.5V164Z"></path><title>Night 6: 7 tickets</title></g><g class="bar-g" data-night="7" data-v="5"><rect class="hit" x="170" y="14" width="22.7" height="150"></rect><path class="bar" d="M173.4,164V104.5Q173.4,101.5 176.4,101.5H186.3Q189.3,101.5 189.3,104.5V164Z"></path><title>Night 7: 5 tickets</title></g><g class="bar-g" data-night="8" data-v="8"><rect class="hit" x="192.7" y="14" width="22.7" height="150"></rect><path class="bar" d="M196.1,164V67Q196.1,64 199.1,64H208.9Q211.9,64 211.9,67V164Z"></path><title>Night 8: 8 tickets</title></g><g class="bar-g" data-night="9" data-v="11"><rect class="hit" x="215.3" y="14" width="22.7" height="150"></rect><path class="bar" d="M218.7,164V29.5Q218.7,26.5 221.7,26.5H231.6Q234.6,26.5 234.6,29.5V164Z"></path><title>Night 9: 11 tickets</title></g><g class="bar-g" data-night="10" data-v="10"><rect class="hit" x="238" y="14" width="22.7" height="150"></rect><path class="bar" d="M241.4,164V42Q241.4,39 244.4,39H254.3Q257.3,39 257.3,42V164Z"></path><title>Night 10: 10 tickets</title></g><g class="bar-g" data-night="11" data-v="6"><rect class="hit" x="260.7" y="14" width="22.7" height="150"></rect><path class="bar" d="M264.1,164V92Q264.1,89 267.1,89H276.9Q279.9,89 279.9,92V164Z"></path><title>Night 11: 6 tickets</title></g><g class="bar-g" data-night="12" data-v="5"><rect class="hit" x="283.3" y="14" width="22.7" height="150"></rect><path class="bar" d="M286.7,164V104.5Q286.7,101.5 289.7,101.5H299.6Q302.6,101.5 302.6,104.5V164Z"></path><title>Night 12: 5 tickets</title></g><g class="bar-g" data-night="13" data-v="6"><rect class="hit" x="306" y="14" width="22.7" height="150"></rect><path class="bar" d="M309.4,164V92Q309.4,89 312.4,89H322.3Q325.3,89 325.3,92V164Z"></path><title>Night 13: 6 tickets</title></g><g class="bar-g" data-night="14" data-v="4"><rect class="hit" x="328.7" y="14" width="22.7" height="150"></rect><path class="bar" d="M332.1,164V117Q332.1,114 335.1,114H344.9Q347.9,114 347.9,117V164Z"></path><title>Night 14: 4 tickets</title></g><g class="bar-g" data-night="15" data-v="6"><rect class="hit" x="351.3" y="14" width="22.7" height="150"></rect><path class="bar" d="M354.7,164V92Q354.7,89 357.7,89H367.6Q370.6,89 370.6,92V164Z"></path><title>Night 15: 6 tickets</title></g><g class="bar-g" data-night="16" data-v="9"><rect class="hit" x="374" y="14" width="22.7" height="150"></rect><path class="bar" d="M377.4,164V54.5Q377.4,51.5 380.4,51.5H390.3Q393.3,51.5 393.3,54.5V164Z"></path><title>Night 16: 9 tickets</title></g><g class="bar-g" data-night="17" data-v="10"><rect class="hit" x="396.7" y="14" width="22.7" height="150"></rect><path class="bar" d="M400.1,164V42Q400.1,39 403.1,39H412.9Q415.9,39 415.9,42V164Z"></path><title>Night 17: 10 tickets</title></g><g class="bar-g" data-night="18" data-v="5"><rect class="hit" x="419.3" y="14" width="22.7" height="150"></rect><path class="bar" d="M422.7,164V104.5Q422.7,101.5 425.7,101.5H435.6Q438.6,101.5 438.6,104.5V164Z"></path><title>Night 18: 5 tickets</title></g><g class="bar-g" data-night="19" data-v="6"><rect class="hit" x="442" y="14" width="22.7" height="150"></rect><path class="bar" d="M445.4,164V92Q445.4,89 448.4,89H458.3Q461.3,89 461.3,92V164Z"></path><title>Night 19: 6 tickets</title></g><g class="bar-g" data-night="20" data-v="7"><rect class="hit" x="464.7" y="14" width="22.7" height="150"></rect><path class="bar" d="M468.1,164V79.5Q468.1,76.5 471.1,76.5H480.9Q483.9,76.5 483.9,79.5V164Z"></path><title>Night 20: 7 tickets</title></g><g class="bar-g" data-night="21" data-v="5"><rect class="hit" x="487.3" y="14" width="22.7" height="150"></rect><path class="bar" d="M490.7,164V104.5Q490.7,101.5 493.7,101.5H503.6Q506.6,101.5 506.6,104.5V164Z"></path><title>Night 21: 5 tickets</title></g><g class="bar-g" data-night="22" data-v="7"><rect class="hit" x="510" y="14" width="22.7" height="150"></rect><path class="bar" d="M513.4,164V79.5Q513.4,76.5 516.4,76.5H526.3Q529.3,76.5 529.3,79.5V164Z"></path><title>Night 22: 7 tickets</title></g><g class="bar-g" data-night="23" data-v="11"><rect class="hit" x="532.7" y="14" width="22.7" height="150"></rect><path class="bar" d="M536.1,164V29.5Q536.1,26.5 539.1,26.5H548.9Q551.9,26.5 551.9,29.5V164Z"></path><title>Night 23: 11 tickets</title></g><g class="bar-g" data-night="24" data-v="9"><rect class="hit" x="555.3" y="14" width="22.7" height="150"></rect><path class="bar" d="M558.7,164V54.5Q558.7,51.5 561.7,51.5H571.6Q574.6,51.5 574.6,54.5V164Z"></path><title>Night 24: 9 tickets</title></g><g class="bar-g" data-night="25" data-v="6"><rect class="hit" x="578" y="14" width="22.7" height="150"></rect><path class="bar" d="M581.4,164V92Q581.4,89 584.4,89H594.3Q597.3,89 597.3,92V164Z"></path><title>Night 25: 6 tickets</title></g><g class="bar-g" data-night="26" data-v="5"><rect class="hit" x="600.7" y="14" width="22.7" height="150"></rect><path class="bar" d="M604.1,164V104.5Q604.1,101.5 607.1,101.5H616.9Q619.9,101.5 619.9,104.5V164Z"></path><title>Night 26: 5 tickets</title></g><g class="bar-g" data-night="27" data-v="6"><rect class="hit" x="623.3" y="14" width="22.7" height="150"></rect><path class="bar" d="M626.7,164V92Q626.7,89 629.7,89H639.6Q642.6,89 642.6,92V164Z"></path><title>Night 27: 6 tickets</title></g><g class="bar-g" data-night="28" data-v="5"><rect class="hit" x="646" y="14" width="22.7" height="150"></rect><path class="bar" d="M649.4,164V104.5Q649.4,101.5 652.4,101.5H662.3Q665.3,101.5 665.3,104.5V164Z"></path><title>Night 28: 5 tickets</title></g><g class="bar-g" data-night="29" data-v="8"><rect class="hit" x="668.7" y="14" width="22.7" height="150"></rect><path class="bar" d="M672.1,164V67Q672.1,64 675.1,64H684.9Q687.9,64 687.9,67V164Z"></path><title>Night 29: 8 tickets</title></g><g class="bar-g" data-night="30" data-v="10"><rect class="hit" x="691.3" y="14" width="22.7" height="150"></rect><path class="bar" d="M694.7,164V42Q694.7,39 697.7,39H707.6Q710.6,39 710.6,42V164Z"></path><title>Night 30: 10 tickets</title></g><text class="tick" x="45.3" y="182" text-anchor="middle">1</text><text class="tick" x="136" y="182" text-anchor="middle">5</text><text class="tick" x="249.3" y="182" text-anchor="middle">10</text><text class="tick" x="362.7" y="182" text-anchor="middle">15</text><text class="tick" x="476" y="182" text-anchor="middle">20</text><text class="tick" x="589.3" y="182" text-anchor="middle">25</text><text class="tick" x="702.7" y="182" text-anchor="middle">30</text><text class="axis-title" x="374" y="204" text-anchor="middle">Night of the month</text></svg><div class="tip" id="chart-tip" hidden></div></div>
+          </div>
+          <div class="report-cols">
+            <table class="report-table">
+              <caption>Summary</caption>
+              <tbody>
+                <tr><th scope="row">Tickets handled</th><td>214</td></tr>
+                <tr><th scope="row">Median first response</th><td>6 minutes</td></tr>
+                <tr><th scope="row">Median resolution</th><td>38 minutes</td></tr>
+                <tr><th scope="row">Escalations</th><td>7</td></tr>
+              </tbody>
+            </table>
+            <div>
+              <p class="issues-title">Top issues</p>
+              <ul class="issues">
+                <li><span>Passwords and MFA</span><span>31%</span></li>
+                <li><span>Outlook and Microsoft 365</span><span>18%</span></li>
+                <li><span>Printing and scanning</span><span>12%</span></li>
+                <li><span>QuickBooks multi-user</span><span>9%</span></li>
+                <li><span>Backup alerts</span><span>8%</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 11. Team -->
+  <section class="section" id="team" aria-labelledby="team-title">
+    <div class="wrap">
+      <div class="col stack">
+        <h2 id="team-title">Who you'll work with.</h2>
+        <p>We're a small team in <span data-default="Kathmandu, Nepal"><span class="ph">[TEAM CITY, COUNTRY]</span></span>. From <span class="ph">[FOUNDED YEAR]</span> to 2026 we hosted QuickBooks, Sage and tax software for US accounting firms. We've wound down hosting to put that experience to work for MSPs at night.</p>
+        <p class="ph-note" data-default=""><span class="ph">[FOUNDERS DECIDE whether to mention the wind-down.]</span></p>
+        <div class="founders">
+          <div class="founder">
+            <div class="photo"><span class="ph">[FOUNDER PHOTO, daylight, at your desk]</span></div>
+            <p class="founder-name"><span class="ph">[FOUNDER NAME]</span></p>
+            <p class="founder-role"><span class="ph">[ROLE]</span></p>
+            <p><span class="ph">[One line of background]</span></p>
+            <p><a href="#team">LinkedIn profile</a></p>
+          </div>
+          <div class="founder">
+            <div class="photo"><span class="ph">[FOUNDER PHOTO, daylight, at your desk]</span></div>
+            <p class="founder-name"><span class="ph">[FOUNDER NAME]</span></p>
+            <p class="founder-role"><span class="ph">[ROLE]</span></p>
+            <p><span class="ph">[One line of background]</span></p>
+            <p><a href="#team">LinkedIn profile</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. Questions -->
+  <section class="section" id="questions" aria-labelledby="questions-title">
+    <div class="wrap">
+      <div class="col stack">
+        <h2 id="questions-title">Questions MSPs ask us.</h2>
+        <div class="faq">
+          <details><summary>Where is your team?</summary><p>In <span data-default="Kathmandu, Nepal"><span class="ph">[TEAM CITY, COUNTRY]</span></span>, about 10 to 11 hours ahead of US Eastern time. Your nights are our normal working hours, so your tickets aren't handled by a tired night shift.</p></details>
+          <details><summary>Will your technicians reply as my company?</summary><p>Yes. We use your email signatures, ticket templates and phone scripts. Your clients see your brand.</p></details>
+          <details><summary>Which tools can you work in?</summary><p>Your PSA and RMM. Today we work in <span class="ph">[TOOLS THE TEAM CAN ACTUALLY USE]</span>.</p></details>
+          <details><summary>Do you answer phone calls?</summary><p><span data-default="Not at launch. For now we work through tickets, email and chat."><span class="ph">[CONFIRM: through your phone system or call forwarding, or tickets, email and chat only for now.]</span></span></p></details>
+          <details><summary>What don't you do?</summary><p>On-site visits, US daytime coverage for now, and changes outside your runbook without your approval.</p></details>
+          <details><summary>Some of our clients are CPA firms. How do you handle their data?</summary><p>Our technicians fix IT problems without opening tax returns or client financial files. Tell us any firm-specific rules and we'll follow them.</p></details>
+          <details><summary>What's the minimum commitment?</summary><p>The two-week pilot. After that, <span data-default="month to month with 30 days' notice"><span class="ph">[CONTRACT TERMS]</span></span>.</p></details>
+          <details><summary>How fast can we start?</summary><p>Usually within <span data-default="5"><span class="ph">[X]</span></span> business days of our first call.</p></details>
+          <details><summary>Who's behind Availclouds?</summary><p>Availclouds LLC, a Nevada company. Our founders are listed above with their LinkedIn profiles.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. Booking -->
+  <section class="booking" id="book" aria-labelledby="book-title">
+    <div class="wrap">
+      <div class="col stack">
+        <h2 id="book-title">Hand us tonight's tickets.</h2>
+        <p class="lede-n">Book a 20-minute call. We'll ask about your stack, your after-hours volume and your escalation rules, and tell you plainly whether we're a fit.</p>
+      </div>
+      <div class="scheduler" id="scheduler">
+        <p><span class="ph">[HUBSPOT MEETING SCHEDULER]</span></p>
+        <p>HubSpot's meetings tool loads here when this section comes near the screen. Visitors see open times in their own time zone.</p>
+      </div>
+      <div class="contact">
+        <p>Prefer email? <a href="mailto:msp@availclouds.com">msp@availclouds.com</a></p>
+        <p data-default=""><span class="ph">[+1 (551) 203-0965, CONFIRM ROUTING]</span></p>
+      </div>
+      <details class="pilot-form" id="pilot-form">
+        <summary>Request the pilot by form instead</summary>
+        <div class="form-panel">
+          <form id="pilot-request" novalidate>
+            <div class="form-grid">
+              <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+              <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization" required></div>
+              <div class="field"><label for="f-site">Website</label><input id="f-site" name="website" type="url" placeholder="https://" autocomplete="url"></div>
+              <div class="field"><label for="f-endpoints">Endpoints you manage</label>
+                <select id="f-endpoints" name="endpoints" required><option value="">Choose a range</option><option>Under 250</option><option>250 to 1,000</option><option>Over 1,000</option></select></div>
+              <div class="field"><label for="f-tickets">After-hours tickets per week</label>
+                <select id="f-tickets" name="tickets" required><option value="">Choose a range</option><option>Under 10</option><option>10 to 25</option><option>26 to 50</option><option>Over 50</option></select></div>
+              <div class="field"><label for="f-psa">PSA in use</label><input id="f-psa" name="psa" placeholder="For example, ConnectWise or Autotask"></div>
+              <div class="field"><label for="f-rmm">RMM in use</label><input id="f-rmm" name="rmm" placeholder="For example, NinjaOne or Datto"></div>
+              <div class="field full"><label for="f-msg">Message <span>(optional)</span></label><textarea id="f-msg" name="message"></textarea></div>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Request the pilot</button>
+              <p class="form-status" id="form-status" role="status"></p>
+            </div>
+          </form>
+        </div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<!-- 14. Footer -->
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div class="stack" style="gap: 6px;">
+      <p>Availclouds LLC, <span data-default="701 Rising Star Dr, Henderson, NV 89014"><span class="ph">[BUSINESS ADDRESS, confirm 701 Rising Star Dr, Henderson, NV 89014]</span></span>.</p>
+      <p>&copy; <span id="year">2026</span> Availclouds LLC</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://availclouds.com/">Availclouds home</a></li>
+      <li><a href="https://availclouds.com/privacy-policy/">Privacy policy</a></li>
+      <li><a href="https://availclouds.com/terms/">Terms</a></li>
+      <li><a href="https://availclouds.com/support/">Existing hosting clients: get support</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Prototype review tools: delete before the WordPress port -->
+<aside class="proto" aria-label="Prototype review tools">
+  <details id="proto">
+    <summary>Review tools</summary>
+    <div class="proto-body">
+      <fieldset>
+        <legend>Placeholders</legend>
+        <label><input type="radio" name="phmode" id="ph-show" value="show" checked> Show placeholders</label>
+        <label><input type="radio" name="phmode" id="ph-fill" value="fill"> Fill with suggested defaults</label>
+      </fieldset>
+      <fieldset>
+        <legend>Clock time</legend>
+        <label><input type="checkbox" id="sim-live" checked> Live time</label>
+        <label for="sim-day" class="sr-only">Day to simulate</label>
+        <select id="sim-day">
+          <option value="2027-01-12">Tue, Jan 12, 2027 (winter time)</option>
+          <option value="2027-01-16">Sat, Jan 16, 2027 (weekend)</option>
+          <option value="2027-07-13">Tue, Jul 13, 2027 (summer time)</option>
+          <option value="2026-11-01">Sun, Nov 1, 2026 (clocks change)</option>
+          <option value="2027-03-14">Sun, Mar 14, 2027 (clocks change)</option>
+        </select>
+        <label for="sim-hour">New York time <output id="sim-out" for="sim-hour">2:00 AM</output></label>
+        <input type="range" id="sim-hour" min="0" max="95" step="1" value="8">
+      </fieldset>
+      <p class="hint">Not part of the page. Moving the slider turns off live time.</p>
+    </div>
+  </details>
+</aside>
+
+<script>
+/* Shared by the page script and the build step (which bakes the no-JS versions). */
+var REPORT_DATA = [7,10,9,6,5,7,5,8,11,10,6,5,6,4,6,9,10,5,6,7,5,7,11,9,6,5,6,5,8,10];
+
+function chartSVG(W) {
+  var H = 210, m = { t: 14, r: 6, b: 46, l: 34 };
+  var pw = W - m.l - m.r, ph = H - m.t - m.b, n = REPORT_DATA.length, max = 12;
+  var slot = pw / n, gap = Math.max(2, Math.min(8, slot * 0.3)), bw = slot - gap;
+  var base = m.t + ph;
+  function y(v) { return m.t + ph - (v / max) * ph; }
+  function r1(v) { return Math.round(v * 10) / 10; }
+  var s = '<svg class="chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Bar chart of tickets per night across 30 nights, between 4 and 11 a night, 214 in total. Invented data.">';
+  [0, 4, 8, 12].forEach(function (v) {
+    s += '<line class="' + (v === 0 ? 'axis' : 'grid') + '" x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + r1(y(v)) + '" y2="' + r1(y(v)) + '"></line>';
+    s += '<text class="tick" x="' + (m.l - 8) + '" y="' + r1(y(v) + 4) + '" text-anchor="end">' + v + '</text>';
+  });
+  REPORT_DATA.forEach(function (v, i) {
+    var x = m.l + i * slot + gap / 2, top = y(v), r = Math.min(3, bw / 2);
+    var d = 'M' + r1(x) + ',' + r1(base) + 'V' + r1(top + r) + 'Q' + r1(x) + ',' + r1(top) + ' ' + r1(x + r) + ',' + r1(top) +
+      'H' + r1(x + bw - r) + 'Q' + r1(x + bw) + ',' + r1(top) + ' ' + r1(x + bw) + ',' + r1(top + r) + 'V' + r1(base) + 'Z';
+    s += '<g class="bar-g" data-night="' + (i + 1) + '" data-v="' + v + '">' +
+      '<rect class="hit" x="' + r1(m.l + i * slot) + '" y="' + m.t + '" width="' + r1(slot) + '" height="' + ph + '"></rect>' +
+      '<path class="bar" d="' + d + '"></path>' +
+      '<title>Night ' + (i + 1) + ': ' + v + ' tickets</title></g>';
+  });
+  [1, 5, 10, 15, 20, 25, 30].forEach(function (nn) {
+    var cx = m.l + (nn - 1) * slot + slot / 2;
+    s += '<text class="tick" x="' + r1(cx) + '" y="' + (base + 18) + '" text-anchor="middle">' + nn + '</text>';
+  });
+  s += '<text class="axis-title" x="' + r1(m.l + pw / 2) + '" y="' + (H - 6) + '" text-anchor="middle">Night of the month</text>';
+  return s + '</svg>';
+}
+
+function tickItems(labels) {
+  return labels.map(function (l, i) {
+    var p = l.split(' ');
+    return '<li style="--i:' + i + '" data-k2="' + (i % 2 === 0 ? 1 : 0) + '" data-k3="' + (i % 3 === 0 ? 1 : 0) + '">' +
+      '<span>' + p[0] + '</span><span>' + p[1] + '</span></li>';
+  }).join('');
+}
+
+
+(function () {
+  'use strict';
+  var NY = 'America/New_York';
+  var TEAM_TZ = 'Asia/Kathmandu'; /* [TEAM TIME ZONE] default */
+  var ZONES = {
+    eastern: ['America/New_York', 'Eastern'],
+    central: ['America/Chicago', 'Central'],
+    mountain: ['America/Denver', 'Mountain'],
+    pacific: ['America/Los_Angeles', 'Pacific']
+  };
+
+  /* Analytics stubs for GTM (GTM-PX6M9SD) */
+  window.dataLayer = window.dataLayer || [];
+  function track(event, data) {
+    var o = { event: event };
+    for (var k in data) o[k] = data[k];
+    window.dataLayer.push(o);
+  }
+
+  /* ---------- Time helpers (Intl + IANA zones, no hard-coded offsets) ---------- */
+  var partFmt = {};
+  function parts(date, tz) {
+    if (!partFmt[tz]) partFmt[tz] = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', weekday: 'long'
+    });
+    var o = {};
+    partFmt[tz].formatToParts(date).forEach(function (p) { o[p.type] = p.value; });
+    return { y: +o.year, mo: +o.month, d: +o.day, h: (+o.hour) % 24, mi: +o.minute, weekday: o.weekday };
+  }
+  function clock(date, tz) {
+    return new Intl.DateTimeFormat('en-US', { timeZone: tz, hour: 'numeric', minute: '2-digit', hour12: true })
+      .format(date).replace(/[  ]/g, ' ');
+  }
+  function hourOnly(date, tz) {
+    return new Intl.DateTimeFormat('en-US', { timeZone: tz, hour: 'numeric', hour12: true })
+      .format(date).replace(/[  ]/g, ' ');
+  }
+  function offsetMs(date, tz) {
+    var p = parts(date, tz);
+    return Date.UTC(p.y, p.mo - 1, p.d, p.h, p.mi) - Math.floor(date.getTime() / 60000) * 60000;
+  }
+  function zoned(y, mo, d, h, mi, tz) {
+    var guess = Date.UTC(y, mo - 1, d, h, mi);
+    var off = offsetMs(new Date(guess), tz);
+    var t = guess - off;
+    var off2 = offsetMs(new Date(t), tz);
+    if (off2 !== off) t = guess - off2;
+    return new Date(t);
+  }
+  /* Covered: weekends, or weekdays before 8 AM or from 6 PM, in the MSP's zone */
+  function covered(date, tz) {
+    var p = parts(date, tz);
+    if (p.weekday === 'Saturday' || p.weekday === 'Sunday') return true;
+    return p.h < 8 || p.h >= 18;
+  }
+  window.mspTime = { parts: parts, clock: clock, zoned: zoned, covered: covered };
+
+  /* ---------- Sky colors: night 9 PM-5 AM, day 7 AM-5 PM, stepped by the hour through dawn and dusk ---------- */
+  var NIGHT = [22, 38, 74], DAY = [217, 234, 245];
+  var TOWARD_DAY = [0, 0, 0, 0, 0, 0.30, 0.68, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.82, 0.68, 0.36, 0.18, 0, 0, 0];
+  function lin(c) { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); }
+  function lum(rgb) { return 0.2126 * lin(rgb[0]) + 0.7152 * lin(rgb[1]) + 0.0722 * lin(rgb[2]); }
+  var INK_L = lum([30, 38, 53]);
+  function skyFor(hour) {
+    var t = TOWARD_DAY[hour];
+    var rgb = NIGHT.map(function (n, i) { return Math.round(n + (DAY[i] - n) * t); });
+    var L = lum(rgb);
+    var white = 1.05 / (L + 0.05), ink = (L + 0.05) / (INK_L + 0.05);
+    return { bg: 'rgb(' + rgb.join(',') + ')', fg: white >= ink ? '#FFFFFF' : '#1E2635' };
+  }
+
+  /* ---------- Simulation (review tools only) ---------- */
+  var sim = { live: true, day: '2027-01-12', minutes: 120 };
+  function now() {
+    if (sim.live) return new Date();
+    var d = sim.day.split('-').map(Number);
+    return zoned(d[0], d[1], d[2], Math.floor(sim.minutes / 60), sim.minutes % 60, NY);
+  }
+
+  /* ---------- Hero clocks ---------- */
+  function setClock(prefix, panel, date, tz) {
+    var p = parts(date, tz), sky = skyFor(p.h);
+    panel.style.setProperty('--sky', sky.bg);
+    panel.style.setProperty('--sky-ink', sky.fg);
+    var c = clock(date, tz).split(' ');
+    var t = document.getElementById(prefix + '-time');
+    var hm = c[0].split(':');
+    t.querySelector('.hm').innerHTML = hm[0] + '<span class="colon">:</span>' + hm[1];
+    t.querySelector('.ampm').textContent = c[1];
+    t.setAttribute('datetime', date.toISOString());
+    document.getElementById(prefix + '-day').textContent = p.weekday;
+  }
+  function renderHero() {
+    var d = now();
+    setClock('ny', document.getElementById('sky-ny'), d, NY);
+    setClock('team', document.getElementById('sky-team'), d, TEAM_TZ);
+    var on = covered(d, NY);
+    var st = document.getElementById('team-status');
+    st.setAttribute('data-on', on ? 'true' : 'false');
+    document.getElementById('team-status-text').textContent = on ? 'On shift now' : 'We start at 6 PM Eastern';
+  }
+
+  /* ---------- Coverage strip ---------- */
+  var currentZone = 'eastern';
+  function renderStrip() {
+    var zone = ZONES[currentZone][0], name = ZONES[currentZone][1];
+    var d = now(), p = parts(d, zone);
+    var start = zoned(p.y, p.mo, p.d, 12, 0, zone).getTime();
+    var msp = [], team = [];
+    for (var k = 0; k <= 24; k++) {
+      var m = new Date(start + k * 3600000);
+      msp.push(hourOnly(m, zone));
+      team.push(clock(m, TEAM_TZ));
+    }
+    document.getElementById('ticks-msp').innerHTML = tickItems(msp);
+    document.getElementById('ticks-team').innerHTML = tickItems(team);
+    document.getElementById('tz-name').textContent = name;
+    var hrs = p.h + p.mi / 60;
+    document.getElementById('now-marker').style.setProperty('--at', (((hrs - 12) + 24) % 24) / 24);
+    var city = teamCity();
+    document.getElementById('strip-desc').textContent =
+      'Availclouds covers 6 PM to 8 AM ' + name + ' time, which is ' + team[6] + ' to ' + team[20] +
+      ' in ' + city + '. Your team covers 8 AM to 6 PM.';
+  }
+  function teamCity() {
+    var el = document.querySelector('#sky-team .sky-city');
+    return el ? el.textContent.trim() : '[TEAM CITY]';
+  }
+  document.querySelectorAll('input[name="tz"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      currentZone = r.value;
+      renderStrip();
+      track('timezone_change', { timezone: ZONES[currentZone][1] });
+    });
+  });
+
+  function renderAll() {
+    renderHero();
+    renderStrip();
+    document.getElementById('skies').setAttribute('aria-label', 'Current time in New York and ' + teamCity());
+  }
+
+  /* Tick once a minute, on the minute */
+  function schedule() {
+    var ms = 60000 - (Date.now() % 60000) + 50;
+    setTimeout(function () { if (sim.live) renderAll(); schedule(); }, ms);
+  }
+
+  /* ---------- Sample report chart ---------- */
+  var box = document.getElementById('chart-box'), tip = document.getElementById('chart-tip');
+  function drawChart() {
+    var w = Math.max(280, Math.round(box.clientWidth));
+    var old = box.querySelector('svg');
+    var holder = document.createElement('div');
+    holder.innerHTML = chartSVG(w);
+    box.replaceChild(holder.firstChild, old);
+  }
+  box.addEventListener('mousemove', function (e) {
+    var g = e.target.closest && e.target.closest('.bar-g');
+    box.querySelectorAll('.bar-g.is-hover').forEach(function (n) { if (n !== g) n.classList.remove('is-hover'); });
+    if (!g) { tip.hidden = true; return; }
+    g.classList.add('is-hover');
+    var bar = g.querySelector('.bar').getBoundingClientRect(), b = box.getBoundingClientRect();
+    tip.textContent = 'Night ' + g.getAttribute('data-night') + ': ' + g.getAttribute('data-v') + ' tickets';
+    tip.style.left = (bar.left - b.left + bar.width / 2) + 'px';
+    tip.style.top = (bar.top - b.top) + 'px';
+    tip.hidden = false;
+  });
+  box.addEventListener('mouseleave', function () {
+    tip.hidden = true;
+    box.querySelectorAll('.bar-g.is-hover').forEach(function (n) { n.classList.remove('is-hover'); });
+  });
+  if ('ResizeObserver' in window) {
+    var lastW = 0;
+    new ResizeObserver(function () {
+      var w = Math.round(box.clientWidth);
+      if (w !== lastW) { lastW = w; drawChart(); }
+    }).observe(box);
+  } else { drawChart(); }
+
+  /* ---------- Placeholders: show, or fill with the brief's suggested defaults ---------- */
+  var swaps = Array.prototype.slice.call(document.querySelectorAll('[data-default]'));
+  swaps.forEach(function (el) { el.setAttribute('data-orig', el.innerHTML); });
+  function setPlaceholderMode(fill) {
+    swaps.forEach(function (el) {
+      var def = el.getAttribute('data-default');
+      if (fill) {
+        if (def === '') el.hidden = true;
+        else el.textContent = def;
+      } else {
+        el.hidden = false;
+        el.innerHTML = el.getAttribute('data-orig');
+      }
+    });
+    renderAll();
+  }
+  document.getElementById('ph-show').addEventListener('change', function () { setPlaceholderMode(false); });
+  document.getElementById('ph-fill').addEventListener('change', function () { setPlaceholderMode(true); });
+
+  /* ---------- Review tools: simulated time ---------- */
+  var live = document.getElementById('sim-live'), daySel = document.getElementById('sim-day'),
+      hour = document.getElementById('sim-hour'), out = document.getElementById('sim-out');
+  function simLabel() {
+    var h = Math.floor(sim.minutes / 60), m = sim.minutes % 60;
+    out.textContent = ((h % 12) || 12) + ':' + (m < 10 ? '0' : '') + m + (h < 12 ? ' AM' : ' PM');
+  }
+  function readSim() {
+    sim.live = live.checked;
+    sim.day = daySel.value;
+    sim.minutes = (+hour.value) * 15;
+    simLabel();
+    renderAll();
+  }
+  live.addEventListener('change', readSim);
+  daySel.addEventListener('change', function () { live.checked = false; readSim(); });
+  hour.addEventListener('input', function () { live.checked = false; readSim(); });
+  window.mspSim = function (day, minutes) { daySel.value = day; hour.value = Math.round(minutes / 15); live.checked = false; readSim(); };
+  window.mspPlaceholders = function (fill) { document.getElementById(fill ? 'ph-fill' : 'ph-show').checked = true; setPlaceholderMode(fill); };
+
+  /* ---------- Small behaviors ---------- */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('[data-book]');
+    if (a) track('book_call_click', { location: a.getAttribute('data-book') });
+    if (e.target.closest && e.target.closest('#menu nav a')) document.getElementById('menu').open = false;
+  });
+  document.querySelectorAll('.faq details').forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open) track('faq_open', { question: d.querySelector('summary').textContent.trim() });
+    });
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var form = document.getElementById('pilot-request'), status = document.getElementById('form-status');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      var bad = form.querySelector(':invalid');
+      status.textContent = 'Please fill in ' + bad.labels[0].textContent.replace(/\(optional\)/, '').trim().toLowerCase() + '.';
+      bad.focus();
+      return;
+    }
+    status.textContent = 'Prototype only: this form is not connected yet. On the live page it creates a HubSpot contact with source "MSP page".';
+    track('pilot_form_submit', { source: 'MSP page' });
+  });
+
+  simLabel();
+  renderAll();
+  schedule();
+})();
+</script>
+
+</body>
+</html>
