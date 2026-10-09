@@ -128,7 +128,8 @@ h1 span{display:block}
 .back dt{font:700 12px/1.2 "Barlow Condensed";letter-spacing:.16em;text-transform:uppercase;color:var(--s-acc)}
 .back dd{font:400 clamp(20px,2.4vw,30px)/1.1 Anton;text-transform:uppercase}
 .back p{font-size:14px;line-height:1.45}
-.flip{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:2;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;font:700 14px/1 "Barlow Condensed";letter-spacing:.18em;text-transform:uppercase;background:var(--crest);color:#fff;border:0;border-radius:3px;cursor:pointer;outline:1.5px dashed var(--gold);outline-offset:-5px}
+.flip{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:2;display:none;align-items:center;gap:8px;min-height:48px;padding:0 22px;font:700 14px/1 "Barlow Condensed";letter-spacing:.18em;text-transform:uppercase;background:var(--crest);color:#fff;border:0;border-radius:3px;cursor:pointer;outline:1.5px dashed var(--gold);outline-offset:-5px}
+.js .flip{display:inline-flex}
 .flip:hover{background:#000}
 .flip:focus-visible{outline:3px solid var(--trim);outline-offset:3px}
 /* section heads shared */
@@ -391,5 +392,173 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 </main>
 
 <footer>© 2026 Krishna Nishad · Rupandehi, Nepal</footer>
+<script>
+/* kit switch + typed roles (works without WebGL; the 3D card listens for "kitchange") */
+(() => {
+  const root = document.documentElement, reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const roles = ["Brand Identity Manager", "Developer", "Twitch Streamer"], el = document.getElementById("role");
+  const theme = document.querySelector('meta[name="theme-color"]'), radios = [...document.querySelectorAll("input[name=kit]")];
+  const store = { get() { try { return localStorage.getItem("kit") } catch { return null } }, set(v) { try { localStorage.setItem("kit", v) } catch {} } };
+  let ri = 0, timer;
+  function typeTo(word, then) {          // deletes back to the shared prefix, then types the new word
+    clearTimeout(timer);
+    if (reduce) { el.textContent = word; timer = setTimeout(then, 3200); return }
+    const step = () => {
+      const cur = el.textContent;
+      if (!word.startsWith(cur)) { el.textContent = cur.slice(0, -1); timer = setTimeout(step, 35) }
+      else if (cur.length < word.length) { el.textContent = word.slice(0, cur.length + 1); timer = setTimeout(step, 70) }
+      else timer = setTimeout(then, 2600);
+    };
+    step();
+  }
+  const cycle = () => { ri = (ri + 1) % roles.length; typeTo(roles[ri], cycle) };
+  window.setKit = (kit, { from } = {}) => {
+    if (kit !== "home" && kit !== "away") return;
+    const go = () => { root.dataset.kit = kit; theme.content = kit === "away" ? "#0B1F4B" : "#C8102E"; radios.forEach(r => r.checked = r.value === kit) };
+    if (from && !reduce && document.startViewTransition) {   // the new kit ripples out from the switch
+      const b = from.getBoundingClientRect(), x = b.left + b.width / 2, y = b.top + b.height / 2, rad = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+      const t = document.startViewTransition(go);
+      t.ready.then(() => root.animate({ clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${rad}px at ${x}px ${y}px)`] },
+        { duration: 560, easing: "cubic-bezier(.3,.7,.2,1)", pseudoElement: "::view-transition-new(root)" })).catch(() => {});
+    } else go();
+    store.set(kit);
+    ri = kit === "away" ? 1 : 0;
+    if (from) typeTo(roles[ri], cycle); else { el.textContent = roles[ri]; clearTimeout(timer); timer = setTimeout(cycle, 9000) }
+    document.dispatchEvent(new CustomEvent("kitchange", { detail: { kit, animate: !!from && !reduce } }));
+  };
+  radios.forEach(r => r.addEventListener("change", () => setKit(r.value, { from: r.closest("label") })));
+  /* flip: the 3D card registers window.cardFlip; until then (or without WebGL) flip the DOM card */
+  const flip = document.getElementById("flip"), scard = document.getElementById("card-static");
+  flip.addEventListener("click", () => {
+    if (window.cardFlip) return window.cardFlip();
+    const on = scard.classList.toggle("flipped"); flip.setAttribute("aria-pressed", String(on));
+  });
+  const q = new URLSearchParams(location.search).get("kit");
+  setKit(q || store.get() || "home");
+})();
+</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+<script type="module">
+import * as THREE from "three";
+const root=document.documentElement,host=document.getElementById("card-stage"),btn=document.getElementById("flip"),reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+const r=new THREE.WebGLRenderer({antialias:true,alpha:true});   // throws without WebGL: the DOM card simply stays
+r.setPixelRatio(Math.min(devicePixelRatio,2));r.domElement.setAttribute("aria-hidden","true");host.prepend(r.domElement);
+const KIT={
+ home:{stock:"#FFFFFF",field:"#C8102E",shadow:"#5A0614",ink:"#14110F",plate:"#14110F",plateInk:"#FFFFFF",trim:"#FFFFFF",acc:"#A00D25",num:"#C8102E",numSh:"#5A0614",edge:"#E2D9CF",
+   bk:"#F7F5F2",bkInk:"#14110F",bkAcc:"#A00D25",band:"#C8102E",bandInk:"#FFFFFF",tint:"#F2E1E3"},
+ away:{stock:"#D7FF3A",field:"#0B1F4B",shadow:"#020817",ink:"#0B1F4B",plate:"#0B1F4B",plateInk:"#D7FF3A",trim:"#D7FF3A",acc:"#0B1F4B",num:"#0B1F4B",numSh:"#7D9A12",edge:"#9DBF1C",
+   bk:"#06122F",bkInk:"#EEF2FA",bkAcc:"#D7FF3A",band:"#D7FF3A",bandInk:"#0B1F4B",tint:"#0F2656"}};
+let kit=root.dataset.kit;
+/* portrait in natural colour; holo foil over its backdrop only (the cutout's silhouette keeps the subject out of the foil mask) */
+const img=new Image(),cut=new Image();let photoOK=false,sil,loaded=0;
+const onPhoto=()=>{if(++loaded<2)return;try{sil=Object.assign(document.createElement("canvas"),{width:cut.width,height:cut.height});const c=sil.getContext("2d");
+  c.drawImage(cut,0,0);c.getImageData(0,0,1,1);c.globalCompositeOperation="source-in";c.fillStyle="#000";c.fillRect(0,0,sil.width,sil.height);photoOK=true;paint();render()}catch(e){}};
+img.onload=cut.onload=onPhoto;
+img.src="/assets/img/krishna_profile.webp";cut.src="/assets/img/krishna_cutout.webp";
+/* card print art (1000x1400); m=true draws the foil mask, white = foil */
+const W=1000,H=1400,fit=(x,t,max)=>{const w=x.measureText(t).width;return w>max?max/w:1};
+const COND='"Barlow Condensed", "Arial Narrow", sans-serif';
+const SHIELD=new Path2D("M50 4 L92 15 V52 C92 77 73 93 50 102 C27 93 8 77 8 52 V15 Z");
+function crest(g,cx,cy,s,m){g.save();g.translate(cx,cy);g.scale(s,s);g.translate(-50,-53);g.fillStyle=m?"#000":"#14110F";g.fill(SHIELD);
+  if(!m){g.strokeStyle="#C9A227";g.lineWidth=5;g.stroke(SHIELD);g.save();g.translate(50,53);g.scale(.8,.8);g.translate(-50,-53);g.setLineDash([3,2.4]);g.lineWidth=1.8;g.stroke(SHIELD);g.restore();
+  g.lineJoin=g.lineCap="round";g.lineWidth=4;g.strokeStyle="#fff";g.stroke(new Path2D("M24 50 L38 35 L46 43 L60 25 L76 50"));g.strokeStyle="#C9A227";g.stroke(new Path2D("M60 25 V12 M54 18 L60 12 L66 18"));
+  g.fillStyle="#C9A227";g.font="27px Anton";g.textAlign="center";g.fillText("KN",50,84)}g.restore()}
+function front(x,m){const P=KIT[kit],k=(col,f=0)=>m?`rgb(${f*255|0},${f*255|0},${f*255|0})`:col;
+  x.textAlign="left";x.letterSpacing="0px";x.fillStyle=k(P.stock);x.fillRect(0,0,W,H);
+  x.save();x.beginPath();x.rect(70,70,860,900);x.clip();x.fillStyle=k(P.field,photoOK?0:.22);x.fillRect(70,70,860,900);
+  if(photoOK){if(m)for(let i=0,n=56;i<n;i++){x.beginPath();x.moveTo(500,330);x.arc(500,330,1500,i/n*Math.PI*2,(i+1)/n*Math.PI*2);x.closePath();x.fillStyle=i%2?"#8c8c8c":"#4a4a4a";x.fill()}
+    x.drawImage(m?sil:img,18,0,764,800,70,70,860,900)}
+  else if(!m){x.textAlign="center";x.font="640px Anton";x.fillStyle=P.shadow;x.fillText("21",520,880);x.fillStyle=P.trim;x.fillText("21",500,860)}
+  x.restore();
+  x.lineWidth=12;x.strokeStyle=k("#C9A227");x.strokeRect(70,70,860,900);
+  crest(x,165,180,1.45,m);
+  x.beginPath();x.moveTo(765,92);x.lineTo(915,92);x.lineTo(915,195);x.quadraticCurveTo(915,255,840,282);x.quadraticCurveTo(765,255,765,195);x.closePath();   // RC shield, foil
+  x.fillStyle=k(P.stock,1);x.fill();x.lineWidth=8;x.strokeStyle=k(P.ink,1);x.stroke();
+  x.textAlign="center";x.fillStyle=k(P.ink,0);x.font=`700 22px ${COND}`;x.letterSpacing="4px";x.fillText("ROOKIE",842,128);x.letterSpacing="0px";x.font="104px Anton";x.fillText("RC",840,244);
+  x.fillStyle=k(P.plate);x.beginPath();x.moveTo(36,1000);x.lineTo(964,946);x.lineTo(964,1136);x.lineTo(36,1190);x.fill();   // name plate, foil
+  x.save();x.translate(500,1110);x.rotate(-.058);x.font="122px Anton";x.scale(fit(x,"KRISHNA NISHAD",840),1);x.fillStyle=k(P.plateInk,1);x.fillText("KRISHNA NISHAD",0,0);x.restore();
+  x.fillStyle=k(P.field);x.beginPath();x.moveTo(36,1206);x.lineTo(580,1175);x.lineTo(580,1262);x.lineTo(36,1293);x.fill();
+  x.save();x.translate(60,1256);x.rotate(-.058);x.textAlign="left";x.fillStyle=k(P.trim);x.font=`700 60px ${COND}`;x.letterSpacing="3px";x.fillText("BRAND × DEV",0,0);x.restore();
+  x.letterSpacing="0px";x.textAlign="right";x.font="104px Anton";x.fillStyle=k(P.numSh);x.fillText("NO. 21",956,1286);x.fillStyle=k(P.num);x.fillText("NO. 21",948,1278);
+  x.textAlign="left";x.fillStyle=k(P.ink);x.font=`600 26px ${COND}`;x.letterSpacing="3px";x.fillText("ROOKIE CARD · BRAND IDENTITY · DEV",44,1358);
+  x.textAlign="right";x.fillStyle=k(P.acc,1);x.font=`700 34px ${COND}`;x.fillText("#21/21",956,1360);x.letterSpacing="0px"}
+function wrap(x,t,X,Y,mw,lh){let line="";for(const w of t.split(" ")){const s=line?line+" "+w:w;if(x.measureText(s).width>mw){x.fillText(line,X,Y);Y+=lh;line=w}else line=s}x.fillText(line,X,Y)}
+function back(x,m){const P=KIT[kit],k=(col,f=0)=>m?(f?"#fff":"#000"):col;
+  x.textAlign="left";x.letterSpacing="0px";x.fillStyle=k(P.bk);x.fillRect(0,0,W,H);
+  x.lineWidth=6;x.strokeStyle=k(P.bkInk);x.beginPath();x.roundRect(36,36,928,1328,14);x.stroke();
+  x.fillStyle=k(P.band);x.fillRect(48,48,904,200);
+  x.fillStyle=k(P.plate,1);x.beginPath();x.arc(150,148,74,0,7);x.fill();
+  x.textAlign="center";x.fillStyle=k(P.plateInk);x.font=`700 24px ${COND}`;x.fillText("NO.",150,112);x.font="86px Anton";x.fillText("21",150,196);
+  x.textAlign="left";x.fillStyle=k(P.bandInk);x.font="92px Anton";x.save();x.translate(252,152);x.scale(fit(x,"KRISHNA NISHAD",680),1);x.fillText("KRISHNA NISHAD",0,0);x.restore();
+  x.font=`600 32px ${COND}`;x.letterSpacing="3px";x.fillText("BRAND × DEV  ·  @KRIMY  ·  AVAILCLOUDS",254,212);
+  let vx=66;x.font=`600 27px ${COND}`;for(const [a,b] of [["HOME","RUPANDEHI, NEPAL"],["BORN","OCT 21"],["SCHOOL","TU · BSc. CSIT"]]){x.fillStyle=k(P.bkAcc);x.fillText(a+":",vx,310);vx+=x.measureText(a+": ").width;x.fillStyle=k(P.bkInk);x.fillText(b,vx,310);vx+=x.measureText(b).width+26}
+  x.letterSpacing="0px";
+  [["ENGAGEMENT","+447%",84],["POSTS","HUNDREDS",84],["TOP POSTS","MILLIONS OF ENGAGEMENTS",38],["SINCE","OCT 2022",84]].forEach(([l,v,fs],i)=>{const bx=60+(i%2)*444,by=350+(i>>1)*156;
+    x.lineWidth=4;x.strokeStyle=k(P.bkInk);x.strokeRect(bx,by,436,142);x.fillStyle=k(P.bkAcc);x.font=`700 24px ${COND}`;x.letterSpacing="4px";x.fillText(l,bx+20,by+38);x.letterSpacing="0px";
+    x.fillStyle=k(P.bkInk);x.font=`${fs}px Anton`;x.fillText(v,bx+20,by+(fs>50?120:104))});
+  x.fillStyle=k(P.bkInk);x.fillRect(60,684,880,56);x.fillStyle=k(P.bk);x.font=`700 28px ${COND}`;x.letterSpacing="5px";x.fillText("PRO CAREER RECORD",80,722);
+  const cols=[80,250,610];x.fillStyle=k(P.bkInk);x.font=`700 22px ${COND}`;["YEAR","CLUB","POSITION"].forEach((h,i)=>x.fillText(h,cols[i],776));x.letterSpacing="0px";
+  [["22–NOW","AVAILCLOUDS HOSTING","SOCIAL ID MGR | DEV"],["2023","WINTRIES BEVERAGES","BRAND DESIGNER"],["23–24","EDU CONSULTANCY","GFX & VIDEO EDITOR"]].forEach((row,j)=>{
+    const y=792+j*64;if(j%2===0){x.fillStyle=k(P.tint);x.fillRect(60,y,880,64)}x.fillStyle=k(P.bkInk);x.font=`600 31px ${COND}`;row.forEach((c,i)=>x.fillText(c,cols[i],y+44))});
+  x.lineWidth=3;x.strokeStyle=k(P.bkInk);x.beginPath();x.moveTo(60,984);x.lineTo(940,984);x.stroke();
+  x.fillStyle=k(P.bkAcc);x.font=`700 24px ${COND}`;x.letterSpacing="4px";x.fillText("CAREER HIGHLIGHT",66,1040);x.letterSpacing="0px";
+  x.fillStyle=k(P.bkInk);x.font="500 32px Barlow, sans-serif";wrap(x,"Led a viral marketing initiative at Availclouds that increased engagement by 447%. Hundreds of posts, some with millions of engagements.",66,1090,860,46);
+  x.font=`500 20px ${COND}`;x.letterSpacing="2px";x.fillText("KN·21 · SERIES 1 · CARD 21 OF 21 · CERT: GAME THEORY, STANFORD (COURSERA)",66,1300);
+  x.fillText("RUPANDEHI, NEPAL · KRISHNA@AVAILCLOUDS.COM",66,1332);x.letterSpacing="0px"}
+const sides=[front,back].map(fn=>{const mk=()=>Object.assign(document.createElement("canvas"),{width:W,height:H}),a=mk(),b=mk(),ta=new THREE.CanvasTexture(a),tb=new THREE.CanvasTexture(b);
+  ta.anisotropy=tb.anisotropy=r.capabilities.getMaxAnisotropy();
+  const draw=()=>{fn(a.getContext("2d"),false);fn(b.getContext("2d"),true);ta.needsUpdate=tb.needsUpdate=true};draw();return{draw,ta,tb}});
+/* foil shader (thin-film hue keyed to the reflection vector, masked) + penny sleeve */
+const cvs="varying vec2 vUv;varying vec3 vN;varying vec3 vP;void main(){vUv=uv;vN=normalize(mat3(modelMatrix)*normal);vec4 w=modelMatrix*vec4(position,1.);vP=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}";
+const cfs=`uniform sampler2D map,mask;varying vec2 vUv;varying vec3 vN;varying vec3 vP;
+void main(){vec3 base=texture2D(map,vUv).rgb;float m=texture2D(mask,vUv).r;
+ vec3 N=normalize(vN),V=normalize(cameraPosition-vP),R=reflect(-V,N);
+ float t=R.x*2.2-R.y*1.4+(vUv.x*.7+vUv.y)*1.1;vec3 film=.55+.45*cos(6.2832*(t+vec3(0.,.33,.67)));
+ float lines=.5+.5*sin((vUv.x*.8+vUv.y)*300.+R.x*40.);vec3 foil=mix(base,film*(.8+.3*lines),.8);
+ vec3 col=mix(base,foil,m);vec3 L=normalize(vec3(-.5,.7,1.));col*=.86+.14*max(dot(N,L),0.);
+ float band=exp(-pow((vUv.x+vUv.y*.55-(.9+R.x*3.2-R.y*1.6))*5.,2.));col+=band*(.10+.28*m);gl_FragColor=vec4(col,1.);}`;
+const sfs=`varying vec2 vUv;varying vec3 vN;varying vec3 vP;
+void main(){vec3 N=normalize(vN),V=normalize(cameraPosition-vP),R=reflect(-V,N);
+ float e=min(min(vUv.x,1.-vUv.x)*1.4,min(vUv.y,1.-vUv.y));float rim=smoothstep(.022,.0,e);
+ float band=exp(-pow((vUv.x+vUv.y*.55-(.95+R.x*3.2-R.y*1.6))*7.,2.));float lip=smoothstep(.012,.0,abs(vUv.y-.955))*.5;
+ gl_FragColor=vec4(vec3(1.),.05+rim*.35+band*.16+lip);}`;
+function rr(w,h,q){const s=new THREE.Shape(),x=-w/2,y=-h/2;s.moveTo(x+q,y);s.lineTo(x+w-q,y);s.quadraticCurveTo(x+w,y,x+w,y+q);s.lineTo(x+w,y+h-q);s.quadraticCurveTo(x+w,y+h,x+w-q,y+h);s.lineTo(x+q,y+h);s.quadraticCurveTo(x,y+h,x,y+h-q);s.lineTo(x,y+q);s.quadraticCurveTo(x,y,x+q,y);return s}
+function plane(w,h,q){const g=new THREE.ShapeGeometry(rr(w,h,q),8),p=g.attributes.position,uv=g.attributes.uv;for(let i=0;i<p.count;i++)uv.setXY(i,p.getX(i)/w+.5,p.getY(i)/h+.5);return g}
+const CW=2.5,CH=3.5,T=.035,scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(28,1,.1,100);
+const card=new THREE.Group(),flipper=new THREE.Group();flipper.add(card);scene.add(flipper);
+const face=plane(CW,CH,.13);
+sides.forEach(({ta,tb},i)=>{const me=new THREE.Mesh(face,new THREE.ShaderMaterial({uniforms:{map:{value:ta},mask:{value:tb}},vertexShader:cvs,fragmentShader:cfs}));me.position.z=(i?-1:1)*(T/2+.001);if(i)me.rotation.y=Math.PI;card.add(me)});
+const edgeMat=new THREE.MeshBasicMaterial();const edge=new THREE.Mesh(new THREE.ExtrudeGeometry(rr(CW,CH,.13),{depth:T,bevelEnabled:false,curveSegments:8}),edgeMat);edge.position.z=-T/2;card.add(edge);
+const sMat=new THREE.ShaderMaterial({vertexShader:cvs,fragmentShader:sfs,transparent:true,depthWrite:false}),sg=plane(CW+.12,CH+.3,.05);
+[1,-1].forEach(d=>{const s=new THREE.Mesh(sg,sMat);s.position.set(0,.1,d*(T/2+.03));if(d<0)s.rotation.y=Math.PI;card.add(s)});
+const sc=Object.assign(document.createElement("canvas"),{width:128,height:128}),sx=sc.getContext("2d"),gr=sx.createRadialGradient(64,64,10,64,64,64);
+gr.addColorStop(0,"rgba(0,0,0,.5)");gr.addColorStop(1,"rgba(0,0,0,0)");sx.fillStyle=gr;sx.fillRect(0,0,128,128);
+const shadow=new THREE.Mesh(new THREE.PlaneGeometry(CW*1.9,CH*1.5),new THREE.MeshBasicMaterial({map:new THREE.CanvasTexture(sc),transparent:true,depthWrite:false}));scene.add(shadow);
+function size(){const w=host.clientWidth,h=host.clientHeight,room=h-100,px=Math.min(room*.76,w*.66*CH/CW);r.setSize(w,h,false);cam.aspect=w/h;
+  cam.position.z=h*CH/px/2/Math.tan(THREE.MathUtils.degToRad(14));cam.updateProjectionMatrix();
+  flipper.position.y=50/px*CH;shadow.position.set(.35,flipper.position.y-.35,-1.2)}   // centre the card in the room above the Flip button
+function paint(){edgeMat.color.set(KIT[kit].edge);sides.forEach(s=>s.draw())}
+/* springs: tilt to pointer, flip, and a full turn when the kit changes */
+const base={x:.08,y:-.34},st={x:base.x,y:base.y,vx:0,vy:0,f:0,vf:0},tg={x:base.x,y:base.y,f:0},ptr={x:0,y:0};
+addEventListener("pointermove",e=>{const b=host.getBoundingClientRect();ptr.x=((e.clientX-b.left)/b.width-.5)*2;ptr.y=((e.clientY-b.top)/b.height-.5)*2;if(reduce)render()},{passive:true});
+function flip(){tg.f+=Math.PI;btn.setAttribute("aria-pressed",String(Math.round(tg.f/Math.PI)%2===1));if(reduce){st.f=tg.f;render()}}
+r.domElement.addEventListener("click",flip);window.cardFlip=flip;
+if(new URLSearchParams(location.search).has("back")){st.f=tg.f=Math.PI;btn.setAttribute("aria-pressed","true")}
+let pending=false,spinFrom=0;const t0=performance.now();
+document.addEventListener("kitchange",e=>{kit=e.detail.kit;if(!e.detail.animate){paint();render();return}
+  pending=true;spinFrom=st.f;tg.f+=Math.PI*2;setTimeout(()=>{if(pending){pending=false;paint()}},450)});   // repaint when the card is edge-on
+function render(){const cl=v=>Math.max(-1.2,Math.min(1.2,v)),idle=reduce?0:(performance.now()-t0)/1000;
+  tg.y=base.y+cl(ptr.x)*.42+Math.sin(idle*.6)*.05;tg.x=base.x+cl(ptr.y)*.3+Math.cos(idle*.5)*.03;
+  if(reduce){st.x=tg.x;st.y=tg.y;st.f=tg.f}else{st.vx=(st.vx+(tg.x-st.x)*.06)*.84;st.x+=st.vx;st.vy=(st.vy+(tg.y-st.y)*.06)*.84;st.y+=st.vy;st.vf=(st.vf+(tg.f-st.f)*.06)*.84;st.f+=st.vf}
+  if(pending&&Math.abs(st.f-spinFrom)>Math.PI/2){pending=false;paint()}
+  card.rotation.set(st.x,st.y,0);flipper.rotation.y=st.f;card.position.y=Math.sin(idle/1.4)*.04;r.render(scene,cam)}
+size();render();host.classList.add("gl");   // first frame drawn: hide the DOM card
+addEventListener("resize",()=>{size();render()});
+document.fonts.load("80px Anton").then(()=>Promise.all(['700 30px "Barlow Condensed"','600 30px "Barlow Condensed"','500 30px Barlow'].map(f=>document.fonts.load(f)))).catch(()=>{}).then(()=>{paint();render()});
+/* only animate while the card is on screen and the tab is visible */
+let onScreen=true;const loop=()=>r.setAnimationLoop(!reduce&&onScreen&&!document.hidden?render:null);
+new IntersectionObserver(([en])=>{onScreen=en.isIntersecting;loop()}).observe(host);
+document.addEventListener("visibilitychange",loop);loop();
+</script>
 </body>
 </html>
