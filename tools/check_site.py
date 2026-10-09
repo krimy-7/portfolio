@@ -66,6 +66,12 @@ for t, a in p.tags:
     if t == "a" and (a.get("href") or "").startswith("#") and len(a["href"]) > 1:
         check(a["href"][1:] in p.ids, f"anchor target missing: {a['href']}")
 
+# kit switch: the ripple needs the default view-transition cross-fade disabled
+check("::view-transition-old(root)" in html and "::view-transition-new(root)" in html, "view-transition CSS for the kit ripple missing")
+# returning Away visitors: the kit must be applied before first paint (early inline script, not only the end-of-body one)
+early = html[:html.find('<a class="skip"')]
+check("localStorage" in early and "dataset.kit" in early, "kit not applied before first paint (early script)")
+
 # removed things stay removed
 for gone in ("cyberpunk", "music-toggle", "assets/vendor", "bootstrap", "jquery", "style.css", "main.js", "typed.min.js"):
     check(gone not in html, f"removed reference still present: {gone}")
