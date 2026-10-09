@@ -99,6 +99,9 @@ h1{font:400 clamp(64px,8.8vw,136px)/.86 Anton;text-transform:uppercase;letter-sp
 h1 span{display:block}
 .lede{max-width:30em;font-size:18px;color:var(--soft)}
 .lede strong{font-weight:600;color:var(--ink)}
+/* both kit sentences share one grid cell, so the lede is always as tall as the longer one and switching kits never shifts the column */
+.lede{display:grid}.lede>span{grid-area:2/1}
+[data-kit=home] .lede .a-only,[data-kit=away] .lede .h-only{display:block;visibility:hidden}
 .kitw{border:0;display:none;flex-direction:column;gap:10px}
 .js .kitw{display:flex}
 .kitw legend{font:600 12px/1 "Barlow Condensed";letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
@@ -154,7 +157,6 @@ h1 span{display:block}
 .vitals dt,.vitals dd{display:flex;align-items:center;min-height:56px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.22)}   /* label + value centred on one row height */
 .vitals dt{font:700 14px/1.4 "Barlow Condensed";letter-spacing:.18em;text-transform:uppercase;padding-right:24px;color:var(--soft)}
 .vitals dd{font:600 18px/1.4 "Barlow Condensed";letter-spacing:.04em}
-.profile h3{font:700 15px/1 "Barlow Condensed";letter-spacing:.2em;text-transform:uppercase;margin:clamp(40px,5vw,64px) 0 16px}
 /* squad record: experience + projects on the "shorts" panel; setKit moves projects first in the Away kit */
 .record{background:var(--shorts) var(--mesh-s);color:var(--s-ink);border-top:6px solid var(--trim)}
 .record ::selection{background:var(--s-acc);color:var(--shorts)}
@@ -171,13 +173,13 @@ h1 span{display:block}
 .tbl ul li:before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--s-acc)}
 .tbl .res{text-align:right;font:400 clamp(30px,3.4vw,52px)/1 Anton;color:var(--s-acc);text-transform:uppercase}
 .tbl .res small{display:block;font:600 12px/1.3 "Barlow Condensed";letter-spacing:.16em;color:var(--s-mute);margin-top:6px}
-.dev li{grid-template-columns:minmax(200px,300px) minmax(0,1fr) 170px;align-items:center;position:relative}
+.dev li{grid-template-columns:minmax(200px,300px) minmax(0,1fr) minmax(170px,auto);align-items:center;position:relative}
 .dev .thumb{display:block;aspect-ratio:16/9;overflow:hidden;border:3px solid var(--s-ink);border-radius:3px;background:var(--s-rule)}
 .dev .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .dev li:hover .thumb img{transform:scale(1.04)}
 .dev h3 a{text-decoration:none}.dev h3 a:hover{text-decoration:underline}
 .dev h3 a::after{content:"";position:absolute;inset:0}   /* whole row is the tap target */
-.dev p{color:var(--s-mute);font-size:16px;max-width:52ch}
+.dev p{color:var(--s-mute);font-size:16px;max-width:52ch;margin-top:10px}   /* room under the title (and its hover underline) */
 /* academy + attributes */
 .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(48px,6vw,96px);border-top:6px solid var(--trim)}
 .duo .sec{padding-left:0;padding-right:0}
@@ -194,7 +196,7 @@ h1 span{display:block}
 .cert img{border-radius:2px}
 .cert b{display:block;font:700 18px/1.2 "Barlow Condensed";letter-spacing:.06em;text-transform:uppercase}
 .cert span{font-size:15px;color:var(--soft)}
-.attrs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:36px 40px}
+.attrs{display:grid;gap:36px}   /* three groups stack: two columns would orphan the third */
 .attrs h3{font:700 15px/1 "Barlow Condensed";letter-spacing:.2em;text-transform:uppercase;padding-bottom:12px;margin-bottom:14px;border-bottom:2px solid var(--trim)}
 .attrs .patches li{font-size:14px;padding:9px 12px}
 /* full time */
@@ -209,7 +211,9 @@ h1 span{display:block}
 .lines a,.mailto a,.vitals a{display:inline-flex;align-items:center;min-height:44px}
 .lines p,.lines li{font:600 19px/1.5 "Barlow Condensed";letter-spacing:.04em}
 footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding:22px var(--pad);font:600 13px/1.4 "Barlow Condensed";letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
-@media (max-width:1100px){.ko{display:none}.strip li a{padding:0 12px}.dev li{grid-template-columns:minmax(160px,220px) minmax(0,1fr) 120px}}
+.tbl ul li,.dev p,.lede,.bio{text-wrap:pretty}.tbl h3{text-wrap:balance}
+@media (min-width:901px) and (max-height:800px){.copy{padding-block:36px;gap:22px}}   /* short laptops: keep the Away hero (longer lede) and Flip button above the fold at 720-800px tall */
+@media (max-width:1100px){.ko{display:none}.strip li a{padding:0 12px}.dev li{grid-template-columns:minmax(160px,220px) minmax(0,1fr) minmax(120px,auto)}}
 @media (max-width:900px){
  .club{padding:0 14px;flex:none}
  .strip nav{flex:1;min-width:0;position:relative;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x;mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
@@ -225,7 +229,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
  .prof,.duo{grid-template-columns:minmax(0,1fr)}.duo{gap:0}.duo .sec+.sec{padding-top:0}
  .tbl li{gap:8px}
  .ft{grid-template-columns:minmax(0,1fr)}.ft-crest{width:110px;grid-row:1}
- .tbl li,.dev li{grid-template-columns:minmax(0,1fr)}.tbl .res{text-align:left;font-size:34px}.tbl .res small{display:inline;margin-left:10px}
+ .tbl li,.dev li{grid-template-columns:minmax(0,1fr)}.tbl .res{text-align:left;font-size:34px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px}.tbl .res small{margin-top:0}   /* caption sits beside the figure, drops below whole when too long */
  .dev .thumb{max-width:420px}
 }
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
@@ -260,9 +264,9 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
   <div class="copy">
     <p class="patch"><span class="l">Now playing:</span><span id="role" aria-hidden="true">Brand Identity Manager</span><span class="caret" aria-hidden="true"></span><span class="sr">Brand Identity Manager, Developer, Twitch Streamer</span></p>
     <h1 id="name"><span>Krishna</span> <span>Nishad</span></h1>
-    <p class="lede"><strong>Social Identity Manager | Dev at Availclouds Hosting Services.</strong>
-      <span class="h-only">Home kit: brand identity, social campaigns, packaging and video, the work that took engagement up 447%.</span>
-      <span class="a-only">Away kit: frontend UI and live tools, Python and OpenCV, Unreal Engine 5, Telegram bots.</span></p>
+    <p class="lede"><strong>I work on brands and code, and my role at Availclouds Hosting Services covers both.</strong>
+      <span class="h-only">On the brand side, I run Availclouds' social channels and led a viral campaign that grew engagement by 447%.</span>
+      <span class="a-only">On the dev side, I built the frontend UI and live tools for the Availclouds MSP Help Desk. Separately, I co-built an IoT delivery-verification system at a hackathon and have worked with OpenCV and Unreal Engine 5 in personal projects.</span></p>
     <fieldset class="kitw">
       <legend>Choose the kit</legend>
       <div class="kit">
@@ -302,7 +306,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 <section class="sec profile" id="about" aria-labelledby="h-about">
   <h2 id="h-about">Player profile</h2>
   <div class="prof">
-    <p class="bio">As Social Identity Manager and Dev at Availclouds Hosting Services, I oversee and strategically approach managing and presenting the company’s online identity on social networking sites. Created hundreds of posts with some getting over millions of engagements. Led a viral marketing initiative that increased engagement by 447%, driving substantial traffic.</p>
+    <p class="bio">I'm Krishna Nishad, krimy online, from Rupandehi, Nepal. I've been at Availclouds Hosting Services since October 2022, on both the social side and the dev side, and I study Computer Science &amp; IT at Tribhuvan University. I built one side project on an open-source WiFi audio streamer so wired IEMs aren't tied to the desk. My version adds track skipping and lets you pause without walking to the PC. I also stream on Twitch.</p>
     <dl class="vitals">
       <dt>Born</dt><dd>21 October</dd>
       <dt>Home</dt><dd>Rupandehi, Nepal</dd>
@@ -310,11 +314,6 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
       <dt>Email</dt><dd><a href="mailto:krishna@availclouds.com">krishna@availclouds.com</a></dd>
     </dl>
   </div>
-  <h3>Interests</h3>
-  <ul class="patches">
-    <li>Social Identity Management</li><li>Strategic Outreach</li><li>Brand Design</li><li>Content Creation</li>
-    <li>Software Development</li><li>UI/UX Design</li><li>Video Editing</li><li>Image Processing</li>
-  </ul>
 </section>
 
 <div class="record">
@@ -323,27 +322,20 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
     <ol>
       <li><time datetime="2022-10">Oct 2022 – Present</time>
         <div><h3>Availclouds Hosting Services</h3><p class="role">Social Identity Manager | Dev</p>
-          <ul><li>Strategically managing the company's online identity across social networking sites to enhance brand presence.</li>
-            <li>Optimizing digital outreach and branding strategies for consistency and effectiveness.</li>
-            <li>Created hundreds of posts with some getting over millions of engagements on social networking sites.</li>
-            <li>Led a viral marketing initiative that increased engagement by 447%, driving substantial traffic.</li>
-            <li>Implemented an advanced outreach strategy that boosted customer acquisition and retention.</li></ul></div>
-        <strong class="res">+447%<small>engagement, viral push</small></strong></li>
-      <li><time datetime="2023-02">Feb 2023</time>
-        <div><h3>Wintries Beverages &amp; Ltd.</h3><p class="role">Brand Designer (Contract-Based)</p>
-          <ul><li>Developed all product packaging labels, ensuring cohesive and visually appealing branding.</li>
-            <li>Designed and created all graphic assets, including promotional materials and website content.</li>
-            <li>Crafted compelling website content to enhance customer engagement.</li>
-            <li>Led a comprehensive branding overhaul, successfully improving brand recognition and customer appeal.</li>
-            <li>Developed a cohesive design system that strengthened product identity, boosting market presence.</li></ul></div>
-        <strong class="res">Rebrand<small>full branding overhaul</small></strong></li>
+          <ul><li>Set up an outreach strategy that improved customer acquisition and retention.</li>
+            <li>Created hundreds of posts, some reaching millions of engagements.</li>
+            <li>Built the frontend UI and live tools for our MSP help desk.</li></ul></div>
+        <strong class="res">+447%<small>engagement, viral campaign</small></strong></li>
       <li><time datetime="2023-06">Jun 2023 – Mar 2024</time>
         <div><h3>Educational Consultancy &amp; Institutes</h3><p class="role">Graphics Designer &amp; Video Editor</p>
-          <ul><li>Designed graphics and edited videos for online promotional content.</li>
-            <li>Developed visually engaging materials to enhance digital visibility.</li>
-            <li>Created branding elements and marketing visuals to boost online presence.</li>
-            <li>Produced high-quality video content for educational promotions.</li></ul></div>
+          <ul><li>Designed graphics, branding elements and marketing visuals for online promotions.</li>
+            <li>Edited videos and produced video content for educational promotions.</li></ul></div>
         <strong class="res">Promo<small>graphics + video</small></strong></li>
+      <li><time datetime="2023-02">Feb 2023</time>
+        <div><h3>Wintries Beverages &amp; Ltd.</h3><p class="role">Brand Designer (contract)</p>
+          <ul><li>Designed every packaging label and promotional asset and wrote the website content.</li>
+            <li>Led a full rebrand and built a cohesive design system for the products.</li></ul></div>
+        <strong class="res">Rebrand<small>labels, web copy, design system</small></strong></li>
     </ol>
   </section>
 
@@ -351,20 +343,20 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
     <h2 id="h-proj">Dev fixtures <small aria-hidden="true">Stack</small></h2>
     <ol>
       <li><a class="thumb" href="projects/availclouds.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-desk.webp" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><h3><a href="projects/availclouds.html">Availclouds MSP Help Desk</a></h3><p>Frontend UI and live tools for an after-hours help desk for MSPs.</p></div>
-        <strong class="res">Live<small>frontend UI</small></strong></li>
+        <div><h3><a href="projects/availclouds.html">Availclouds MSP Help Desk</a></h3><p>I built the frontend UI and live tools. It's a white-label help desk that covers MSPs overnight and at weekends.</p></div>
+        <strong class="res">Frontend<small>UI + live tools</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_pureroute-is-an-iot-powered-food-delivery-ugcPost-7480318570745257984-JvGE/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-iot.webp" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_pureroute-is-an-iot-powered-food-delivery-ugcPost-7480318570745257984-JvGE/" target="_blank" rel="noopener" aria-describedby="newtab">PureRoute<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>IoT-powered food delivery verification: microcontrollers and cloud infrastructure build an unforgeable audit trail from the kitchen to the doorstep, across six interfaces for riders, restaurants, fleets and support.</p></div>
+        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_pureroute-is-an-iot-powered-food-delivery-ugcPost-7480318570745257984-JvGE/" target="_blank" rel="noopener" aria-describedby="newtab">PureRoute<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>Dev Gautam Kumar and I built it in a hackathon sprint. It pairs clip-on microcontroller modules with a cloud backend to give each food delivery an unforgeable audit trail from kitchen to doorstep. The demo shows mid-route tamper detection.</p></div>
         <strong class="res">IoT<small>6 interfaces</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_my-iems-sound-so-much-better-than-any-tws-ugcPost-7492514740015951872-qybP/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-audio.webp" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_my-iems-sound-so-much-better-than-any-tws-ugcPost-7492514740015951872-qybP/" target="_blank" rel="noopener" aria-describedby="newtab">WiFi Audio Streaming<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>Streams PC audio to a phone over WiFi, so wired IEMs aren't tied to the desk. Built on Marco Morosi's open-source project, adding pause, track skip, now playing, a seek bar and a cleaner UI.</p></div>
-        <strong class="res">Mod<small>open source</small></strong></li>
+        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_my-iems-sound-so-much-better-than-any-tws-ugcPost-7492514740015951872-qybP/" target="_blank" rel="noopener" aria-describedby="newtab">WiFi Audio Streaming<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>I added pause, track skipping, now-playing info, a seek bar and a cleaner UI to Marco Morosi's open-source WiFi Audio Streaming project. The base project streams PC audio to a phone over WiFi.</p></div>
+        <strong class="res">Mod<small>pause, skip, seek bar</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_python-opencv-computervision-activity-7294748885757870081-_hRg?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-face.webp" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_python-opencv-computervision-activity-7294748885757870081-_hRg?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener" aria-describedby="newtab">Face Detection System<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>Face detection built with Python and OpenCV.</p></div>
-        <strong class="res">CV<small>Python · OpenCV</small></strong></li>
+        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_python-opencv-computervision-activity-7294748885757870081-_hRg?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener" aria-describedby="newtab">Face Detection System<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>I built it with OpenCV and NumPy to tell whether a person is registered. It was my first Python project with OpenCV.</p></div>
+        <strong class="res">OpenCV<small>Python · NumPy</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_unrealengine5-gamedev-indiegamedev-activity-7290356718528577536-rnU8?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-ue5.webp" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_unrealengine5-gamedev-indiegamedev-activity-7290356718528577536-rnU8?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener" aria-describedby="newtab">Unreal Engine Game<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>A game built in Unreal Engine 5.</p></div>
-        <strong class="res">UE5<small>Unreal Engine 5</small></strong></li>
+        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_unrealengine5-gamedev-indiegamedev-activity-7290356718528577536-rnU8?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener" aria-describedby="newtab">Beach_in_the_night<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>For my first solo game, I used Unreal Engine 5 to build an endless road that spawns the next segment dynamically. Splines didn't work; a cube-based method did.</p></div>
+        <strong class="res">UE5<small>endless road system</small></strong></li>
     </ol>
   </section>
 </div>
@@ -391,11 +383,9 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
   <section class="sec" id="skills" aria-labelledby="h-skills">
     <h2 id="h-skills">Squad attributes</h2>
     <div class="attrs">
-      <div><h3>Languages &amp; Databases</h3><ul class="patches"><li>Python</li><li>C Programming</li><li>MySQL</li><li>HTML5/CSS3</li></ul></div>
-      <div><h3>Development &amp; Frameworks</h3><ul class="patches"><li>Android App Development</li><li>Unreal Engine 5</li><li>Stable Diffusion</li><li>AI Chatbot Development</li><li>Telegram Bot</li><li>Cloud Services</li></ul></div>
-      <div><h3>Tools &amp; Platforms</h3><ul class="patches"><li>Linux (Kali)</li><li>GitHub</li><li>Canva</li><li>PyCharm</li><li>Video Editing</li></ul></div>
-      <div><h3>Business &amp; Soft Skills</h3><ul class="patches"><li>Public Speaking</li><li>Copywriting</li><li>Strategic Outreach</li><li>Startup Strategy</li><li>Social Media Management</li><li>SMM &amp; EMS</li><li>Presentation Design</li><li>Report Writing</li></ul></div>
-      <div><h3>Core Concepts</h3><ul class="patches"><li>Numerical Methods</li><li>Discrete Mathematics</li><li>Analytical Thinking</li><li>Branding &amp; Graphic Design</li></ul></div>
+      <div><h3>Brand &amp; social</h3><ul class="patches"><li>Social media management</li><li>Branding &amp; graphic design</li><li>Copywriting</li><li>Video editing</li><li>Strategic outreach</li></ul></div>
+      <div><h3>Code</h3><ul class="patches"><li>Python</li><li>C</li><li>MySQL</li><li>HTML5/CSS3</li></ul></div>
+      <div><h3>Tools &amp; platforms</h3><ul class="patches"><li>Unreal Engine 5</li><li>Android app development</li><li>Telegram &amp; AI chatbots</li><li>Linux (Kali)</li><li>GitHub</li></ul></div>
     </div>
   </section>
 </div>

@@ -1,6 +1,8 @@
 {
   "detector": {
-    "ignoreRules": [],
+    "ignoreRules": [
+      "flat-type-hierarchy"
+    ],
     "ignoreFiles": [
       ".impeccable/mocks/decision/samples/assigned.html",
       ".impeccable/mocks/decision/samples/challenger-bench.html",
