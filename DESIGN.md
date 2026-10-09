@@ -188,6 +188,8 @@ Two kit colourways over a shared gold thread and crest black; each kit is a fiel
 - **Label** (Barlow Condensed 600, 15px, 0.12em, uppercase): nav, buttons, patches, dates, roles. Small labels (12-15px, 700, 0.16-0.2em) head vitals, attribute groups, contact lines and the footer.
 
 ### Named Rules
+**The Block Heading Rule.** The name (h1) and every section h2 are drawn as 5×7 extruded cubes, not set in Anton. The script builds an inline SVG per word from the heading's own text (kept visually hidden for screen readers and search; without JS the Anton text shows). Cubes fill 90% of a cell with a 0.26-cell down-right extrusion; faces take `currentColor`, the side faces mix it with the ground (`--deep` on the field, `--field` on the Home shorts panel, black on the contact band). Width is set in em, so a heading keeps its Anton size, and it is capped at 100% of its column. The name's first letter is gold. Cubes snap in left to right (18ms per column, 0.55s ease-out) when a heading enters view; there's no motion under reduced motion.
+
 **The Printed Number Rule.** Anton carries names, titles and results only, always uppercase. Its flat shadow is offset down-right with zero blur in the kit's deep tone (or black at 35% on the deep band).
 
 **The Caps Label Rule.** Anything that is a label, not a sentence, is Barlow Condensed uppercase with at least 0.06em tracking. Sentences are never set in caps.
