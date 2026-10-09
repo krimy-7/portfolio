@@ -6,3 +6,5 @@
 .impeccable/hook.cache.json
 __pycache__/
 .impeccable/questions/
+.impeccable/live/
+.impeccable/critique/

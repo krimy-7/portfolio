@@ -41,7 +41,10 @@
   "alumniOf":{"@type":"CollegeOrUniversity","name":"Tribhuvan University"},
   "address":{"@type":"PostalAddress","addressLocality":"Rupandehi","addressCountry":"NP"},
   "email":"mailto:krishna@availclouds.com","telephone":"+977-9864951223",
-  "knowsAbout":["Brand identity","Social media management","Python","IoT","Unreal Engine 5","OpenCV","Android development","Graphic design","Video editing"],
+  "knowsAbout":["Brand identity","Social media management","Python","Deep learning","IoT","Unreal Engine 5","OpenCV","Android development","Graphic design","Video editing"],
+  "hasCredential":[
+   {"@type":"EducationalOccupationalCredential","name":"Getting Started with Deep Learning","credentialCategory":"Certificate of Competency","dateCreated":"2026-07-23","recognizedBy":{"@type":"Organization","name":"NVIDIA"}},
+   {"@type":"EducationalOccupationalCredential","name":"Game Theory","credentialCategory":"Course certificate","recognizedBy":{"@type":"CollegeOrUniversity","name":"Stanford University"}}],
   "sameAs":["https://www.linkedin.com/in/krishna-nishad/","https://github.com/krimy-7","https://www.instagram.com/krimy.7z/"]},
  {"@type":"WebSite","@id":"https://www.krishnanishad.com.np/#website","url":"https://www.krishnanishad.com.np/","name":"Krishna Nishad","inLanguage":"en"},
  {"@type":"ProfilePage","@id":"https://www.krishnanishad.com.np/#profile","url":"https://www.krishnanishad.com.np/","name":"Krishna Nishad · Developer & Brand Identity Manager",
@@ -182,6 +185,7 @@ h1 span{display:block}
 .school ul li{padding-left:18px;position:relative}
 .school ul li:before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--trim)}
 .cert{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;text-decoration:none;border:2px solid var(--trim);border-radius:4px;padding:12px;max-width:440px;transition:background .2s}
+.certs{display:grid;gap:12px;max-width:440px}
 .cert:hover{background:rgba(255,255,255,.08)}
 .cert img{border-radius:2px}
 .cert b{display:block;font:700 18px/1.2 "Barlow Condensed";letter-spacing:.06em;text-transform:uppercase}
@@ -372,9 +376,14 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
     <ul><li>Maintained a 3.5 GPA while balancing coursework, practical projects, and extracurricular initiatives.</li>
       <li>Actively engaged in hackathons, IT clubs, personal projects.</li>
       <li>Involved in social works and part of a social club named Rotaract Club of Central Lumbini.</li></ul>
+    <div class="certs">
+    <a class="cert" href="https://www.linkedin.com/in/krishna-nishad/overlay/Certifications/254999718/treasury/" target="_blank" rel="noopener">
+      <img src="/assets/img/certification/nvidia-dl.webp" width="800" height="360" loading="lazy" alt="">
+      <span><b>Getting Started with Deep Learning</b>NVIDIA · Certificate of Competency · Jul 2026</span></a>
     <a class="cert" href="https://coursera.org/share/1e8ab7c2e00713874c0bf5404fede8ff" target="_blank" rel="noopener">
       <img src="/assets/img/certification/stanford.webp" width="800" height="350" loading="lazy" alt="">
       <span><b>Game Theory</b>Stanford University · Coursera certificate</span></a>
+    </div>
   </section>
 
   <section class="sec" id="skills" aria-labelledby="h-skills">
