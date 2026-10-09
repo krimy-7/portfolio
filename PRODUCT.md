@@ -37,7 +37,7 @@ Hybrid of measurable social/brand results (viral campaign +447% engagement, post
 
 Name "Krishna Nishad", handle "krimy". Until now no logo existed beyond favicon.png.
 
-Logo: the 168 kit-number mark (his shirt number), which replaces the retired KN shield crest. White chamfered jersey numerals with a notched 8 waist, a gold #C9A227 outline and a black #14110F drop shadow; the colours are fixed in both kits. Files: assets/img/logo/168.svg, 168-mono.svg, 168-nav.svg, 168-lockup.svg (NISHAD), 168-lockup-full.svg (KRISHNA NISHAD). Nav: 168-nav.svg at exactly 30px followed by NISHAD in Anton, never "168 KN·168". Card corner: 168.svg. Contact: 168-lockup-full.svg. Icons: favicon.ico (16 + 32 px bitmaps, never an SVG favicon) and a 180px opaque crimson apple-touch-icon.
+Logo: the 168 kit-number mark (his shirt number), which replaces the retired KN shield crest. White chamfered jersey numerals with a notched 8 waist, a gold #C9A227 outline and a black #14110F drop shadow; the colours are fixed in both kits. Files: assets/img/logo/168.svg, 168-mono.svg, 168-nav.svg, 168-lockup.svg (NISHAD), 168-lockup-full.svg (KRISHNA NISHAD). Nav: 168-nav.svg at exactly 30px followed by KRIMY in Anton, never "168 KN·168". Card corner: 168.svg. Contact: 168-lockup-full.svg. Icons: favicon.ico (16 + 32 px bitmaps, never an SVG favicon) and a 180px opaque crimson apple-touch-icon.
 
 ## Evidence on Hand
 

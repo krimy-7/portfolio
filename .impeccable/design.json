@@ -473,8 +473,8 @@
       "name": "Matchday Strip",
       "kind": "nav",
       "refersTo": "strip-nav-link",
-      "description": "Deep-tone top bar with trim underline, 168 nav mark (exactly 30px) + NISHAD in Anton, condensed caps links.",
-      "html": "<header class=\"ds-strip\"><a class=\"ds-club\" href=\"#\"><img src=\"assets/img/logo/168-nav.svg\" width=\"37\" height=\"30\" alt=\"\"><b>NISHAD</b></a><nav><a href=\"#\">About</a><a href=\"#\">Experience</a><a href=\"#\">Projects</a><a href=\"#\">Contact</a></nav></header>",
+      "description": "Deep-tone top bar with trim underline, 168 nav mark (exactly 30px) + KRIMY in Anton, condensed caps links.",
+      "html": "<header class=\"ds-strip\"><a class=\"ds-club\" href=\"#\"><img src=\"assets/img/logo/168-nav.svg\" width=\"37\" height=\"30\" alt=\"\"><b>KRIMY</b></a><nav><a href=\"#\">About</a><a href=\"#\">Experience</a><a href=\"#\">Projects</a><a href=\"#\">Contact</a></nav></header>",
       "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-strip{display:flex;align-items:stretch;background:var(--deep);color:var(--ink);border-bottom:3px solid var(--trim);min-height:56px} .ds-club{display:flex;align-items:center;gap:10px;padding:0 22px;color:inherit;text-decoration:none;border-right:1px solid rgba(255,255,255,.18)} .ds-club img{height:30px;width:37px;flex:none} .ds-club b{font:400 22px/1 Anton,sans-serif;letter-spacing:.04em} .ds-strip nav{display:flex} .ds-strip nav a{display:flex;align-items:center;padding:0 18px;color:inherit;text-decoration:none;font:600 15px/1 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;border-right:1px solid rgba(255,255,255,.12)} .ds-strip nav a:hover{background:rgba(255,255,255,.1)} .ds-strip a:focus-visible{outline:3px solid var(--trim);outline-offset:-3px}"
     },
     {

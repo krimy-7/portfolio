@@ -63,7 +63,8 @@
   --shorts:#06122F;--s-ink:#EEF2FA;--s-mute:#9AA8C6;--s-acc:#D7FF3A;--s-rule:rgba(215,255,58,.18);
   --stock:#D7FF3A;--plate:#0B1F4B;--plate-ink:#D7FF3A;--num:#0B1F4B;--num-sh:#7D9A12}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px;background:var(--field);scrollbar-color:var(--trim) var(--deep);accent-color:var(--trim);-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;background:var(--field);scrollbar-color:var(--trim) var(--deep);accent-color:var(--trim);-webkit-text-size-adjust:100%}
+main,main *,footer{scroll-margin-top:72px}   /* clears the sticky strip for anchors and focus; the strip itself gets none, so focusing it never scrolls the page */
 body{font:400 17px/1.55 Barlow,system-ui,sans-serif;color:var(--ink);background:var(--field) var(--mesh)}
 ::selection{background:var(--trim);color:var(--on-trim)}
 a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1.5px}
@@ -213,7 +214,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
  .club{padding:0 14px;flex:none}
  .strip nav{flex:1;min-width:0;position:relative;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x;mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
  .strip nav::-webkit-scrollbar{display:none}
- .strip ul{padding-right:32px}.strip li a{min-height:44px;white-space:nowrap;font-size:14px;scroll-snap-align:start}
+ .strip ul{padding-right:40px}.strip li a{min-height:44px;white-space:nowrap;font-size:14px;scroll-snap-align:start}
  .strip li a:focus-visible{outline-offset:-4px}
  .hero{grid-template-columns:minmax(0,1fr);min-height:0}
  .strip nav{scroll-padding-inline-end:40px}
@@ -475,7 +476,10 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
     if ((a || !cur) && nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left: a ? a.offsetLeft - 8 : 0, behavior: reduce ? "auto" : "smooth" });
   }, { rootMargin: "-72px 0px -50% 0px" });
   document.querySelectorAll(spy).forEach(x => io.observe(x));
-  nav.addEventListener("focusin", e => e.target.scrollIntoView({ block: "nearest", inline: "nearest" }));   // keyboard focus never hides behind the right fade
+  nav.addEventListener("focusin", e => {   // keyboard focus never hides behind the right fade; offsetLeft is a snap point, so mandatory snap keeps it
+    const a = e.target, r = a.getBoundingClientRect(), n = nav.getBoundingClientRect();
+    if (r.right > n.right - 40 || r.left < n.left) nav.scrollTo({ left: a.offsetLeft, behavior: reduce ? "auto" : "smooth" });
+  });
   const q = new URLSearchParams(location.search).get("kit");
   setKit(q || store.get() || "home");
 })();

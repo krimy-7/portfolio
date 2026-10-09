@@ -235,7 +235,7 @@ A real radio fieldset ("Choose the kit") shown only when JS runs. Two labels in 
 - **Crest patch:** the same stitch at 6px radius with the patch lift; holds "Now playing:" in gold and the typed role with a blinking gold caret.
 
 ### Navigation (matchday strip)
-A deep-tone bar, 56px, with a 3px trim underline. Left: `168-nav.svg` at exactly 30px high followed by "KRIMY" in Anton (never "168 KN·168"). Links are Barlow Condensed 600 caps at 15px, 0.12em, separated by hairlines, hover at white 10%. Location sits at the far right. Under 900px it becomes a 3×2 grid of centred cells.
+A deep-tone bar, 56px, with a 3px trim underline. Left: `168-nav.svg` at exactly 30px high followed by "KRIMY" in Anton (never "168 KN·168"). Links are Barlow Condensed 600 caps at 15px, 0.12em, separated by hairlines, hover at white 10%. Location sits at the far right and hides under 1100px. Under 900px the links stay one row that scrolls sideways (hidden scrollbar, scroll-snap, 44px-tall targets at 14px, a 40px fade mask on the right edge).
 
 ### Fixture rows
 The career and projects as a results table on the shorts panel. Header: Anton title with a small right-aligned column caption ("Result", "Stack") over a 3px ink rule. Each row: date in muted condensed caps, club or project title, role in shorts accent, dash-bulleted duties (8×2px accent bars), and an Anton result with a small caption. Dev rows lead with a 16:9 thumbnail in a 3px ink frame that scales to 1.04 on hover.
