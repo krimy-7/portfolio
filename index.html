@@ -50,9 +50,10 @@
 </script>
 <style>
 :root{--gold:#C9A227;--crest:#14110F;--pad:clamp(16px,4.4vw,64px);
-  --mesh:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='9'%3E%3Cg fill='%23000' fill-opacity='.17'%3E%3Ccircle cx='2.5' cy='2.25' r='1.3'/%3E%3Ccircle cx='7.5' cy='6.75' r='1.3'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.06'%3E%3Ccircle cx='3.1' cy='1.6' r='.6'/%3E%3Ccircle cx='8.1' cy='6.1' r='.6'/%3E%3C/g%3E%3C/svg%3E")}
+  --mesh:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='9'%3E%3Cg fill='%23000' fill-opacity='.17'%3E%3Ccircle cx='2.5' cy='2.25' r='1.3'/%3E%3Ccircle cx='7.5' cy='6.75' r='1.3'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.06'%3E%3Ccircle cx='3.1' cy='1.6' r='.6'/%3E%3Ccircle cx='8.1' cy='6.1' r='.6'/%3E%3C/g%3E%3C/svg%3E");
+  --mesh-s:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='9'%3E%3Cg fill='%23000' fill-opacity='.045'%3E%3Ccircle cx='2.5' cy='2.25' r='1.3'/%3E%3Ccircle cx='7.5' cy='6.75' r='1.3'/%3E%3C/g%3E%3C/svg%3E")}
 [data-kit=home]{--field:#C8102E;--deep:#8A0B20;--ink:#fff;--soft:rgba(255,255,255,.88);--trim:#fff;--on-trim:#A00D25;
-  --shorts:#F7F5F2;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14);
+  --shorts:#FFFFFF;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14);
   --stock:#fff;--plate:#14110F;--plate-ink:#fff;--num:#C8102E;--num-sh:#5A0614}
 [data-kit=away]{--field:#0B1F4B;--deep:#06122F;--ink:#fff;--soft:rgba(238,242,250,.86);--trim:#D7FF3A;--on-trim:#0B1F4B;
   --shorts:#06122F;--s-ink:#EEF2FA;--s-mute:#9AA8C6;--s-acc:#D7FF3A;--s-rule:rgba(215,255,58,.18);
@@ -109,7 +110,7 @@ h1 span{display:block}
 /* the card: WebGL canvas mounts in .pitch; #card-static is the DOM card until then (and the no-WebGL fallback) */
 .pitch{position:relative;min-height:600px;display:grid;place-items:center;padding:24px 0 96px}
 .pitch canvas{position:absolute;inset:0;width:100%!important;height:100%!important;cursor:pointer;touch-action:pan-y}
-.scard{position:relative;width:min(380px,74%);aspect-ratio:5/7;transform-style:preserve-3d;transform:rotate(3deg);transition:transform .8s cubic-bezier(.3,1.4,.4,1)}
+.scard{position:relative;width:min(380px,74%);aspect-ratio:5/7;transform-style:preserve-3d;transform:rotate(3deg);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .scard.flipped{transform:rotate(3deg) rotateY(180deg)}
 .gl .scard{visibility:hidden}
 .sface{position:absolute;inset:0;border-radius:4.5% / 3.2%;backface-visibility:hidden;box-shadow:14px 18px 32px rgba(0,0,0,.32)}
@@ -122,7 +123,7 @@ h1 span{display:block}
 .meta b{font:700 clamp(15px,1.7vw,22px)/1 "Barlow Condensed";letter-spacing:.06em;background:var(--field);color:#fff;padding:5px 10px;text-transform:uppercase}
 .meta i{font:400 clamp(28px,3.4vw,42px)/1 Anton;font-style:normal;color:var(--num);text-shadow:3px 3px 0 var(--num-sh)}
 .back{transform:rotateY(180deg);background:var(--shorts);color:var(--s-ink);padding:9%;display:flex;flex-direction:column;gap:6%}
-.back h3{font:400 clamp(26px,3vw,38px)/1 Anton;text-transform:uppercase;background:var(--plate);color:var(--plate-ink);margin:-9% -9% 0;padding:8% 9% 6%;border-radius:4.5% 4.5% 0 0 / 4% 4% 0 0}
+.back .bh{font:400 clamp(26px,3vw,38px)/1 Anton;text-transform:uppercase;background:var(--plate);color:var(--plate-ink);margin:-9% -9% 0;padding:8% 9% 6%;border-radius:4.5% 4.5% 0 0 / 4% 4% 0 0}
 .back dl{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .back dl div{border:2px solid var(--s-ink);padding:8px 10px}
 .back dt{font:700 12px/1.2 "Barlow Condensed";letter-spacing:.16em;text-transform:uppercase;color:var(--s-acc)}
@@ -147,7 +148,7 @@ h1 span{display:block}
 .vitals dd{font:600 18px/1.4 "Barlow Condensed";letter-spacing:.04em}
 .profile h3{font:700 15px/1 "Barlow Condensed";letter-spacing:.2em;text-transform:uppercase;margin:clamp(40px,5vw,64px) 0 16px}
 /* squad record: experience + projects on the "shorts" panel; Away kit puts projects first */
-.record{background:var(--shorts);color:var(--s-ink);border-top:6px solid var(--trim);display:flex;flex-direction:column}
+.record{background:var(--shorts) var(--mesh-s);color:var(--s-ink);border-top:6px solid var(--trim);display:flex;flex-direction:column}
 .record ::selection{background:var(--s-acc);color:var(--shorts)}
 [data-kit=away] #projects{order:-1}
 .record .sec+.sec{padding-top:0}
@@ -155,7 +156,7 @@ h1 span{display:block}
 .tbl h2{display:flex;justify-content:space-between;align-items:end;gap:16px;padding-bottom:16px;border-bottom:3px solid var(--s-ink)}
 .tbl h2 small{font:700 15px/1 "Barlow Condensed";letter-spacing:.2em;color:var(--s-acc)}
 .tbl li{display:grid;grid-template-columns:170px minmax(0,1fr) 210px;align-items:start;gap:24px;padding:28px 0;border-bottom:1px solid var(--s-rule)}
-.tbl time,.tbl .comp{font:600 15px/1.3 "Barlow Condensed";letter-spacing:.1em;text-transform:uppercase;color:var(--s-mute);padding-top:6px}
+.tbl time{font:600 15px/1.3 "Barlow Condensed";letter-spacing:.1em;text-transform:uppercase;color:var(--s-mute);padding-top:6px}
 .tbl h3{font:700 clamp(22px,2.2vw,32px)/1.05 "Barlow Condensed";text-transform:uppercase;letter-spacing:.02em}
 .tbl .role{font:600 16px/1.3 "Barlow Condensed";letter-spacing:.08em;text-transform:uppercase;color:var(--s-acc);margin:6px 0 12px}
 .tbl ul{display:grid;gap:6px;max-width:62ch;color:var(--s-mute);font-size:16px}
@@ -189,9 +190,11 @@ h1 span{display:block}
 .attrs .patches li{font-size:14px;padding:9px 12px}
 /* full time */
 .fulltime{background:var(--deep);border-top:6px solid var(--trim)}
-.mailme{display:inline-block;font:400 clamp(44px,8vw,128px)/.9 Anton;text-transform:uppercase;text-decoration:none;text-shadow:5px 5px 0 rgba(0,0,0,.35);transition:color .2s}
-.mailme:hover{color:var(--trim)}
-.mailme small{display:block;font:600 clamp(18px,2vw,24px)/1.3 "Barlow Condensed";letter-spacing:.08em;text-shadow:none;margin-top:14px;color:var(--soft);text-transform:none}
+.ft{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:clamp(24px,5vw,80px)}
+.fulltime h2.mailme{font:400 clamp(56px,9vw,148px)/.88 Anton;text-transform:uppercase;text-shadow:6px 6px 0 rgba(0,0,0,.35);margin:0}
+.mailme a{text-decoration:none;transition:color .2s}.mailme a:hover{color:var(--trim)}
+.mailto{margin-top:18px;font:600 clamp(18px,2vw,26px)/1.3 "Barlow Condensed";letter-spacing:.06em;color:var(--soft)}
+.ft-crest{width:clamp(120px,22vw,320px);height:auto;filter:drop-shadow(10px 14px 18px rgba(0,0,0,.35));transform:rotate(-6deg)}
 .lines{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px;margin-top:clamp(48px,6vw,80px);border-top:1px solid rgba(255,255,255,.22);padding-top:28px}
 .lines h3{font:700 13px/1 "Barlow Condensed";letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
 .lines p,.lines li{font:600 19px/1.5 "Barlow Condensed";letter-spacing:.04em}
@@ -206,8 +209,9 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
  .pitch{min-height:min(140vw,640px)}
  .kit{align-self:stretch}.kit label{padding:12px 10px;font-size:14px;gap:8px}
  .prof,.duo{grid-template-columns:minmax(0,1fr)}.duo{gap:0}.duo .sec+.sec{padding-top:0}
- .tbl li,.dev li{grid-template-columns:minmax(0,1fr) auto;gap:6px 16px}
- .tbl li>:first-child{grid-column:1/-1}.tbl .res{grid-row:2;grid-column:2}
+ .tbl li{gap:8px}
+ .ft{grid-template-columns:minmax(0,1fr)}.ft-crest{width:110px;grid-row:1}
+ .tbl li,.dev li{grid-template-columns:minmax(0,1fr)}.tbl .res{text-align:left;font-size:34px}.tbl .res small{display:inline;margin-left:10px}
  .dev .thumb{max-width:420px}
 }
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
@@ -272,7 +276,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
         <div class="meta"><b>Brand × Dev</b><i>No. 21</i></div>
       </div>
       <div class="sface back">
-        <h3>Krishna Nishad</h3>
+        <p class="bh">Krishna Nishad</p>
         <dl>
           <div><dt>Engagement</dt><dd>+447%</dd></div>
           <div><dt>Posts</dt><dd>Hundreds</dd></div>
@@ -338,13 +342,13 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
     <h2 id="h-proj">Dev fixtures <small>Stack</small></h2>
     <ol>
       <li><a class="thumb" href="projects/availclouds.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/availclouds.webp" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><p class="comp">Web-App</p><h3><a href="projects/availclouds.html">Availclouds MSP Help Desk</a></h3><p>Frontend UI and live tools for an after-hours help desk for MSPs.</p></div>
+        <div><h3><a href="projects/availclouds.html">Availclouds MSP Help Desk</a></h3><p>Frontend UI and live tools for an after-hours help desk for MSPs.</p></div>
         <strong class="res">Live<small>frontend UI</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_python-opencv-computervision-activity-7294748885757870081-_hRg?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/gan.webp" width="1270" height="600" loading="lazy" alt=""></a>
-        <div><p class="comp">Project</p><h3><a href="https://www.linkedin.com/posts/krishna-nishad_python-opencv-computervision-activity-7294748885757870081-_hRg?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener">Face Detection System</a></h3><p>Face detection built with Python and OpenCV.</p></div>
+        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_python-opencv-computervision-activity-7294748885757870081-_hRg?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener">Face Detection System</a></h3><p>Face detection built with Python and OpenCV.</p></div>
         <strong class="res">CV<small>Python · OpenCV</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_unrealengine5-gamedev-indiegamedev-activity-7290356718528577536-rnU8?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/recommender.webp" width="1270" height="600" loading="lazy" alt=""></a>
-        <div><p class="comp">Game</p><h3><a href="https://www.linkedin.com/posts/krishna-nishad_unrealengine5-gamedev-indiegamedev-activity-7290356718528577536-rnU8?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener">Unreal Engine Game</a></h3><p>A game built in Unreal Engine 5.</p></div>
+        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_unrealengine5-gamedev-indiegamedev-activity-7290356718528577536-rnU8?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener">Unreal Engine Game</a></h3><p>A game built in Unreal Engine 5.</p></div>
         <strong class="res">UE5<small>Unreal Engine 5</small></strong></li>
     </ol>
   </section>
@@ -377,8 +381,11 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 </div>
 
 <section class="sec fulltime" id="contact" aria-labelledby="h-contact">
-  <h2 id="h-contact">Full time</h2>
-  <a class="mailme" href="mailto:krishna@availclouds.com">Write to me<small>krishna@availclouds.com</small></a>
+  <div class="ft">
+    <div><h2 id="h-contact" class="mailme"><a href="mailto:krishna@availclouds.com">Write to me</a></h2>
+      <p class="mailto"><a href="mailto:krishna@availclouds.com">krishna@availclouds.com</a></p></div>
+    <svg class="ft-crest" viewBox="0 0 100 106" aria-hidden="true"><use href="#crest"/></svg>
+  </div>
   <div class="lines">
     <div><h3>Phone</h3><p><a href="tel:+9779864951223">+977-9864951223</a></p></div>
     <div><h3>Address</h3><p>S.N.P.-08, Rupandehi, Nepal</p></div>
@@ -445,7 +452,7 @@ const r=new THREE.WebGLRenderer({antialias:true,alpha:true});   // throws withou
 r.setPixelRatio(Math.min(devicePixelRatio,2));r.domElement.setAttribute("aria-hidden","true");host.prepend(r.domElement);
 const KIT={
  home:{stock:"#FFFFFF",field:"#C8102E",shadow:"#5A0614",ink:"#14110F",plate:"#14110F",plateInk:"#FFFFFF",trim:"#FFFFFF",acc:"#A00D25",num:"#C8102E",numSh:"#5A0614",edge:"#E2D9CF",
-   bk:"#F7F5F2",bkInk:"#14110F",bkAcc:"#A00D25",band:"#C8102E",bandInk:"#FFFFFF",tint:"#F2E1E3"},
+   bk:"#FFFFFF",bkInk:"#14110F",bkAcc:"#A00D25",band:"#C8102E",bandInk:"#FFFFFF",tint:"#F2E1E3"},
  away:{stock:"#D7FF3A",field:"#0B1F4B",shadow:"#020817",ink:"#0B1F4B",plate:"#0B1F4B",plateInk:"#D7FF3A",trim:"#D7FF3A",acc:"#0B1F4B",num:"#0B1F4B",numSh:"#7D9A12",edge:"#9DBF1C",
    bk:"#06122F",bkInk:"#EEF2FA",bkAcc:"#D7FF3A",band:"#D7FF3A",bandInk:"#0B1F4B",tint:"#0F2656"}};
 let kit=root.dataset.kit;
