@@ -1,1 +1,12 @@
 .idea
+.superpowers/
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/build/
+.impeccable/hook.cache.json
+__pycache__/
+.impeccable/questions/
+.impeccable/live/
+.impeccable/critique/
+tools/.tmp/
+*.tmp.png

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="1 -22.55 99 117.27">
+<defs>
+<path id="N" d="M0 0H2.25L5.75 9.4V0H8V16H5.75L2.25 6.6V16H0Z"/>
+<path id="I" d="M0 0H2.25V16H0Z"/>
+<path id="S" d="M1.25 0H8V2.25H2.25V6.875H6.75L8 8.125V14.75L6.75 16H0V13.75H5.75V9.125H1.25L0 7.875V1.25Z"/>
+<path id="H" d="M0 0H2.25V6.875H5.75V0H8V16H5.75V9.125H2.25V16H0Z"/>
+<path id="A" d="M1.25 0H6.75L8 1.25V16H5.75V9.125H2.25V16H0V1.25ZM2.875 2.25H5.125L5.75 2.875V6.25L5.125 6.875H2.875L2.25 6.25V2.875Z"/>
+<path id="D" d="M0 0H6.75L8 1.25V14.75L6.75 16H0ZM2.875 2.25H5.125L5.75 2.875V13.125L5.125 13.75H2.875L2.25 13.125V2.875Z"/>
+<path id="n" d="M11 12H21V84H12V23H6V17ZM29 12H56V21H33V43H51L56 48V79L51 84H29L24 79V17ZM35.5 52H44.5L47 54.5V72.5L44.5 75H35.5L33 72.5V54.5ZM64 12H86L91 17V45L88.5 47.5L91 50V79L86 84H64L59 79V50L61.5 47.5L59 45V17ZM70.5 21H79.5L82 23.5V40.5L79.5 43H70.5L68 40.5V23.5ZM70.5 52H79.5L82 54.5V72.5L79.5 75H70.5L68 72.5V54.5Z" transform="translate(0 1.72)"/>
+<g id="t">
+<use href="#N" transform="rotate(-16.23 48.5 100)translate(43.9 -18.4)scale(1.15)"/>
+<use href="#I" transform="rotate(-10.87 48.5 100)translate(47.21 -18.4)scale(1.15)"/>
+<use href="#S" transform="rotate(-5.52 48.5 100)translate(43.9 -18.4)scale(1.15)"/>
+<use href="#H" transform="rotate(1.73 48.5 100)translate(43.9 -18.4)scale(1.15)"/>
+<use href="#A" transform="rotate(8.98 48.5 100)translate(43.9 -18.4)scale(1.15)"/>
+<use href="#D" transform="rotate(16.23 48.5 100)translate(43.9 -18.4)scale(1.15)"/>
+</g>
+</defs>
+<g fill-rule="evenodd">
+<use href="#n" x="4" y="4" fill="#14110F" stroke="#14110F" stroke-width="4"/>
+<use href="#t" x="2.3" y="2.3" fill="#14110F" stroke="#14110F" stroke-width="2"/>
+<use href="#n" fill="#C9A227" stroke="#C9A227" stroke-width="4"/>
+<use href="#t" fill="#C9A227" stroke="#C9A227" stroke-width="2"/>
+<use href="#n" fill="#fff"/>
+<use href="#t" fill="#fff"/>
+</g>
+</svg>
