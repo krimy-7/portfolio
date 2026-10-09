@@ -35,6 +35,24 @@ body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mes
 .scan{position:absolute;left:300px;top:250px;width:200px;height:3px;background:var(--volt);box-shadow:0 0 0 1px rgba(0,0,0,.2);z-index:2;opacity:.8}
 /* ue5: wireframe terrain under a low sun */
 .land{position:absolute;inset:0}
+/* iot: a sealed route, kitchen to door */
+.route{position:absolute;inset:0}
+.qr{position:absolute;right:120px;top:120px;width:220px;height:220px;background:var(--volt);padding:16px;display:grid;grid-template-columns:repeat(11,1fr);gap:2px;transform:rotate(-5deg);box-shadow:20px 24px 34px rgba(0,0,0,.5)}
+.qr i{background:var(--crest)}.qr i.o{background:transparent}
+.seal{position:absolute;right:112px;top:358px;text-transform:uppercase;transform:rotate(-5deg);background:var(--crimson);font-weight:700;font-size:24px;letter-spacing:.18em;padding:6px 14px}
+.stop{position:absolute;text-transform:uppercase;font-weight:700;font-size:22px;letter-spacing:.18em;color:var(--gold)}
+/* audio: PC to phone over wifi, with the controls that were added */
+.phone{position:absolute;right:120px;top:84px;width:300px;height:560px;border:8px solid var(--gold);border-radius:40px;background:#000;padding:44px 26px;transform:rotate(4deg);box-shadow:24px 28px 40px rgba(0,0,0,.55)}
+.phone .art{height:220px;border-radius:14px;background:var(--crimson);display:grid;place-items:center}
+.phone .art svg{width:110px;height:110px}
+.phone b{display:block;margin-top:22px;font:400 34px/1 Anton;text-transform:uppercase}
+.phone small{display:block;margin-top:6px;font-weight:600;font-size:20px;letter-spacing:.1em;color:#9a948c;text-transform:uppercase}
+.bar{margin-top:26px;height:6px;border-radius:3px;background:#3a3631;position:relative}
+.bar:before{content:"";position:absolute;left:0;top:0;bottom:0;width:58%;border-radius:3px;background:var(--volt)}
+.bar:after{content:"";position:absolute;left:58%;top:50%;width:20px;height:20px;border-radius:50%;background:var(--volt);transform:translate(-50%,-50%)}
+.ctl{display:flex;justify-content:space-between;align-items:center;margin-top:34px;padding:0 6px}
+.ctl svg{width:44px;height:44px;fill:#fff}.ctl .pp{width:74px;height:74px;border-radius:50%;background:var(--volt);display:grid;place-items:center}.ctl .pp svg{fill:var(--crest);width:36px;height:36px}
+.waves{position:absolute;left:560px;top:250px;width:260px;height:260px}
 #ue5 .plate{background:var(--crest);padding:18px 22px 20px;margin-left:-22px;border-radius:4px}
 </style>
 </head>
@@ -53,7 +71,7 @@ body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mes
 </div>
 
 <div class="t" id="face" hidden>
-  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 02 · Project</p>
+  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 04 · Project</p>
   <div class="photo"><img src="/assets/img/krishna_profile.webp" alt="">
     <div class="box"><i></i><i></i><i></i><i></i><span>FACE</span></div><div class="scan"></div></div>
   <div class="plate"><h1>Face<br>Detection</h1><p><b>CV</b>Python · OpenCV</p></div>
@@ -64,13 +82,47 @@ body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mes
     <circle cx="930" cy="300" r="96" fill="#C8102E"/>
     <g id="grid" fill="#14110F" stroke="#C9A227" stroke-width="2.2" stroke-linejoin="round"></g>
   </svg>
-  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 03 · Game</p>
+  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 05 · Game</p>
   <div class="plate"><h1>Unreal<br>Engine 5</h1><p><b>UE5</b>Game build</p></div>
+</div>
+
+<div class="t" id="iot" hidden>
+  <svg class="route" viewBox="0 0 1280 720" aria-hidden="true">
+    <path d="M560 560 C 690 560, 700 380, 820 400 S 960 600, 1150 520" fill="none" stroke="#C9A227" stroke-width="5" stroke-dasharray="14 12"/>
+    <g fill="#14110F" stroke="#C9A227" stroke-width="5"><circle cx="560" cy="560" r="16"/><circle cx="820" cy="400" r="16"/><circle cx="1150" cy="520" r="16"/></g>
+  </svg>
+  <span class="stop" style="left:520px;top:596px">Kitchen</span><span class="stop" style="left:790px;top:436px">Rider</span><span class="stop" style="left:1112px;top:556px">Door</span>
+  <div class="qr" id="qr"></div><span class="seal">Sealed</span>
+  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 02 · IoT</p>
+  <div class="plate"><h1>Pure<br>Route</h1><p><b>IoT</b>Delivery verification</p></div>
+</div>
+
+<div class="t" id="audio" hidden>
+  <svg class="waves" viewBox="0 0 260 260" aria-hidden="true" fill="none" stroke="#C9A227" stroke-width="10" stroke-linecap="round">
+    <path d="M40 150a90 90 0 0 1 180 0" opacity=".45"/><path d="M75 160a55 55 0 0 1 110 0" opacity=".7"/><path d="M110 170a20 20 0 0 1 40 0"/></svg>
+  <div class="phone">
+    <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M3 14h4v6H3zM17 14h4v6h-4z"/></svg></div>
+    <b>Now playing</b><small>PC audio · WiFi</small>
+    <div class="bar"></div>
+    <div class="ctl"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM9.5 12 18 6v12z"/></svg>
+      <span class="pp"><svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></span>
+      <svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg></div>
+  </div>
+  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 03 · Open source</p>
+  <div class="plate"><h1>WiFi<br>Audio</h1><p><b>Mod</b>PC audio to phone</p></div>
 </div>
 
 <script>
 const p = new URLSearchParams(location.search).get("p") || "desk";
 document.getElementById(p).hidden = false;
+if (p === "iot") {   // decorative QR-style seal (not a real code): finder squares + seeded noise
+  const q = document.getElementById("qr"); let s = 7;
+  for (let y = 0; y < 11; y++) for (let x = 0; x < 11; x++) {
+    const f = (a, b) => x >= a && x < a + 3 && y >= b && y < b + 3, finder = f(0, 0) || f(8, 0) || f(0, 8);
+    s = (s * 9301 + 49297) % 233280; const on = finder ? !(x % 8 === 1 && y % 8 === 1) : s / 233280 > .5;
+    q.insertAdjacentHTML("beforeend", `<i class="${on ? "" : "o"}"></i>`);
+  }
+}
 if (p === "ue5") {   // wireframe terrain: rows of a height field projected toward a horizon at y=390
   const g = document.getElementById("grid"), H = 390, rows = 26, cols = 48, pts = [];
   const h = (x, z) => (Math.sin(x * .55 + z * .3) * .5 + Math.sin(x * .21 - z * .47) * .8 + Math.cos(x * .9 + z * .13) * .25) * Math.max(0, 1 - Math.abs(x - 24) / 30);
