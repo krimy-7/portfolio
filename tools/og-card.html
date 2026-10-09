@@ -1,0 +1,61 @@
+<!doctype html>
+<!-- Source for /assets/img/og-card.png (1200x630) and /apple-touch-icon.png (?icon, 180x180 top-left).
+     Render: python -m http.server 8765, then headless Chrome --screenshot (see plan Task 3). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Krishna Nishad share card</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--field:#C8102E;--deep:#8A0B20;--gold:#C9A227;--crest:#14110F;
+  --mesh:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='9'%3E%3Cg fill='%23000' fill-opacity='.17'%3E%3Ccircle cx='2.5' cy='2.25' r='1.3'/%3E%3Ccircle cx='7.5' cy='6.75' r='1.3'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.06'%3E%3Ccircle cx='3.1' cy='1.6' r='.6'/%3E%3Ccircle cx='8.1' cy='6.1' r='.6'/%3E%3C/g%3E%3C/svg%3E")}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;overflow:hidden;background:var(--field) var(--mesh);color:#fff;font-family:"Barlow Condensed",sans-serif}
+.og{position:relative;width:1200px;height:630px;display:grid;grid-template-columns:1fr 400px;align-items:center;padding:0 80px 0 84px;gap:56px}
+.og:before{content:"";position:absolute;left:0;right:0;top:0;height:14px;background:var(--deep);border-bottom:3px solid #fff}
+.crest{width:84px;height:89px;margin-bottom:26px}
+h1{font:400 128px/.86 Anton;text-transform:uppercase;text-shadow:6px 6px 0 var(--deep)}
+.role{margin-top:30px;font-weight:700;font-size:34px;letter-spacing:.08em;text-transform:uppercase}
+.role span{color:var(--gold);margin:0 .3em}
+.url{margin-top:16px;font-weight:600;font-size:24px;letter-spacing:.16em;text-transform:uppercase;opacity:.9}
+/* flat rookie card: same print grammar as the 3D card */
+.card{width:400px;height:540px;background:#fff;border-radius:18px;padding:24px 24px 0;transform:rotate(3deg);box-shadow:12px 14px 0 var(--deep)}
+.win{position:relative;height:358px;border:6px solid var(--gold);overflow:hidden;background:#d9d9d9}
+.win img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+.win .c{position:absolute;left:12px;top:12px;width:56px;height:60px}
+.plate{margin:16px -24px 0;background:#14110F;color:#fff;font:400 54px/1 Anton;text-align:center;padding:12px 0 10px;transform:skewY(-3deg)}
+.meta{display:flex;justify-content:space-between;align-items:end;padding:14px 4px 0}
+.meta b{font:700 26px/1 "Barlow Condensed";letter-spacing:.06em;background:var(--field);color:#fff;padding:6px 12px}
+.meta i{font:400 46px/1 Anton;font-style:normal;color:var(--field);text-shadow:3px 3px 0 #5A0614}
+/* touch icon */
+.icon{display:none;width:180px;height:180px;background:var(--field) var(--mesh);place-items:center}
+.icon svg{width:118px;height:125px}
+.is-icon .og{display:none}.is-icon .icon{display:grid}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="crest">
+  <path d="M50 4 L92 15 V52 C92 77 73 93 50 102 C27 93 8 77 8 52 V15 Z" fill="#14110F" stroke="#C9A227" stroke-width="5"/>
+  <path d="M50 4 L92 15 V52 C92 77 73 93 50 102 C27 93 8 77 8 52 V15 Z" transform="translate(50 53) scale(.8) translate(-50 -53)" fill="none" stroke="#C9A227" stroke-width="1.6" stroke-dasharray="3 2.4"/>
+  <path d="M24 50 L38 35 L46 43 L60 25 L76 50" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><path d="M60 25 V12 M54 18 L60 12 L66 18" fill="none" stroke="#C9A227" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="50" y="84" text-anchor="middle" font-family="Anton" font-size="27" fill="#C9A227" letter-spacing="1">KN</text>
+</g></defs></svg>
+
+<div class="og">
+  <div>
+    <svg class="crest" viewBox="0 0 100 106" aria-hidden="true"><use href="#crest"/></svg>
+    <h1>Krishna<br>Nishad</h1>
+    <p class="role">Brand Identity Manager<span>·</span>Developer</p>
+    <p class="url">krishnanishad.com.np · Rupandehi, Nepal</p>
+  </div>
+  <div class="card">
+    <div class="win"><img src="/assets/img/krishna_profile.webp" alt="">
+      <svg class="c" viewBox="0 0 100 106" aria-hidden="true"><use href="#crest"/></svg></div>
+    <p class="plate">KRISHNA NISHAD</p>
+    <div class="meta"><b>BRAND × DEV</b><i>NO. 21</i></div>
+  </div>
+</div>
+<div class="icon"><svg viewBox="0 0 100 106" aria-hidden="true"><use href="#crest"/></svg></div>
+<script>if (location.search.includes("icon")) document.body.classList.add("is-icon")</script>
+</body>
+</html>
