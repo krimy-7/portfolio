@@ -89,7 +89,7 @@ ul,ol{list-style:none}
 .caret{display:inline-block;width:2px;height:1em;background:var(--gold);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 h1{font:400 clamp(64px,9.2vw,146px)/.86 Anton;text-transform:uppercase;letter-spacing:.005em;text-shadow:5px 5px 0 var(--deep)}
-h1>span{display:block}
+h1 span{display:block}
 .lede{max-width:30em;font-size:18px;color:var(--soft)}
 .lede strong{font-weight:600;color:var(--ink)}
 .kitw{border:0;display:none;flex-direction:column;gap:10px}
@@ -137,21 +137,6 @@ h1>span{display:block}
 /* section heads shared */
 .sec{padding:clamp(72px,9vw,128px) var(--pad)}
 .sec h2{font:400 clamp(48px,6vw,92px)/.9 Anton;text-transform:uppercase;margin-bottom:clamp(28px,3.5vw,48px)}
-/* block-type headings (built by script from the heading text; extrusion tinted from the ground they sit on) */
-.blk{--m:var(--deep)}
-[data-kit=home] .record .blk{--m:var(--field)}
-.fulltime .blk{--m:#000}
-.blk.built svg{display:inline-block;height:auto;max-width:100%;overflow:visible;vertical-align:-.02em;margin-right:.3em}   /* width set in em by the script; never wider than its column */
-.blk.built svg:last-child{margin-right:0}
-h1 .blk.built svg{display:block;margin:0 0 .13em}
-h1:has(.built),.sec h2:has(.built){text-shadow:none}
-.blk .f{fill:currentColor}
-.blk .r{fill:color-mix(in srgb,currentColor 55%,var(--m))}
-.blk .b{fill:color-mix(in srgb,currentColor 30%,var(--m))}
-.blk .gold{color:var(--gold)}
-.blk.built:not(.in) .c{opacity:0}
-.blk.in .c{animation:snap .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*18ms)}
-@keyframes snap{from{opacity:0;transform:translate(.6px,-1.6px)}}
 .patches{display:flex;flex-wrap:wrap;gap:10px}
 .patches li{background:var(--crest);color:#fff;border-radius:5px;padding:10px 14px;outline:1.5px dashed var(--gold);outline-offset:-5px;font:600 15px/1.1 "Barlow Condensed";letter-spacing:.08em;text-transform:uppercase}
 /* player profile */
@@ -267,7 +252,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 <section class="hero" aria-labelledby="name">
   <div class="copy">
     <p class="patch"><span class="l">Now playing:</span><span id="role">Brand Identity Manager</span><span class="caret" aria-hidden="true"></span></p>
-    <h1 id="name"><span class="blk" data-gold>Krishna</span> <span class="blk">Nishad</span></h1>
+    <h1 id="name"><span>Krishna</span> <span>Nishad</span></h1>
     <p class="lede"><strong>Social Identity Manager | Dev at Availclouds Hosting Services.</strong>
       <span class="h-only">Home kit: brand identity, social campaigns, packaging and video, the work that took engagement up 447%.</span>
       <span class="a-only">Away kit: frontend UI and live tools, Python and OpenCV, Unreal Engine 5, Telegram bots.</span></p>
@@ -308,7 +293,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 </section>
 
 <section class="sec profile" id="about" aria-labelledby="h-about">
-  <h2 id="h-about"><span class="blk">Player profile</span></h2>
+  <h2 id="h-about">Player profile</h2>
   <div class="prof">
     <p class="bio">As Social Identity Manager and Dev at Availclouds Hosting Services, I oversee and strategically approach managing and presenting the company’s online identity on social networking sites. Created hundreds of posts with some getting over millions of engagements. Led a viral marketing initiative that increased engagement by 447%, driving substantial traffic.</p>
     <dl class="vitals">
@@ -327,7 +312,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 
 <div class="record">
   <section class="sec tbl career" id="experience" aria-labelledby="h-exp">
-    <h2 id="h-exp"><span class="blk">Club career</span> <small>Result</small></h2>
+    <h2 id="h-exp">Club career <small>Result</small></h2>
     <ol>
       <li><time>Oct 2022 – Present</time>
         <div><h3>Availclouds Hosting Services</h3><p class="role">Social Identity Manager | Dev</p>
@@ -356,7 +341,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
   </section>
 
   <section class="sec tbl dev" id="projects" aria-labelledby="h-proj">
-    <h2 id="h-proj"><span class="blk">Dev fixtures</span> <small>Stack</small></h2>
+    <h2 id="h-proj">Dev fixtures <small>Stack</small></h2>
     <ol>
       <li><a class="thumb" href="projects/availclouds.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-desk.webp" width="1280" height="720" loading="lazy" alt=""></a>
         <div><h3><a href="projects/availclouds.html">Availclouds MSP Help Desk</a></h3><p>Frontend UI and live tools for an after-hours help desk for MSPs.</p></div>
@@ -373,7 +358,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 
 <div class="duo">
   <section class="sec school" id="education" aria-labelledby="h-edu">
-    <h2 id="h-edu"><span class="blk">Academy</span></h2>
+    <h2 id="h-edu">Academy</h2>
     <h3>Tribhuvan University</h3>
     <p class="when">2022 – Present · Bhairahawa Multiple Campus</p>
     <p class="deg">BSc. Computer Science &amp; Information Technology</p>
@@ -386,7 +371,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
   </section>
 
   <section class="sec" id="skills" aria-labelledby="h-skills">
-    <h2 id="h-skills"><span class="blk">Squad attributes</span></h2>
+    <h2 id="h-skills">Squad attributes</h2>
     <div class="attrs">
       <div><h3>Languages &amp; Databases</h3><ul class="patches"><li>Python</li><li>C Programming</li><li>MySQL</li><li>HTML5/CSS3</li></ul></div>
       <div><h3>Development &amp; Frameworks</h3><ul class="patches"><li>Android App Development</li><li>Unreal Engine 5</li><li>Stable Diffusion</li><li>AI Chatbot Development</li><li>Telegram Bot</li><li>Cloud Services</li></ul></div>
@@ -399,7 +384,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 
 <section class="sec fulltime" id="contact" aria-labelledby="h-contact">
   <div class="ft">
-    <div><h2 id="h-contact" class="mailme"><a href="mailto:krishna@availclouds.com"><span class="blk">Write to me</span></a></h2>
+    <div><h2 id="h-contact" class="mailme"><a href="mailto:krishna@availclouds.com">Write to me</a></h2>
       <p class="mailto"><a href="mailto:krishna@availclouds.com">krishna@availclouds.com</a></p></div>
     <svg class="ft-crest" viewBox="0 0 100 106" aria-hidden="true"><use href="#crest"/></svg>
   </div>
@@ -416,51 +401,6 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 </main>
 
 <footer>© 2026 Krishna Nishad · Rupandehi, Nepal</footer>
-<script>
-/* block-type headings: each .blk is redrawn as 5x7 extruded cubes (inline SVG, sized in em so spacing stays the font's).
-   The real text stays in the heading (visually hidden) for screen readers and search. */
-(() => {
-  const G = {A:"01110100011000111111100011000110001",B:"11110100011000111110100011000111110",C:"01111100001000010000100001000001111",
-    D:"11110100011000110001100011000111110",E:"11111100001000011110100001000011111",F:"11111100001000011110100001000010000",
-    G:"01111100001000010011100011000101111",H:"10001100011000111111100011000110001",I:"11111001000010000100001000010011111",
-    J:"00111000100001000010000101001001100",K:"10001100101010011000101001001010001",L:"10000100001000010000100001000011111",
-    M:"10001110111010110101100011000110001",N:"10001110011010110011100011000110001",O:"01110100011000110001100011000101110",
-    P:"11110100011000111110100001000010000",Q:"01110100011000110001101011001001101",R:"11110100011000111110101001001010001",
-    S:"01111100001000001110000010000111110",T:"11111001000010000100001000010000100",U:"10001100011000110001100011000101110",
-    V:"10001100011000110001100010101000100",W:"10001100011000110101101011101110001",X:"10001100010101000100010101000110001",
-    Y:"10001100010101000100001000010000100",Z:"11111000010001000100010001000011111",
-    0:"01110100011001110101110011000101110",1:"00100011000010000100001000010001110",2:"01110100010000100010001000100011111",
-    3:"11110000010000101110000010000111110",4:"00010001100101010010111110001000010",5:"11111100001111000001000011000101110",
-    6:"01110100001000011110100011000101110",7:"11111000010001000100010000100001000",8:"01110100011000101110100011000101110",
-    9:"01110100011000101111000010000101110","+":"00000001000010011111001000010000000","%":"11001110100001000100010000101110011",
-    "-":"00000000000000011111000000000000000",".":"00000000000000000000000000110001100"};
-  const S = .9, E = .26, reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const n = v => +v.toFixed(2);
-  function word(w, goldFirst) {
-    const letters = [...w].filter(c => G[c]), cols = letters.length * 6 - 1;
-    let out = "";
-    letters.forEach((c, li) => {
-      let cells = "";
-      for (let y = 0; y < 7; y++) for (let x = 0; x < 5; x++) if (G[c][y * 5 + x] === "1") {
-        const X = li * 6 + x, Y = y;
-        cells += `<g class="c" style="--i:${X}"><path class="r" d="M${n(X + S)} ${Y}l${E} ${E}v${S}l-${E} -${E}z"/>` +
-          `<path class="b" d="M${X} ${n(Y + S)}h${S}l${E} ${E}h-${S}z"/><rect class="f" x="${X}" y="${Y}" width="${S}" height="${S}"/></g>`;
-      }
-      out += `<g${goldFirst && li === 0 ? ' class="gold"' : ""}>${cells}</g>`;
-    });
-    return `<svg viewBox="0 0 ${n(cols + E)} ${n(7 + E)}" style="width:${n((cols + E) / (7 + E) * .8)}em" aria-hidden="true" focusable="false">${out}</svg>`;
-  }
-  const io = "IntersectionObserver" in window && !reduce
-    ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target) } }), { threshold: .3 })
-    : null;
-  document.querySelectorAll(".blk").forEach(el => {
-    const text = el.textContent.trim(), gold = el.hasAttribute("data-gold");
-    el.innerHTML = `<span class="sr">${text}</span>` + text.toUpperCase().split(/\s+/).map(w => word(w, gold)).join("");
-    el.classList.add("built");
-    if (io) io.observe(el); else el.classList.add("in");
-  });
-})();
-</script>
 <script>
 /* kit switch + typed roles (works without WebGL; the 3D card listens for "kitchange") */
 (() => {
