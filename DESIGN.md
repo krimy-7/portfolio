@@ -235,7 +235,7 @@ A real radio fieldset ("Choose the kit") shown only when JS runs. Two labels in 
 - **Crest patch:** the same stitch at 6px radius with the patch lift; holds "Now playing:" in gold and the typed role with a blinking gold caret.
 
 ### Navigation (matchday strip)
-A deep-tone bar, 56px, with a 3px trim underline. Left: `168-nav.svg` at exactly 30px high followed by "NISHAD" in Anton (never "168 KN·168"). Links are Barlow Condensed 600 caps at 15px, 0.12em, separated by hairlines, hover at white 10%. Location sits at the far right. Under 900px it becomes a 3×2 grid of centred cells.
+A deep-tone bar, 56px, with a 3px trim underline. Left: `168-nav.svg` at exactly 30px high followed by "KRIMY" in Anton (never "168 KN·168"). Links are Barlow Condensed 600 caps at 15px, 0.12em, separated by hairlines, hover at white 10%. Location sits at the far right. Under 900px it becomes a 3×2 grid of centred cells.
 
 ### Fixture rows
 The career and projects as a results table on the shorts panel. Header: Anton title with a small right-aligned column caption ("Result", "Stack") over a 3px ink rule. Each row: date in muted condensed caps, club or project title, role in shorts accent, dash-bulleted duties (8×2px accent bars), and an Anton result with a small caption. Dev rows lead with a 16:9 thumbnail in a 3px ink frame that scales to 1.04 on hover.
@@ -247,7 +247,7 @@ A 5:7 trading card. Front: kit stock, gold-framed natural-colour photo with holo
 The 168 kit-number mark: the shirt number set as white chamfered jersey numerals (squared block figures with clipped corners and a waist notch on the 8) with a gold (#C9A227) outline and a flat black (#14110F) drop shadow offset down-right, printed the way a number is pressed on a shirt back. It replaces the old KN shield crest; there is no shield, peak, arrow or KN monogram any more.
 
 - **Files** (assets/img/logo/): `168.svg` (full-colour mark), `168-mono.svg` (one colour, currentColor), `168-nav.svg` (pixel-fitted 37x30 for exactly height:30px; never scale it), `168-lockup.svg` (arched NISHAD over 168), `168-lockup-full.svg` (arched KRISHNA NISHAD over 168).
-- **Nav:** `168-nav.svg` at exactly 30px high, followed by NISHAD in Anton. Never "168 KN·168" or any KN wordmark.
+- **Nav:** `168-nav.svg` at exactly 30px high, followed by KRIMY in Anton. Never "168 KN·168" or any KN wordmark.
 - **Card corner:** `168.svg`.
 - **Contact band:** `168-lockup-full.svg`, large, with the mark drop.
 - **Icons:** `favicon.ico` holds 16 and 32 px bitmaps rendered from the pixel-fitted favicon SVGs; never link an SVG favicon. `apple-touch-icon.png` is 180px on an opaque crimson (#C8102E) ground.
