@@ -11,6 +11,12 @@
       ".impeccable/mocks/decision/samples/kit-card.html",
       ".impeccable/mocks/decision/samples/model-pick.html"
     ],
-    "ignoreValues": []
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "condensed",
+        "createdAt": "2026-10-09T08:26:10.805Z"
+      }
+    ]
   }
 }
