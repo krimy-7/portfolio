@@ -59,7 +59,7 @@
   --shorts:#06122F;--s-ink:#EEF2FA;--s-mute:#9AA8C6;--s-acc:#D7FF3A;--s-rule:rgba(215,255,58,.18);
   --stock:#D7FF3A;--plate:#0B1F4B;--plate-ink:#D7FF3A;--num:#0B1F4B;--num-sh:#7D9A12}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;background:var(--field);scrollbar-color:var(--trim) var(--deep);accent-color:var(--trim);-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;scroll-padding-top:72px;background:var(--field);scrollbar-color:var(--trim) var(--deep);accent-color:var(--trim);-webkit-text-size-adjust:100%}
 body{font:400 17px/1.55 Barlow,system-ui,sans-serif;color:var(--ink);background:var(--field) var(--mesh)}
 ::selection{background:var(--trim);color:var(--on-trim)}
 a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1.5px}
@@ -73,7 +73,7 @@ ul,ol{list-style:none}
 .skip:focus{top:12px}
 [data-kit=home] .a-only,[data-kit=away] .h-only{display:none}
 /* matchday strip */
-.strip{display:flex;align-items:stretch;background:var(--deep);border-bottom:3px solid var(--trim);min-height:56px;position:relative;z-index:3}
+.strip{display:flex;align-items:stretch;background:var(--deep);border-bottom:3px solid var(--trim);min-height:56px;position:sticky;top:0;z-index:10}
 .club{display:flex;align-items:center;gap:10px;padding:0 22px;text-decoration:none;border-right:1px solid rgba(255,255,255,.18)}
 .club svg{width:30px;height:32px}
 .club b{font:400 22px/1 Anton;letter-spacing:.04em}
@@ -203,6 +203,7 @@ h1 span{display:block}
 footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding:22px var(--pad);font:600 13px/1.4 "Barlow Condensed";letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
 @media (max-width:1100px){.ko{display:none}.strip li a{padding:0 12px}.dev li{grid-template-columns:minmax(160px,220px) minmax(0,1fr) 120px}}
 @media (max-width:900px){
+ html{scroll-padding-top:160px}
  .strip{flex-wrap:wrap}.club{padding:12px 16px;border:0}
  .strip nav{width:100%;border-top:1px solid rgba(255,255,255,.15)}
  .strip ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.strip li a{width:100%}.strip li a{min-height:46px;justify-content:center;font-size:14px}
