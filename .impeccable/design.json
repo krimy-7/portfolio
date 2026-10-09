@@ -1,0 +1,530 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-09T08:17:21+00:00",
+  "title": "Design System: Krishna Nishad",
+  "extensions": {
+    "colorMeta": {
+      "gold-thread": {
+        "role": "tertiary",
+        "displayName": "Gold Thread",
+        "canonical": "#C9A227",
+        "oklch": "oklch(72.8% 0.138 89.7)",
+        "tonalRamp": [
+          "#120A00",
+          "#302300",
+          "#523F01",
+          "#775E05",
+          "#9E7E19",
+          "#C7A024",
+          "#ECC452",
+          "#FEEDC1"
+        ]
+      },
+      "crest-black": {
+        "role": "neutral",
+        "displayName": "Crest Black",
+        "canonical": "#14110F",
+        "oklch": "oklch(18.1% 0.006 55.9)",
+        "tonalRamp": [
+          "#0D0A09",
+          "#282422",
+          "#45413F",
+          "#64605E",
+          "#85817F",
+          "#A8A4A1",
+          "#CDC8C5",
+          "#F2EDEA"
+        ]
+      },
+      "kit-white": {
+        "role": "secondary",
+        "displayName": "Kit White",
+        "canonical": "#FFFFFF",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0B0B0B",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#A5A5A5",
+          "#C9C9C9",
+          "#EEEEEE"
+        ]
+      },
+      "home-crimson": {
+        "role": "primary",
+        "displayName": "Home Crimson",
+        "canonical": "#C8102E",
+        "oklch": "oklch(53.0% 0.207 22.3)",
+        "tonalRamp": [
+          "#210001",
+          "#4D000A",
+          "#7F0519",
+          "#B51129",
+          "#E43845",
+          "#FA7675",
+          "#FFB2AE",
+          "#FEE9E7"
+        ]
+      },
+      "home-deep": {
+        "role": "neutral",
+        "displayName": "Home Deep",
+        "canonical": "#8A0B20",
+        "oklch": "oklch(40.5% 0.156 21.3)",
+        "tonalRamp": [
+          "#220001",
+          "#4B020D",
+          "#7D0C1D",
+          "#A82F38",
+          "#CF5458",
+          "#F77879",
+          "#FDB3B0",
+          "#FFE8E7"
+        ]
+      },
+      "home-accent": {
+        "role": "neutral",
+        "displayName": "Home Accent",
+        "canonical": "#A00D25",
+        "oklch": "oklch(45.1% 0.175 21.8)",
+        "tonalRamp": [
+          "#210001",
+          "#4C000B",
+          "#7E061B",
+          "#AF2331",
+          "#D74C51",
+          "#F97777",
+          "#FEB2AF",
+          "#FEE9E7"
+        ]
+      },
+      "home-number-shadow": {
+        "role": "neutral",
+        "displayName": "Home Number Shadow",
+        "canonical": "#5A0614",
+        "oklch": "oklch(30.1% 0.114 20.1)",
+        "tonalRamp": [
+          "#220001",
+          "#4C010E",
+          "#722127",
+          "#974345",
+          "#BD6465",
+          "#E48787",
+          "#FEB2B1",
+          "#FEE9E8"
+        ]
+      },
+      "home-shorts-ink": {
+        "role": "neutral",
+        "displayName": "Home Shorts Ink",
+        "canonical": "#22090E",
+        "oklch": "oklch(18.4% 0.043 9.9)",
+        "tonalRamp": [
+          "#190307",
+          "#371C20",
+          "#56383D",
+          "#78575C",
+          "#9A787C",
+          "#BE9A9F",
+          "#E4BEC3",
+          "#FEE8EB"
+        ]
+      },
+      "home-shorts-mute": {
+        "role": "neutral",
+        "displayName": "Home Shorts Mute",
+        "canonical": "#6B4A50",
+        "oklch": "oklch(44.7% 0.046 7.1)",
+        "tonalRamp": [
+          "#1A0308",
+          "#381B21",
+          "#57383E",
+          "#78575D",
+          "#9B777D",
+          "#BF9AA0",
+          "#E5BDC4",
+          "#FFE8EB"
+        ]
+      },
+      "away-navy": {
+        "role": "primary",
+        "displayName": "Away Navy",
+        "canonical": "#0B1F4B",
+        "oklch": "oklch(25.4% 0.086 263.2)",
+        "tonalRamp": [
+          "#00042E",
+          "#0D224E",
+          "#29406F",
+          "#476092",
+          "#6782B6",
+          "#89A5DC",
+          "#AECAFE",
+          "#E7EFFE"
+        ]
+      },
+      "away-deep": {
+        "role": "neutral",
+        "displayName": "Away Deep",
+        "canonical": "#06122F",
+        "oklch": "oklch(19.2% 0.061 263.9)",
+        "tonalRamp": [
+          "#010824",
+          "#152442",
+          "#314163",
+          "#4F6184",
+          "#7082A8",
+          "#92A5CC",
+          "#B5CAF2",
+          "#E7EFFE"
+        ]
+      },
+      "away-volt": {
+        "role": "secondary",
+        "displayName": "Volt",
+        "canonical": "#D7FF3A",
+        "oklch": "oklch(94.0% 0.210 121.0)",
+        "tonalRamp": [
+          "#080E00",
+          "#212900",
+          "#3B4900",
+          "#586A03",
+          "#768E16",
+          "#96B321",
+          "#B7DB22",
+          "#DEFF7A"
+        ]
+      },
+      "away-number-shadow": {
+        "role": "neutral",
+        "displayName": "Away Number Shadow",
+        "canonical": "#7D9A12",
+        "oklch": "oklch(64.1% 0.151 122.3)",
+        "tonalRamp": [
+          "#080E00",
+          "#202A00",
+          "#3A4901",
+          "#566B05",
+          "#748F19",
+          "#95B338",
+          "#B8D961",
+          "#DDFF87"
+        ]
+      },
+      "away-shorts-ink": {
+        "role": "neutral",
+        "displayName": "Away Shorts Ink",
+        "canonical": "#EEF2FA",
+        "oklch": "oklch(96.0% 0.012 264.5)",
+        "tonalRamp": [
+          "#090B10",
+          "#22252B",
+          "#3F4248",
+          "#5E6168",
+          "#7F8289",
+          "#A1A5AD",
+          "#C5C9D1",
+          "#EBEFF7"
+        ]
+      },
+      "away-shorts-mute": {
+        "role": "neutral",
+        "displayName": "Away Shorts Mute",
+        "canonical": "#9AA8C6",
+        "oklch": "oklch(73.1% 0.046 265.5)",
+        "tonalRamp": [
+          "#04091E",
+          "#1A243C",
+          "#36425B",
+          "#55617C",
+          "#75829F",
+          "#97A5C3",
+          "#BBC9E8",
+          "#E7EFFE"
+        ]
+      }
+    },
+    "kits": {
+      "attribute": "html[data-kit]",
+      "values": [
+        "home",
+        "away"
+      ],
+      "persistence": "localStorage key 'kit'; ?kit= query overrides on load; default home",
+      "themeColor": {
+        "home": "#C8102E",
+        "away": "#0B1F4B"
+      },
+      "roleVariables": {
+        "home": {
+          "--field": "#C8102E",
+          "--deep": "#8A0B20",
+          "--ink": "#fff",
+          "--soft": "rgba(255,255,255,.88)",
+          "--trim": "#fff",
+          "--on-trim": "#A00D25",
+          "--shorts": "#FFFFFF",
+          "--s-ink": "#22090E",
+          "--s-mute": "#6B4A50",
+          "--s-acc": "#A00D25",
+          "--s-rule": "rgba(34,9,14,.14)",
+          "--stock": "#fff",
+          "--plate": "#14110F",
+          "--plate-ink": "#fff",
+          "--num": "#C8102E",
+          "--num-sh": "#5A0614"
+        },
+        "away": {
+          "--field": "#0B1F4B",
+          "--deep": "#06122F",
+          "--ink": "#fff",
+          "--soft": "rgba(238,242,250,.86)",
+          "--trim": "#D7FF3A",
+          "--on-trim": "#0B1F4B",
+          "--shorts": "#06122F",
+          "--s-ink": "#EEF2FA",
+          "--s-mute": "#9AA8C6",
+          "--s-acc": "#D7FF3A",
+          "--s-rule": "rgba(215,255,58,.18)",
+          "--stock": "#D7FF3A",
+          "--plate": "#0B1F4B",
+          "--plate-ink": "#D7FF3A",
+          "--num": "#0B1F4B",
+          "--num-sh": "#7D9A12"
+        }
+      },
+      "shared": {
+        "--gold": "#C9A227",
+        "--crest": "#14110F"
+      },
+      "textures": {
+        "--mesh": "10x9 SVG knit dots, black 17% plus white 6% highlight, on the field",
+        "--mesh-s": "same knit at black 4.5%, on the shorts panel"
+      },
+      "event": "kitchange (detail: kit, animate) on document"
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name, one word per line, print shadow in --deep; contact heading at clamp(56px,9vw,148px)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles in football terms."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Fixture results in the shorts accent."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Club and project names in fixture rows."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, buttons, patches, dates, roles; always uppercase."
+      },
+      "label-small": {
+        "displayName": "Small Label",
+        "purpose": "Vitals, attribute groups, contact lines, footer; 12-15px, 0.16-0.2em."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Reading text, 52-62ch in rows."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Hero lede, max 30em, --soft with --ink strong."
+      }
+    },
+    "shadows": [
+      {
+        "name": "print-display",
+        "value": "text-shadow: 5px 5px 0 var(--deep)",
+        "purpose": "Hero name; flat printed-lettering shadow."
+      },
+      {
+        "name": "print-numeral",
+        "value": "text-shadow: 3px 3px 0 var(--num-sh)",
+        "purpose": "Card number."
+      },
+      {
+        "name": "print-contact",
+        "value": "text-shadow: 6px 6px 0 rgba(0,0,0,.35)",
+        "purpose": "Contact heading on the deep band."
+      },
+      {
+        "name": "card-lift",
+        "value": "box-shadow: 14px 18px 32px rgba(0,0,0,.32)",
+        "purpose": "DOM rookie card faces."
+      },
+      {
+        "name": "patch-lift",
+        "value": "box-shadow: 0 3px 6px rgba(0,0,0,.25)",
+        "purpose": "Now-playing crest patch."
+      },
+      {
+        "name": "crest-drop",
+        "value": "filter: drop-shadow(10px 14px 18px rgba(0,0,0,.35))",
+        "purpose": "Large contact crest."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-kit",
+        "value": "cubic-bezier(.2,.8,.2,1)",
+        "purpose": "Button lift (.2s), thumbnail zoom (.5s), DOM card flip (.8s)."
+      },
+      {
+        "name": "kit-ripple",
+        "value": "560ms cubic-bezier(.3,.7,.2,1)",
+        "purpose": "View-transition circular clip-path reveal of the new kit from the pressed label."
+      },
+      {
+        "name": "card-spring",
+        "value": "stiffness .06, damping .84 per frame",
+        "purpose": "WebGL card tilt, flip, and full turn on kit change; repaint when edge-on."
+      },
+      {
+        "name": "type-role",
+        "value": "delete 35ms/char, type 70ms/char, hold 2600ms",
+        "purpose": "Typed role in the crest patch."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transitions and animations off",
+        "purpose": "prefers-reduced-motion: no ripple, no springs, instant role swap."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "1100px"
+      },
+      {
+        "name": "single-column",
+        "value": "900px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Filled ink button with field-coloured text; the main call to action (See the work).",
+      "html": "<a class=\"ds-btn ds-btn-p\" href=\"#\">See the work <svg viewBox=\"0 0 24 24\" width=\"18\" height=\"18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></a>",
+      "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:13px 24px;font:700 17px/1 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:2px solid var(--ink);border-radius:2px;transition:transform .2s cubic-bezier(.2,.8,.2,1)} .ds-btn-p{background:var(--ink);color:var(--field)} .ds-btn:hover{transform:translate(-1px,-1px)} .ds-btn:focus-visible{outline:3px solid var(--trim);outline-offset:3px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined ink button on the field (Write to me).",
+      "html": "<div class=\"ds-field\"><a class=\"ds-btn\" href=\"#\">Write to me</a></div>",
+      "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-field{background:var(--field);padding:24px} .ds-btn{display:inline-flex;align-items:center;min-height:48px;padding:13px 24px;font:700 17px/1 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);border:2px solid var(--ink);border-radius:2px;transition:transform .2s cubic-bezier(.2,.8,.2,1)} .ds-btn:hover{transform:translate(-1px,-1px)} .ds-btn:focus-visible{outline:3px solid var(--trim);outline-offset:3px}"
+    },
+    {
+      "name": "Kit Switch",
+      "kind": "input",
+      "refersTo": "kit-switch-option",
+      "description": "Home/Away radio pair; the checked label fills with trim. Drives data-kit on <html>.",
+      "html": "<div class=\"ds-field\"><fieldset class=\"ds-kitw\"><legend>Choose the kit</legend><div class=\"ds-kit\"><label><input type=\"radio\" name=\"dskit\" checked><span class=\"ds-sw ds-h\"></span><span><b>Home</b> · Brand &amp; Social</span></label><label><input type=\"radio\" name=\"dskit\"><span class=\"ds-sw ds-a\"></span><span><b>Away</b> · Developer</span></label></div></fieldset></div>",
+      "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-field{background:var(--field);color:var(--ink);padding:24px} .ds-kitw{border:0;margin:0;padding:0} .ds-kitw legend{font:600 12px/1 'Barlow Condensed',sans-serif;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px} .ds-kit{display:inline-grid;grid-template-columns:1fr 1fr;border:2px solid var(--trim);border-radius:4px;overflow:hidden} .ds-kit label{cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 18px;min-height:44px;font:600 16px/1.1 'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase} .ds-kit label b{font-weight:700;letter-spacing:.1em} .ds-kit input{position:absolute;opacity:0} .ds-kit label:has(:checked){background:var(--trim);color:var(--on-trim)} .ds-kit label:has(:focus-visible){outline:3px solid var(--gold);outline-offset:-5px} .ds-sw{width:22px;height:22px;border-radius:3px;flex:none;box-shadow:0 0 0 1.5px rgba(0,0,0,.25)} .ds-h{background:linear-gradient(135deg,#C8102E 55%,#fff 55%)} .ds-a{background:linear-gradient(135deg,#0B1F4B 55%,#D7FF3A 55%)}"
+    },
+    {
+      "name": "Stitched Patch",
+      "kind": "chip",
+      "refersTo": "stitched-patch",
+      "description": "Embroidered skill/interest patch: crest black with a gold dashed stitch.",
+      "html": "<ul class=\"ds-patches\"><li>Python</li><li>Unreal Engine 5</li><li>Brand Design</li></ul>",
+      "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-patches{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0} .ds-patches li{background:var(--crest);color:#fff;border-radius:5px;padding:10px 14px;outline:1.5px dashed var(--gold);outline-offset:-5px;font:600 15px/1.1 'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase}"
+    },
+    {
+      "name": "Crest Patch",
+      "kind": "custom",
+      "refersTo": "crest-patch",
+      "description": "'Now playing' patch holding the typed role with a gold caret.",
+      "html": "<p class=\"ds-patch\"><span class=\"ds-l\">Now playing:</span>Brand Identity Manager<span class=\"ds-caret\"></span></p>",
+      "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-patch{display:inline-flex;align-items:center;margin:0;background:var(--crest);color:#fff;border-radius:6px;padding:9px 16px;outline:1.5px dashed var(--gold);outline-offset:-5px;font:600 15px/1 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 3px 6px rgba(0,0,0,.25)} .ds-l{color:var(--gold);margin-right:.5em} .ds-caret{display:inline-block;width:2px;height:1em;background:var(--gold);margin-left:3px;animation:ds-blink 1s steps(1) infinite} @keyframes ds-blink{50%{opacity:0}} @media (prefers-reduced-motion:reduce){.ds-caret{animation:none}}"
+    },
+    {
+      "name": "Matchday Strip",
+      "kind": "nav",
+      "refersTo": "strip-nav-link",
+      "description": "Deep-tone top bar with trim underline, crest + KN·21, condensed caps links.",
+      "html": "<header class=\"ds-strip\"><a class=\"ds-club\" href=\"#\"><svg viewBox=\"0 0 100 106\" width=\"30\" height=\"32\"><path d=\"M50 4 L92 15 V52 C92 77 73 93 50 102 C27 93 8 77 8 52 V15 Z\" fill=\"#14110F\" stroke=\"#C9A227\" stroke-width=\"5\"/><text x=\"50\" y=\"84\" text-anchor=\"middle\" font-family=\"Anton\" font-size=\"27\" fill=\"#C9A227\">KN</text></svg><b>KN·21</b></a><nav><a href=\"#\">About</a><a href=\"#\">Experience</a><a href=\"#\">Projects</a><a href=\"#\">Contact</a></nav></header>",
+      "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-strip{display:flex;align-items:stretch;background:var(--deep);color:var(--ink);border-bottom:3px solid var(--trim);min-height:56px} .ds-club{display:flex;align-items:center;gap:10px;padding:0 22px;color:inherit;text-decoration:none;border-right:1px solid rgba(255,255,255,.18)} .ds-club b{font:400 22px/1 Anton,sans-serif;letter-spacing:.04em} .ds-strip nav{display:flex} .ds-strip nav a{display:flex;align-items:center;padding:0 18px;color:inherit;text-decoration:none;font:600 15px/1 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;border-right:1px solid rgba(255,255,255,.12)} .ds-strip nav a:hover{background:rgba(255,255,255,.1)} .ds-strip a:focus-visible{outline:3px solid var(--trim);outline-offset:-3px}"
+    },
+    {
+      "name": "Fixture Row",
+      "kind": "card",
+      "refersTo": "fixture-result",
+      "description": "Career/project row on the shorts panel: date, title, role, duties, Anton result.",
+      "html": "<ol class=\"ds-tbl\"><li><time>Oct 2022 – Present</time><div><h3>Availclouds Hosting Services</h3><p class=\"ds-role\">Social Identity Manager | Dev</p><ul><li>Led a viral marketing initiative that increased engagement by 447%.</li></ul></div><strong class=\"ds-res\">+447%<small>engagement, viral push</small></strong></li></ol>",
+      "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-tbl{list-style:none;margin:0;padding:0 24px;background:var(--shorts);color:var(--s-ink)} .ds-tbl>li{display:grid;grid-template-columns:150px minmax(0,1fr) 170px;gap:24px;padding:28px 0;border-bottom:1px solid var(--s-rule)} .ds-tbl time{font:600 15px/1.3 'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--s-mute);padding-top:6px} .ds-tbl h3{margin:0;font:700 28px/1.05 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.02em} .ds-role{font:600 16px/1.3 'Barlow Condensed',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--s-acc);margin:6px 0 12px} .ds-tbl ul{list-style:none;margin:0;padding:0;color:var(--s-mute);font:400 16px/1.55 Barlow,sans-serif} .ds-tbl ul li{padding-left:18px;position:relative} .ds-tbl ul li:before{content:'';position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--s-acc)} .ds-res{text-align:right;font:400 44px/1 Anton,sans-serif;color:var(--s-acc);text-transform:uppercase} .ds-res small{display:block;font:600 12px/1.3 'Barlow Condensed',sans-serif;letter-spacing:.16em;color:var(--s-mute);margin-top:6px}"
+    },
+    {
+      "name": "Flip Button",
+      "kind": "button",
+      "refersTo": "flip-button",
+      "description": "Stitched crest-black button under the rookie card; toggles front/back.",
+      "html": "<button class=\"ds-flip\" type=\"button\" aria-pressed=\"false\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 12a8 8 0 1 1-2.6-5.9M20 4v5h-5\"/></svg>Flip card</button>",
+      "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-flip{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;font:700 14px/1 'Barlow Condensed',sans-serif;letter-spacing:.18em;text-transform:uppercase;background:var(--crest);color:#fff;border:0;border-radius:3px;cursor:pointer;outline:1.5px dashed var(--gold);outline-offset:-5px} .ds-flip:hover{background:#000} .ds-flip:focus-visible{outline:3px solid var(--trim);outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "One Player, Two Kits",
+    "overview": "The page is a club's shirt launch for a single player. The ground is a football-kit colourway with a fine knitted mesh, and everything on it is printed, stitched or badged the way kit is: heavy condensed numerals with a flat drop shadow, caps lettering in a narrow sans, embroidered patches with a dashed gold running stitch, and a shield crest. The player's ID is a holographic rookie card in a penny sleeve.\n\nThere are two complete kits and the visitor chooses. HOME (crimson field, white trim) is the brand and social side; AWAY (navy field, volt trim) is the developer side. Gold thread and the crest-black patch are shared by both kits and never change. Switching kit repaints every surface through custom properties, ripples the new kit out from the pressed label, and turns the card a full rotation. The kit choice is identity, not decoration: the content order also changes (Away puts dev fixtures before club career).\n\nDensity is a matchday programme: full-bleed colour bands divided by thick trim rules, tables of fixtures with results on the right, and no floating cards on the field. The one rejected default, confirmed in the direction, is the dark developer portfolio with a particle hero.",
+    "keyCharacteristics": [
+      "Two full colour kits switched by one `data-kit` attribute on `<html>`; gold and crest-black are constant.",
+      "Anton numerals and names with a hard flat drop shadow in the kit's deep tone, like printed shirt lettering.",
+      "Barlow Condensed caps for every label, nav item, date and role; Barlow for reading text.",
+      "Stitched patches: crest-black fill, gold dashed outline inset 5px.",
+      "Sections are full-bleed bands separated by a 6px trim rule; the record lives on a contrasting \"shorts\" panel.",
+      "A knitted mesh texture on the field, a fainter one on the shorts panel."
+    ],
+    "rules": [
+      {
+        "name": "The Kit Parity Rule",
+        "body": "Every kit token exists in both kits with the same role (`--field --deep --ink --soft --trim --on-trim --shorts --s-ink --s-mute --s-acc --s-rule --stock --plate --plate-ink --num --num-sh`). A new surface uses the role variables, never a kit hex, so it repaints on switch.",
+        "section": "colors"
+      },
+      {
+        "name": "The Shared Thread Rule",
+        "body": "Gold and crest black belong to neither kit. They are the club's embroidery and stay identical on both.",
+        "section": "colors"
+      },
+      {
+        "name": "The Printed Number Rule",
+        "body": "Anton carries names, titles and results only, always uppercase. Its flat shadow is offset down-right with zero blur in the kit's deep tone (or black at 35% on the deep band).",
+        "section": "typography"
+      },
+      {
+        "name": "The Caps Label Rule",
+        "body": "Anything that is a label, not a sentence, is Barlow Condensed uppercase with at least 0.06em tracking. Sentences are never set in caps.",
+        "section": "typography"
+      },
+      {
+        "name": "The Print, Not Plastic Rule",
+        "body": "A hard offset shadow belongs to lettering (Anton text), because that is how kit is printed. Boxes on the field do not float.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** colour every new surface through kit role variables (`--field`, `--deep`, `--trim`, `--on-trim`, `--shorts`, `--s-*`) so it works in both kits.",
+      "**Do** keep gold (#C9A227) and crest black (#14110F) for stitching, crests and patches in both kits.",
+      "**Do** set names, titles and results in uppercase Anton with a zero-blur offset shadow in the kit's deep tone.",
+      "**Do** set labels, dates, roles and nav in Barlow Condensed caps tracked 0.06-0.2em.",
+      "**Do** separate sections with full-bleed bands and a 6px trim rule; put records and tables on the shorts panel.",
+      "**Do** keep the global focus ring as a 3px trim outline at 3px offset, and give every motion a reduced-motion path."
+    ],
+    "donts": [
+      "**Don't** hard-code a kit hex on a component; it will break the other kit.",
+      "**Don't** turn the page into a dark developer portfolio with a particle hero.",
+      "**Don't** float rounded cards on the field; the rookie card is the only card-shaped object.",
+      "**Don't** set sentences in Anton or in caps."
+    ]
+  }
+}
