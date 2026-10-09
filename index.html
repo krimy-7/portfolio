@@ -147,9 +147,9 @@ h1 span{display:block}
 /* player profile */
 .profile{border-top:6px solid var(--trim)}
 .prof{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start}
-.bio{font-size:clamp(19px,1.6vw,22px);line-height:1.55;max-width:38em}
+.bio{font-size:clamp(19px,1.6vw,22px);line-height:1.55;max-width:38em;border-top:2px solid var(--trim);padding-top:14px}   /* same top rule + inset as the vitals, so both columns start on one line */
 .vitals{display:grid;grid-template-columns:auto 1fr;border-top:2px solid var(--trim)}
-.vitals dt,.vitals dd{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.22)}
+.vitals dt,.vitals dd{display:flex;align-items:center;min-height:56px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.22)}   /* label + value centred on one row height */
 .vitals dt{font:700 14px/1.4 "Barlow Condensed";letter-spacing:.18em;text-transform:uppercase;padding-right:24px;color:var(--soft)}
 .vitals dd{font:600 18px/1.4 "Barlow Condensed";letter-spacing:.04em}
 .profile h3{font:700 15px/1 "Barlow Condensed";letter-spacing:.2em;text-transform:uppercase;margin:clamp(40px,5vw,64px) 0 16px}

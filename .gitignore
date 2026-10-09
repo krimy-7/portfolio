@@ -8,3 +8,5 @@ __pycache__/
 .impeccable/questions/
 .impeccable/live/
 .impeccable/critique/
+tools/.tmp/
+*.tmp.png
