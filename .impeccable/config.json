@@ -11,7 +11,8 @@
       ".impeccable/mocks/decision/samples/kit-card.html",
       ".impeccable/mocks/decision/samples/model-pick.html",
       "tools/thumbs.html",
-      "tools/og-card.html"
+      "tools/og-card.html",
+      ".impeccable/mocks/logo/**"
     ],
     "ignoreValues": [
       {

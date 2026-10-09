@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en" data-kit="home">
 <head>
-<meta charset="utf-8">
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5BB8W2X');</script>
 <!-- End Google Tag Manager -->
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Krishna Nishad · Developer & Brand Identity Manager</title>
 <meta name="description" content="Krishna Nishad: developer and brand identity manager from Rupandehi, Nepal. Social Identity Manager at Availclouds, behind a +447% engagement campaign.">
@@ -52,7 +52,7 @@
 ]}
 </script>
 <style>
-:root{--gold:#C9A227;--crest:#14110F;--pad:clamp(20px,6vw,112px);   /* side margin scales with the screen; colour fields stay full-bleed */
+:root{--gold:#C9A227;--crest:#14110F;--pad:clamp(16px,4.4vw,64px);
   --mesh:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='9'%3E%3Cg fill='%23000' fill-opacity='.17'%3E%3Ccircle cx='2.5' cy='2.25' r='1.3'/%3E%3Ccircle cx='7.5' cy='6.75' r='1.3'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.06'%3E%3Ccircle cx='3.1' cy='1.6' r='.6'/%3E%3Ccircle cx='8.1' cy='6.1' r='.6'/%3E%3C/g%3E%3C/svg%3E");
   --mesh-s:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='9'%3E%3Cg fill='%23000' fill-opacity='.045'%3E%3Ccircle cx='2.5' cy='2.25' r='1.3'/%3E%3Ccircle cx='7.5' cy='6.75' r='1.3'/%3E%3C/g%3E%3C/svg%3E")}
 [data-kit=home]{--field:#C8102E;--deep:#8A0B20;--ink:#fff;--soft:rgba(255,255,255,.88);--trim:#fff;--on-trim:#A00D25;
@@ -72,28 +72,26 @@ ul,ol{list-style:none}
 ::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .i{width:1.1em;height:1.1em;flex:none;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.skip{position:absolute;left:12px;top:-60px;z-index:11;background:var(--crest);color:#fff;padding:12px 16px;font:700 15px "Barlow Condensed";letter-spacing:.12em;text-transform:uppercase}
+.skip{position:absolute;left:12px;top:-60px;z-index:9;background:var(--crest);color:#fff;padding:12px 16px;font:700 15px "Barlow Condensed";letter-spacing:.12em;text-transform:uppercase}
 .skip:focus{top:12px}
 [data-kit=home] .a-only,[data-kit=away] .h-only{display:none}
 /* matchday strip */
-.strip{display:flex;align-items:stretch;padding-inline:max(0px,calc(var(--pad) - 22px));background:var(--deep);border-bottom:3px solid var(--trim);min-height:56px;position:sticky;top:0;z-index:10}
+.strip{display:flex;align-items:stretch;background:var(--deep);border-bottom:3px solid var(--trim);min-height:56px;position:sticky;top:0;z-index:10}
 .club{display:flex;align-items:center;gap:10px;padding:0 22px;text-decoration:none;border-right:1px solid rgba(255,255,255,.18)}
 .club svg{width:30px;height:32px}
 .club b{font:400 22px/1 Anton;letter-spacing:.04em}
 .strip nav,.strip ul,.strip li{display:flex}
 .strip li a{display:flex;align-items:center;height:100%;padding:0 18px;text-decoration:none;font:600 15px/1 "Barlow Condensed";letter-spacing:.12em;text-transform:uppercase;border-right:1px solid rgba(255,255,255,.12)}
-.strip li a:hover,.strip li a[aria-current]{background:rgba(255,255,255,.1)}
-.strip li a[aria-current]{box-shadow:inset 0 -3px 0 var(--trim)}
-a[target] .i{width:.7em;height:.7em;margin-left:.3em}
+.strip li a:hover{background:rgba(255,255,255,.1)}
 .ko{margin-left:auto;display:flex;align-items:center;padding:0 22px;font:600 13px/1 "Barlow Condensed";letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);padding-inline:var(--pad);min-height:min(calc(100svh - 56px),940px);position:relative}
-.copy{padding:56px 0;display:flex;flex-direction:column;justify-content:center;gap:28px;position:relative;z-index:2}
+.hero{display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);min-height:min(calc(100svh - 56px),940px);position:relative}
+.copy{padding:56px 0 56px var(--pad);display:flex;flex-direction:column;justify-content:center;gap:28px;position:relative;z-index:2}
 .patch{display:inline-flex;align-self:flex-start;align-items:center;background:var(--crest);color:#fff;border-radius:6px;padding:9px 16px;outline:1.5px dashed var(--gold);outline-offset:-5px;font:600 15px/1 "Barlow Condensed";letter-spacing:.14em;text-transform:uppercase;box-shadow:0 3px 6px rgba(0,0,0,.25)}
 .patch .l{color:var(--gold);margin-right:.5em}
 .caret{display:inline-block;width:2px;height:1em;background:var(--gold);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-h1{font:400 clamp(64px,8.8vw,136px)/.86 Anton;text-transform:uppercase;letter-spacing:.005em;text-shadow:5px 5px 0 var(--deep)}
+h1{font:400 clamp(64px,9.2vw,146px)/.86 Anton;text-transform:uppercase;letter-spacing:.005em;text-shadow:5px 5px 0 var(--deep)}
 h1 span{display:block}
 .lede{max-width:30em;font-size:18px;color:var(--soft)}
 .lede strong{font-weight:600;color:var(--ink)}
@@ -153,11 +151,12 @@ h1 span{display:block}
 .vitals dt{font:700 14px/1.4 "Barlow Condensed";letter-spacing:.18em;text-transform:uppercase;padding-right:24px;color:var(--soft)}
 .vitals dd{font:600 18px/1.4 "Barlow Condensed";letter-spacing:.04em}
 .profile h3{font:700 15px/1 "Barlow Condensed";letter-spacing:.2em;text-transform:uppercase;margin:clamp(40px,5vw,64px) 0 16px}
-/* squad record: experience + projects on the "shorts" panel; setKit moves projects first in the Away kit */
-.record{background:var(--shorts) var(--mesh-s);color:var(--s-ink);border-top:6px solid var(--trim)}
+/* squad record: experience + projects on the "shorts" panel; Away kit puts projects first */
+.record{background:var(--shorts) var(--mesh-s);color:var(--s-ink);border-top:6px solid var(--trim);display:flex;flex-direction:column}
 .record ::selection{background:var(--s-acc);color:var(--shorts)}
+[data-kit=away] #projects{order:-1}
 .record .sec+.sec{padding-top:0}
-.record :focus-visible{outline-color:var(--s-acc)}
+[data-kit=away] #projects{padding-top:clamp(72px,9vw,128px);padding-bottom:0}[data-kit=away] #experience{padding-top:clamp(72px,9vw,128px)}
 .tbl h2{display:flex;justify-content:space-between;align-items:end;gap:16px;padding-bottom:16px;border-bottom:3px solid var(--s-ink)}
 .tbl h2 small{font:700 15px/1 "Barlow Condensed";letter-spacing:.2em;color:var(--s-acc)}
 .tbl li{display:grid;grid-template-columns:170px minmax(0,1fr) 210px;align-items:start;gap:24px;padding:28px 0;border-bottom:1px solid var(--s-rule)}
@@ -169,12 +168,11 @@ h1 span{display:block}
 .tbl ul li:before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--s-acc)}
 .tbl .res{text-align:right;font:400 clamp(30px,3.4vw,52px)/1 Anton;color:var(--s-acc);text-transform:uppercase}
 .tbl .res small{display:block;font:600 12px/1.3 "Barlow Condensed";letter-spacing:.16em;color:var(--s-mute);margin-top:6px}
-.dev li{grid-template-columns:minmax(200px,300px) minmax(0,1fr) 170px;align-items:center;position:relative}
+.dev li{grid-template-columns:minmax(200px,300px) minmax(0,1fr) 170px;align-items:center}
 .dev .thumb{display:block;aspect-ratio:16/9;overflow:hidden;border:3px solid var(--s-ink);border-radius:3px;background:var(--s-rule)}
 .dev .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .dev li:hover .thumb img{transform:scale(1.04)}
 .dev h3 a{text-decoration:none}.dev h3 a:hover{text-decoration:underline}
-.dev h3 a::after{content:"";position:absolute;inset:0}   /* whole row is the tap target */
 .dev p{color:var(--s-mute);font-size:16px;max-width:52ch}
 /* academy + attributes */
 .duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(48px,6vw,96px);border-top:6px solid var(--trim)}
@@ -209,13 +207,12 @@ h1 span{display:block}
 footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding:22px var(--pad);font:600 13px/1.4 "Barlow Condensed";letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
 @media (max-width:1100px){.ko{display:none}.strip li a{padding:0 12px}.dev li{grid-template-columns:minmax(160px,220px) minmax(0,1fr) 120px}}
 @media (max-width:900px){
- .club{padding:0 14px;flex:none}
- .strip nav{flex:1;min-width:0;position:relative;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x;mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
- .strip nav::-webkit-scrollbar{display:none}
- .strip ul{padding-right:32px}.strip li a{min-height:44px;white-space:nowrap;font-size:14px;scroll-snap-align:start}
- .strip li a:focus-visible{outline-offset:-4px}
+ html{scroll-padding-top:160px}
+ .strip{flex-wrap:wrap}.club{padding:12px 16px;border:0}
+ .strip nav{width:100%;border-top:1px solid rgba(255,255,255,.15)}
+ .strip ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.strip li a{width:100%}.strip li a{min-height:46px;justify-content:center;font-size:14px}
  .hero{grid-template-columns:minmax(0,1fr);min-height:0}
- .copy{padding:40px 0 8px;gap:22px}.btn{padding:13px 14px}
+ .copy{padding:40px var(--pad) 8px;gap:22px}
  .pitch{min-height:min(140vw,640px)}
  .kit{align-self:stretch}.kit label{padding:12px 10px;font-size:14px;gap:8px}
  .prof,.duo{grid-template-columns:minmax(0,1fr)}.duo{gap:0}.duo .sec+.sec{padding-top:0}
@@ -251,7 +248,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
   </a>
   <nav aria-label="Primary"><ul>
     <li><a href="#about">About</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li>
-    <li><a href="#skills">Skills</a></li><li><a href="https://drive.google.com/file/d/1W15wLaGuFef5gCKeO72DgxuK5pvEhblp/view?usp=sharing" target="_blank" rel="noopener">Resume<svg class="i" aria-hidden="true"><use href="#out"/></svg><span class="sr"> (opens in a new tab)</span></a></li><li><a href="#contact">Contact</a></li>
+    <li><a href="#skills">Skills</a></li><li><a href="https://drive.google.com/file/d/1W15wLaGuFef5gCKeO72DgxuK5pvEhblp/view?usp=sharing" target="_blank" rel="noopener">Resume</a></li><li><a href="#contact">Contact</a></li>
   </ul></nav>
   <p class="ko">Rupandehi, Nepal</p>
 </header>
@@ -259,7 +256,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 <main id="main">
 <section class="hero" aria-labelledby="name">
   <div class="copy">
-    <p class="patch"><span class="l">Now playing:</span><span id="role" aria-hidden="true">Brand Identity Manager</span><span class="caret" aria-hidden="true"></span><span class="sr">Brand Identity Manager, Developer, Twitch Streamer</span></p>
+    <p class="patch"><span class="l">Now playing:</span><span id="role">Brand Identity Manager</span><span class="caret" aria-hidden="true"></span></p>
     <h1 id="name"><span>Krishna</span> <span>Nishad</span></h1>
     <p class="lede"><strong>Social Identity Manager | Dev at Availclouds Hosting Services.</strong>
       <span class="h-only">Home kit: brand identity, social campaigns, packaging and video, the work that took engagement up 447%.</span>
@@ -320,9 +317,9 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
 
 <div class="record">
   <section class="sec tbl career" id="experience" aria-labelledby="h-exp">
-    <h2 id="h-exp">Club career <small aria-hidden="true">Result</small></h2>
+    <h2 id="h-exp">Club career <small>Result</small></h2>
     <ol>
-      <li><time datetime="2022-10">Oct 2022 – Present</time>
+      <li><time>Oct 2022 – Present</time>
         <div><h3>Availclouds Hosting Services</h3><p class="role">Social Identity Manager | Dev</p>
           <ul><li>Strategically managing the company's online identity across social networking sites to enhance brand presence.</li>
             <li>Optimizing digital outreach and branding strategies for consistency and effectiveness.</li>
@@ -330,7 +327,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
             <li>Led a viral marketing initiative that increased engagement by 447%, driving substantial traffic.</li>
             <li>Implemented an advanced outreach strategy that boosted customer acquisition and retention.</li></ul></div>
         <strong class="res">+447%<small>engagement, viral push</small></strong></li>
-      <li><time datetime="2023-02">Feb 2023</time>
+      <li><time>Feb 2023</time>
         <div><h3>Wintries Beverages &amp; Ltd.</h3><p class="role">Brand Designer (Contract-Based)</p>
           <ul><li>Developed all product packaging labels, ensuring cohesive and visually appealing branding.</li>
             <li>Designed and created all graphic assets, including promotional materials and website content.</li>
@@ -338,7 +335,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
             <li>Led a comprehensive branding overhaul, successfully improving brand recognition and customer appeal.</li>
             <li>Developed a cohesive design system that strengthened product identity, boosting market presence.</li></ul></div>
         <strong class="res">Rebrand<small>full branding overhaul</small></strong></li>
-      <li><time datetime="2023-06">Jun 2023 – Mar 2024</time>
+      <li><time>Jun 2023 – Mar 2024</time>
         <div><h3>Educational Consultancy &amp; Institutes</h3><p class="role">Graphics Designer &amp; Video Editor</p>
           <ul><li>Designed graphics and edited videos for online promotional content.</li>
             <li>Developed visually engaging materials to enhance digital visibility.</li>
@@ -349,22 +346,22 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
   </section>
 
   <section class="sec tbl dev" id="projects" aria-labelledby="h-proj">
-    <h2 id="h-proj">Dev fixtures <small aria-hidden="true">Stack</small></h2>
+    <h2 id="h-proj">Dev fixtures <small>Stack</small></h2>
     <ol>
       <li><a class="thumb" href="projects/availclouds.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-desk.webp" width="1280" height="720" loading="lazy" alt=""></a>
         <div><h3><a href="projects/availclouds.html">Availclouds MSP Help Desk</a></h3><p>Frontend UI and live tools for an after-hours help desk for MSPs.</p></div>
         <strong class="res">Live<small>frontend UI</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_pureroute-is-an-iot-powered-food-delivery-ugcPost-7480318570745257984-JvGE/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-iot.webp" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_pureroute-is-an-iot-powered-food-delivery-ugcPost-7480318570745257984-JvGE/" target="_blank" rel="noopener">PureRoute<svg class="i" aria-hidden="true"><use href="#out"/></svg><span class="sr"> (opens in a new tab)</span></a></h3><p>IoT-powered food delivery verification: microcontrollers and cloud infrastructure build an unforgeable audit trail from the kitchen to the doorstep, across six interfaces for riders, restaurants, fleets and support.</p></div>
+        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_pureroute-is-an-iot-powered-food-delivery-ugcPost-7480318570745257984-JvGE/" target="_blank" rel="noopener">PureRoute</a></h3><p>IoT-powered food delivery verification: microcontrollers and cloud infrastructure build an unforgeable audit trail from the kitchen to the doorstep, across six interfaces for riders, restaurants, fleets and support.</p></div>
         <strong class="res">IoT<small>6 interfaces</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_my-iems-sound-so-much-better-than-any-tws-ugcPost-7492514740015951872-qybP/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-audio.webp" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_my-iems-sound-so-much-better-than-any-tws-ugcPost-7492514740015951872-qybP/" target="_blank" rel="noopener">WiFi Audio Streaming<svg class="i" aria-hidden="true"><use href="#out"/></svg><span class="sr"> (opens in a new tab)</span></a></h3><p>Streams PC audio to a phone over WiFi, so wired IEMs aren't tied to the desk. Built on Marco Morosi's open-source project, adding pause, track skip, now playing, a seek bar and a cleaner UI.</p></div>
+        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_my-iems-sound-so-much-better-than-any-tws-ugcPost-7492514740015951872-qybP/" target="_blank" rel="noopener">WiFi Audio Streaming</a></h3><p>Streams PC audio to a phone over WiFi, so wired IEMs aren't tied to the desk. Built on Marco Morosi's open-source project, adding pause, track skip, now playing, a seek bar and a cleaner UI.</p></div>
         <strong class="res">Mod<small>open source</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_python-opencv-computervision-activity-7294748885757870081-_hRg?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-face.webp" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_python-opencv-computervision-activity-7294748885757870081-_hRg?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener">Face Detection System<svg class="i" aria-hidden="true"><use href="#out"/></svg><span class="sr"> (opens in a new tab)</span></a></h3><p>Face detection built with Python and OpenCV.</p></div>
+        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_python-opencv-computervision-activity-7294748885757870081-_hRg?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener">Face Detection System</a></h3><p>Face detection built with Python and OpenCV.</p></div>
         <strong class="res">CV<small>Python · OpenCV</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_unrealengine5-gamedev-indiegamedev-activity-7290356718528577536-rnU8?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-ue5.webp" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_unrealengine5-gamedev-indiegamedev-activity-7290356718528577536-rnU8?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener">Unreal Engine Game<svg class="i" aria-hidden="true"><use href="#out"/></svg><span class="sr"> (opens in a new tab)</span></a></h3><p>A game built in Unreal Engine 5.</p></div>
+        <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_unrealengine5-gamedev-indiegamedev-activity-7290356718528577536-rnU8?utm_source=social_share_send&amp;utm_medium=member_desktop_web&amp;rcm=ACoAAD1Ft6cBOD_JP4vCa7c5Yy5PO_Q6Xg9CEYA" target="_blank" rel="noopener">Unreal Engine Game</a></h3><p>A game built in Unreal Engine 5.</p></div>
         <strong class="res">UE5<small>Unreal Engine 5</small></strong></li>
     </ol>
   </section>
@@ -381,11 +378,11 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
       <li>Involved in social works and part of a social club named Rotaract Club of Central Lumbini.</li></ul>
     <div class="certs">
     <a class="cert" href="https://www.linkedin.com/in/krishna-nishad/overlay/Certifications/254999718/treasury/" target="_blank" rel="noopener">
-      <img src="/assets/img/certification/nvidia-dl.webp" width="800" height="350" loading="lazy" alt="">
-      <span><b>Getting Started with Deep Learning</b>NVIDIA · Certificate of Competency</span><span class="sr"> (opens in a new tab)</span></a>
+      <img src="/assets/img/certification/nvidia-dl.webp" width="800" height="360" loading="lazy" alt="">
+      <span><b>Getting Started with Deep Learning</b>NVIDIA · Certificate of Competency · Jul 2026</span></a>
     <a class="cert" href="https://coursera.org/share/1e8ab7c2e00713874c0bf5404fede8ff" target="_blank" rel="noopener">
       <img src="/assets/img/certification/stanford.webp" width="800" height="350" loading="lazy" alt="">
-      <span><b>Game Theory</b>Stanford University · Coursera certificate</span><span class="sr"> (opens in a new tab)</span></a>
+      <span><b>Game Theory</b>Stanford University · Coursera certificate</span></a>
     </div>
   </section>
 
@@ -411,10 +408,10 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
     <div><h3>Phone</h3><p><a href="tel:+9779864951223">+977-9864951223</a></p></div>
     <div><h3>Address</h3><p>S.N.P.-08, Rupandehi, Nepal</p></div>
     <div><h3>Elsewhere</h3><ul>
-      <li><a href="https://www.linkedin.com/in/krishna-nishad/" target="_blank" rel="noopener me">LinkedIn<svg class="i" aria-hidden="true"><use href="#out"/></svg><span class="sr"> (opens in a new tab)</span></a></li>
-      <li><a href="https://github.com/krimy-7" target="_blank" rel="noopener me">GitHub<svg class="i" aria-hidden="true"><use href="#out"/></svg><span class="sr"> (opens in a new tab)</span></a></li>
-      <li><a href="https://www.instagram.com/krimy.7z/" target="_blank" rel="noopener me">Instagram<svg class="i" aria-hidden="true"><use href="#out"/></svg><span class="sr"> (opens in a new tab)</span></a></li></ul></div>
-    <div><h3>Resume</h3><p><a href="https://drive.google.com/file/d/1W15wLaGuFef5gCKeO72DgxuK5pvEhblp/view?usp=sharing" target="_blank" rel="noopener">Download the resume<svg class="i" aria-hidden="true"><use href="#out"/></svg><span class="sr"> (opens in a new tab)</span></a></p></div>
+      <li><a href="https://www.linkedin.com/in/krishna-nishad/" target="_blank" rel="noopener me">LinkedIn</a></li>
+      <li><a href="https://github.com/krimy-7" target="_blank" rel="noopener me">GitHub</a></li>
+      <li><a href="https://www.instagram.com/krimy.7z/" target="_blank" rel="noopener me">Instagram</a></li></ul></div>
+    <div><h3>Resume</h3><p><a href="https://drive.google.com/file/d/1W15wLaGuFef5gCKeO72DgxuK5pvEhblp/view?usp=sharing" target="_blank" rel="noopener">Download the resume</a></p></div>
   </div>
 </section>
 </main>
@@ -426,7 +423,6 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
   const root = document.documentElement, reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const roles = ["Brand Identity Manager", "Developer", "Twitch Streamer"], el = document.getElementById("role");
   const theme = document.querySelector('meta[name="theme-color"]'), radios = [...document.querySelectorAll("input[name=kit]")];
-  const rec = document.querySelector(".record"), exp = document.getElementById("experience"), proj = document.getElementById("projects");
   const store = { get() { try { return localStorage.getItem("kit") } catch { return null } }, set(v) { try { localStorage.setItem("kit", v) } catch {} } };
   let ri = 0, timer;
   function typeTo(word, then) {          // deletes back to the shared prefix, then types the new word
@@ -443,7 +439,7 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
   const cycle = () => { ri = (ri + 1) % roles.length; typeTo(roles[ri], cycle) };
   window.setKit = (kit, { from } = {}) => {
     if (kit !== "home" && kit !== "away") return;
-    const go = () => { root.dataset.kit = kit; rec.insertBefore(proj, kit === "away" ? exp : exp.nextSibling); theme.content = kit === "away" ? "#0B1F4B" : "#C8102E"; radios.forEach(r => r.checked = r.value === kit) };
+    const go = () => { root.dataset.kit = kit; theme.content = kit === "away" ? "#0B1F4B" : "#C8102E"; radios.forEach(r => r.checked = r.value === kit) };
     if (from && !reduce && document.startViewTransition) {   // the new kit ripples out from the switch
       const b = from.getBoundingClientRect(), x = b.left + b.width / 2, y = b.top + b.height / 2, rad = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
       const t = document.startViewTransition(go);
@@ -462,18 +458,6 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
     if (window.cardFlip) return window.cardFlip();
     const on = scard.classList.toggle("flipped"); flip.setAttribute("aria-pressed", String(on));
   });
-  /* scroll-spy: the lowest section reaching mid-screen marks its nav link (#education has none) */
-  const spy = "#about,#experience,#projects,#education,#skills,#contact", seen = new Set(), nav = document.querySelector(".strip nav");
-  let last;
-  const io = new IntersectionObserver(es => {
-    es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target));
-    const cur = [...document.querySelectorAll(spy)].filter(x => seen.has(x)).pop();
-    if (cur === last) return; last = cur;
-    nav.querySelectorAll('a[href^="#"]').forEach(a => a.hash === "#" + cur?.id ? a.setAttribute("aria-current", "location") : a.removeAttribute("aria-current"));
-    const a = nav.querySelector("a[aria-current]");   // the sideways mobile nav follows the marked link; sideways only, never the page
-    if (a && nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left: a.offsetLeft - 8, behavior: reduce ? "auto" : "smooth" });
-  }, { rootMargin: "-72px 0px -50% 0px" });
-  document.querySelectorAll(spy).forEach(x => io.observe(x));
   const q = new URLSearchParams(location.search).get("kit");
   setKit(q || store.get() || "home");
 })();

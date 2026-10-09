@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:0}iframe{border:0;display:block}</style><pre id="out">pending</pre>
+<script>
+const q=new URLSearchParams(location.search),W=+q.get('w'),src=q.get('src')||'/';
+const f=document.createElement('iframe');f.style.width=W+'px';f.style.height='812px';f.src=src+'?kit=home';document.body.append(f);
+f.onload=()=>setTimeout(()=>{const d=f.contentDocument,el=d.getElementById('role'),p=d.querySelector('.patch'),h=d.querySelector('h1'),c=d.getElementById('card-stage');
+ const out=[];for(const t of ["Brand Identity Manager","Brand Identity Manag","Brand Identity","Developer","Twitch Streamer"]){el.textContent=t;out.push(t+': patch h='+p.getBoundingClientRect().height+' w='+p.getBoundingClientRect().width+' h1 top='+h.getBoundingClientRect().top+' stage top='+c.getBoundingClientRect().top)}
+ out.push('copy w='+d.querySelector('.copy').getBoundingClientRect().width);
+ document.getElementById('out').textContent=out.join('\n')},2500);
+</script>
