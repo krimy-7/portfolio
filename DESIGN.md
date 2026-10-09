@@ -162,7 +162,7 @@ Two kit colourways over a shared gold thread and crest black; each kit is a fiel
 - **Crest Black** (crest-black): shared patch fill (crest patch, skill patches, Flip button), crest shield, and the HOME card name plate.
 - **Home Deep** (home-deep) / **Away Deep** (away-deep): the strip, the full-time contact band, the footer, and the flat drop shadow under the display name. Away Deep is also the AWAY shorts panel.
 - **Home Accent** (home-accent): roles, results and stat labels on the white HOME shorts panel; the text on the selected HOME kit option.
-- **Number Shadows** (home-number-shadow, away-number-shadow): the flat offset under the card's "No. 21".
+- **Number Shadows** (home-number-shadow, away-number-shadow): the flat offset under the card's "No. 168".
 - **Shorts Ink and Mute** (home-shorts-ink, home-shorts-mute, away-shorts-ink, away-shorts-mute): heading/rule ink and secondary text (dates, bullets, descriptions) on the shorts panel.
 - On the field, secondary text is white at 88% (HOME) or #EEF2FA at 86% (AWAY); hairline dividers are white at 12-22%; shorts-panel rules are shorts-ink at 14% (HOME) or volt at 18% (AWAY).
 
@@ -235,13 +235,13 @@ A real radio fieldset ("Choose the kit") shown only when JS runs. Two labels in 
 - **Crest patch:** the same stitch at 6px radius with the patch lift; holds "Now playing:" in gold and the typed role with a blinking gold caret.
 
 ### Navigation (matchday strip)
-A deep-tone bar, 56px, with a 3px trim underline. Left: the crest and "KN·21" in Anton. Links are Barlow Condensed 600 caps at 15px, 0.12em, separated by hairlines, hover at white 10%. Location sits at the far right. Under 900px it becomes a 3×2 grid of centred cells.
+A deep-tone bar, 56px, with a 3px trim underline. Left: the crest and "KN·168" in Anton. Links are Barlow Condensed 600 caps at 15px, 0.12em, separated by hairlines, hover at white 10%. Location sits at the far right. Under 900px it becomes a 3×2 grid of centred cells.
 
 ### Fixture rows
 The career and projects as a results table on the shorts panel. Header: Anton title with a small right-aligned column caption ("Result", "Stack") over a 3px ink rule. Each row: date in muted condensed caps, club or project title, role in shorts accent, dash-bulleted duties (8×2px accent bars), and an Anton result with a small caption. Dev rows lead with a 16:9 thumbnail in a 3px ink frame that scales to 1.04 on hover.
 
 ### Rookie card (signature)
-A 5:7 trading card. Front: kit stock, gold-framed natural-colour photo with holo foil on the backdrop only, crest, "RC" rookie shield, skewed name plate, "Brand × Dev" band and "No. 21" with a print shadow. Back: a stat sheet on the shorts colour with a band header, four stat boxes, a pro career record and a highlight. The WebGL version (Three.js) adds thin-film foil keyed to the reflection vector, a translucent penny sleeve, spring tilt toward the pointer, idle float and flip. The DOM card is the first paint and the no-WebGL fallback (CSS 3D flip, 0.8s). The Flip button below is a crest-black stitched patch with a turn icon. Rendering pauses off-screen and in hidden tabs, and reduced motion removes idle and spring animation.
+A 5:7 trading card. Front: kit stock, gold-framed natural-colour photo with holo foil on the backdrop only, crest, "RC" rookie shield, skewed name plate, "Brand × Dev" band and "No. 168" with a print shadow. Back: a stat sheet on the shorts colour with a band header, four stat boxes, a pro career record and a highlight. The WebGL version (Three.js) adds thin-film foil keyed to the reflection vector, a translucent penny sleeve, spring tilt toward the pointer, idle float and flip. The DOM card is the first paint and the no-WebGL fallback (CSS 3D flip, 0.8s). The Flip button below is a crest-black stitched patch with a turn icon. Rendering pauses off-screen and in hidden tabs, and reduced motion removes idle and spring animation.
 
 ### Crest
 The KN shield: crest-black fill, 5px gold edge, dashed gold inner stitch, a white peak line with a gold arrow, "KN" in Anton gold. Used in the strip, on the card, and large in the contact band at -6deg.

@@ -9,7 +9,9 @@
       ".impeccable/mocks/decision/samples/fusion-calm.html",
       ".impeccable/mocks/decision/samples/fusion.html",
       ".impeccable/mocks/decision/samples/kit-card.html",
-      ".impeccable/mocks/decision/samples/model-pick.html"
+      ".impeccable/mocks/decision/samples/model-pick.html",
+      "tools/thumbs.html",
+      "tools/og-card.html"
     ],
     "ignoreValues": [
       {

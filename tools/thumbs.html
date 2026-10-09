@@ -1,0 +1,88 @@
+<!doctype html>
+<!-- Source for the Dev Fixtures thumbnails (1280x720): ?p=desk | face | ue5.
+     Render: python -m http.server 8765, headless Chrome --window-size=1280,720 --screenshot, then convert to webp.
+     Crest black + gold thread so they sit in both kits. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project thumbnails</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A227;--crest:#14110F;--volt:#D7FF3A;--crimson:#C8102E;
+  --mesh:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='9'%3E%3Cg fill='%23fff' fill-opacity='.05'%3E%3Ccircle cx='2.5' cy='2.25' r='1.3'/%3E%3Ccircle cx='7.5' cy='6.75' r='1.3'/%3E%3C/g%3E%3C/svg%3E")}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mesh);color:#fff;font-family:"Barlow Condensed",sans-serif}
+.t{position:relative;width:1280px;height:720px;overflow:hidden}
+.t:after{content:"";position:absolute;inset:22px;border:2px dashed var(--gold);border-radius:14px;pointer-events:none;z-index:5}
+.tag{position:absolute;left:58px;top:54px;display:flex;align-items:center;gap:14px;z-index:4;font-weight:700;font-size:26px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.tag svg{width:46px;height:49px}
+.plate{position:absolute;left:58px;bottom:62px;z-index:4}
+.plate h1{font:400 112px/.86 Anton;text-transform:uppercase;text-shadow:6px 6px 0 #000}
+.plate p{margin-top:14px;font-weight:700;font-size:28px;letter-spacing:.14em;text-transform:uppercase}
+.plate p b{background:var(--gold);color:var(--crest);padding:4px 12px;margin-right:12px}
+/* desk: the real help-desk page in a gold-framed screen */
+.screen{position:absolute;right:58px;top:90px;width:700px;aspect-ratio:16/9;border:8px solid var(--gold);border-radius:8px;overflow:hidden;transform:rotate(3deg);box-shadow:24px 30px 40px rgba(0,0,0,.55)}
+.screen img{width:100%;height:100%;object-fit:cover;object-position:top}
+/* face: the photo with a detection box */
+.photo{position:absolute;right:0;top:0;width:720px;height:720px}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--crest) 0,rgba(20,17,15,0) 34%);z-index:1}
+.box{position:absolute;left:300px;top:150px;width:200px;height:220px;z-index:2;--c:var(--volt)}
+.box i{position:absolute;width:42px;height:42px;border:6px solid var(--c)}
+.box i:nth-child(1){left:0;top:0;border-right:0;border-bottom:0}.box i:nth-child(2){right:0;top:0;border-left:0;border-bottom:0}
+.box i:nth-child(3){left:0;bottom:0;border-right:0;border-top:0}.box i:nth-child(4){right:0;bottom:0;border-left:0;border-top:0}
+.box span{position:absolute;left:-6px;top:-50px;background:var(--volt);color:var(--crest);font-weight:700;font-size:26px;letter-spacing:.12em;padding:6px 12px}
+.scan{position:absolute;left:300px;top:250px;width:200px;height:3px;background:var(--volt);box-shadow:0 0 0 1px rgba(0,0,0,.2);z-index:2;opacity:.8}
+/* ue5: wireframe terrain under a low sun */
+.land{position:absolute;inset:0}
+#ue5 .plate{background:var(--crest);padding:18px 22px 20px;margin-left:-22px;border-radius:4px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="crest">
+  <path d="M50 4 L92 15 V52 C92 77 73 93 50 102 C27 93 8 77 8 52 V15 Z" fill="#14110F" stroke="#C9A227" stroke-width="5"/>
+  <path d="M50 4 L92 15 V52 C92 77 73 93 50 102 C27 93 8 77 8 52 V15 Z" transform="translate(50 53) scale(.8) translate(-50 -53)" fill="none" stroke="#C9A227" stroke-width="1.6" stroke-dasharray="3 2.4"/>
+  <path d="M24 50 L38 35 L46 43 L60 25 L76 50" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><path d="M60 25 V12 M54 18 L60 12 L66 18" fill="none" stroke="#C9A227" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="50" y="84" text-anchor="middle" font-family="Anton" font-size="27" fill="#C9A227" letter-spacing="1">KN</text>
+</g></defs></svg>
+
+<div class="t" id="desk" hidden>
+  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 01 · Web-App</p>
+  <div class="screen"><img src="/assets/img/project/availclouds.webp" alt=""></div>
+  <div class="plate"><h1>MSP<br>Help Desk</h1><p><b>Live</b>Availclouds · Frontend UI</p></div>
+</div>
+
+<div class="t" id="face" hidden>
+  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 02 · Project</p>
+  <div class="photo"><img src="/assets/img/krishna_profile.webp" alt="">
+    <div class="box"><i></i><i></i><i></i><i></i><span>FACE</span></div><div class="scan"></div></div>
+  <div class="plate"><h1>Face<br>Detection</h1><p><b>CV</b>Python · OpenCV</p></div>
+</div>
+
+<div class="t" id="ue5" hidden>
+  <svg class="land" viewBox="0 0 1280 720" aria-hidden="true">
+    <circle cx="930" cy="300" r="96" fill="#C8102E"/>
+    <g id="grid" fill="#14110F" stroke="#C9A227" stroke-width="2.2" stroke-linejoin="round"></g>
+  </svg>
+  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 03 · Game</p>
+  <div class="plate"><h1>Unreal<br>Engine 5</h1><p><b>UE5</b>Game build</p></div>
+</div>
+
+<script>
+const p = new URLSearchParams(location.search).get("p") || "desk";
+document.getElementById(p).hidden = false;
+if (p === "ue5") {   // wireframe terrain: rows of a height field projected toward a horizon at y=390
+  const g = document.getElementById("grid"), H = 390, rows = 26, cols = 48, pts = [];
+  const h = (x, z) => (Math.sin(x * .55 + z * .3) * .5 + Math.sin(x * .21 - z * .47) * .8 + Math.cos(x * .9 + z * .13) * .25) * Math.max(0, 1 - Math.abs(x - 24) / 30);
+  // hidden-line ridges: far rows first, each filled to the bottom so nearer ridges occlude farther ones (and the sun)
+  for (let r = 0; r < rows; r++) {
+    const z = r / (rows - 1), y0 = 300 + Math.pow(z, 1.5) * 380, s = .5 + z * 1.1, row = [];
+    for (let c = 0; c <= cols; c++) { const x = 900 + (c - cols / 2) * 14 * s; row.push([x, y0 - Math.max(0, h(c, r)) * 150 * (1 - z * .5)]) }
+    pts.push(row);
+  }
+  const d = a => "M" + a.map(q => q.map(n => n.toFixed(1)).join(" ")).join("L");
+  pts.forEach(row => g.insertAdjacentHTML("beforeend", `<path d="${d(row)}L${row.at(-1)[0].toFixed(1)} 720L${row[0][0].toFixed(1)} 720Z"/>`));
+}
+</script>
+</body>
+</html>
