@@ -1,1 +1,6 @@
 .idea
+.superpowers/
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/build/
+.impeccable/hook.cache.json

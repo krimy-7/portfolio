@@ -1,0 +1,16 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [
+      ".impeccable/mocks/decision/samples/assigned.html",
+      ".impeccable/mocks/decision/samples/challenger-bench.html",
+      ".impeccable/mocks/decision/samples/challenger-grid.html",
+      ".impeccable/mocks/decision/samples/challenger-kit.html",
+      ".impeccable/mocks/decision/samples/fusion-calm.html",
+      ".impeccable/mocks/decision/samples/fusion.html",
+      ".impeccable/mocks/decision/samples/kit-card.html",
+      ".impeccable/mocks/decision/samples/model-pick.html"
+    ],
+    "ignoreValues": []
+  }
+}
