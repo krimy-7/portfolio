@@ -129,7 +129,7 @@ components:
 
 **Creative North Star: "One Player, Two Kits"**
 
-The page is a club's shirt launch for a single player. The ground is a football-kit colourway with a fine knitted mesh, and everything on it is printed, stitched or badged the way kit is: heavy condensed numerals with a flat drop shadow, caps lettering in a narrow sans, embroidered patches with a dashed gold running stitch, and a shield crest. The player's ID is a holographic rookie card in a penny sleeve.
+The page is a club's shirt launch for a single player. The ground is a football-kit colourway with a fine knitted mesh, and everything on it is printed, stitched or badged the way kit is: heavy condensed numerals with a flat drop shadow, caps lettering in a narrow sans, embroidered patches with a dashed gold running stitch, and a 168 kit-number mark. The player's ID is a holographic rookie card in a penny sleeve.
 
 There are two complete kits and the visitor chooses. HOME (crimson field, white trim) is the brand and social side; AWAY (navy field, volt trim) is the developer side. Gold thread and the crest-black patch are shared by both kits and never change. Switching kit repaints every surface through custom properties, ripples the new kit out from the pressed label, and turns the card a full rotation. The kit choice is identity, not decoration: the content order also changes (Away puts dev fixtures before club career).
 
@@ -156,10 +156,10 @@ Two kit colourways over a shared gold thread and crest black; each kit is a fiel
 - **Volt** (away-volt): AWAY trim, used exactly where white is used in HOME: rules, selected option, focus ring, scrollbar, selection, card stock, and accents on the AWAY shorts panel.
 
 ### Tertiary
-- **Gold Thread** (gold-thread): shared across both kits. Patch stitching, the crest outline and monogram, the card photo frame, the "Now playing:" lead-in and the typing caret. Never a fill for large areas.
+- **Gold Thread** (gold-thread): shared across both kits. Patch stitching, the outline of the 168 mark, the card photo frame, the "Now playing:" lead-in and the typing caret. Never a fill for large areas.
 
 ### Neutral
-- **Crest Black** (crest-black): shared patch fill (crest patch, skill patches, Flip button), crest shield, and the HOME card name plate.
+- **Crest Black** (crest-black): shared patch fill (crest patch, skill patches, Flip button), the 168 mark's drop shadow, and the HOME card name plate.
 - **Home Deep** (home-deep) / **Away Deep** (away-deep): the strip, the full-time contact band, the footer, and the flat drop shadow under the display name. Away Deep is also the AWAY shorts panel.
 - **Home Accent** (home-accent): roles, results and stat labels on the white HOME shorts panel; the text on the selected HOME kit option.
 - **Number Shadows** (home-number-shadow, away-number-shadow): the flat offset under the card's "No. 168".
@@ -198,24 +198,24 @@ Full-bleed horizontal bands, each with the shared page gutter (clamp(16px, 4.4vw
 
 The hero is a 46/54 two-column grid at min(100svh - 56px, 940px): copy left in a 28px-gap stack, card right. Fixture rows are a three-column grid: date (170px), body, result (210px, right-aligned); dev fixtures put a 16:9 thumbnail in the first column. Patches wrap with a 10px gap. Attributes use auto-fit columns with a 280px minimum.
 
-At 1100px and below the strip drops its location and narrows its links. At 900px and below everything collapses to one column: the strip nav becomes a 3-column grid of 46px cells, the kit switch stretches full width, the card stage is min(140vw, 640px), fixture results go left-aligned at 34px with their caption inline, and the contact crest moves above the heading.
+At 1100px and below the strip drops its location and narrows its links. At 900px and below everything collapses to one column: the strip nav becomes a 3-column grid of 46px cells, the kit switch stretches full width, the card stage is min(140vw, 640px), fixture results go left-aligned at 34px with their caption inline, and the contact lockup moves above the heading.
 
 ## Elevation & Depth
 
-The field is flat colour with a knitted mesh texture; depth comes from print and stitching, not floating surfaces. Shadows come in two kinds: flat zero-blur offsets that read as printed lettering, and soft blurred shadows under the only real objects (the card, the crest, the crest patch).
+The field is flat colour with a knitted mesh texture; depth comes from print and stitching, not floating surfaces. Shadows come in two kinds: flat zero-blur offsets that read as printed lettering, and soft blurred shadows under the only real objects (the card, the contact lockup, the crest patch).
 
 ### Shadow Vocabulary
 - **Print shadow** (`text-shadow: 5px 5px 0 var(--deep)`): the hero name. Numerals on the card use `3px 3px 0 var(--num-sh)`; the contact heading uses `6px 6px 0 rgba(0,0,0,.35)`.
 - **Card lift** (`box-shadow: 14px 18px 32px rgba(0,0,0,.32)`): the DOM rookie card faces. The WebGL card casts a radial soft shadow plane instead.
 - **Patch lift** (`box-shadow: 0 3px 6px rgba(0,0,0,.25)`): the "Now playing" crest patch only.
-- **Crest drop** (`filter: drop-shadow(10px 14px 18px rgba(0,0,0,.35))`): the large rotated crest in the contact band.
+- **Mark drop** (`filter: drop-shadow(10px 14px 18px rgba(0,0,0,.35))`): the large 168 lockup in the contact band.
 
 ### Named Rules
 **The Print, Not Plastic Rule.** A hard offset shadow belongs to lettering (Anton text), because that is how kit is printed. Boxes on the field do not float.
 
 ## Shapes
 
-Kit edges are nearly square: 2px on buttons, 3px on the Flip button, thumbnails and swatches, 4px on the kit switch and certificate, 5-6px on patches. The card is the only rounded object (4.5% / 3.2% corners). Borders are 2-3px solid in ink or trim; section dividers are 6px trim rules; table rules are 1px shorts-rule. The crest is a pointed shield with a dashed inner stitch at 80% scale. The card name plate is skewed -3deg, like a printed band.
+Kit edges are nearly square: 2px on buttons, 3px on the Flip button, thumbnails and swatches, 4px on the kit switch and certificate, 5-6px on patches. The card is the only rounded object (4.5% / 3.2% corners). Borders are 2-3px solid in ink or trim; section dividers are 6px trim rules; table rules are 1px shorts-rule. The 168 mark's numerals are squared with chamfered corners and a notched 8 waist, matching the kit's near-square edges. The card name plate is skewed -3deg, like a printed band.
 
 ## Components
 
@@ -235,22 +235,29 @@ A real radio fieldset ("Choose the kit") shown only when JS runs. Two labels in 
 - **Crest patch:** the same stitch at 6px radius with the patch lift; holds "Now playing:" in gold and the typed role with a blinking gold caret.
 
 ### Navigation (matchday strip)
-A deep-tone bar, 56px, with a 3px trim underline. Left: the crest and "KN·168" in Anton. Links are Barlow Condensed 600 caps at 15px, 0.12em, separated by hairlines, hover at white 10%. Location sits at the far right. Under 900px it becomes a 3×2 grid of centred cells.
+A deep-tone bar, 56px, with a 3px trim underline. Left: `168-nav.svg` at exactly 30px high followed by "NISHAD" in Anton (never "168 KN·168"). Links are Barlow Condensed 600 caps at 15px, 0.12em, separated by hairlines, hover at white 10%. Location sits at the far right. Under 900px it becomes a 3×2 grid of centred cells.
 
 ### Fixture rows
 The career and projects as a results table on the shorts panel. Header: Anton title with a small right-aligned column caption ("Result", "Stack") over a 3px ink rule. Each row: date in muted condensed caps, club or project title, role in shorts accent, dash-bulleted duties (8×2px accent bars), and an Anton result with a small caption. Dev rows lead with a 16:9 thumbnail in a 3px ink frame that scales to 1.04 on hover.
 
 ### Rookie card (signature)
-A 5:7 trading card. Front: kit stock, gold-framed natural-colour photo with holo foil on the backdrop only, crest, "RC" rookie shield, skewed name plate, "Brand × Dev" band and "No. 168" with a print shadow. Back: a stat sheet on the shorts colour with a band header, four stat boxes, a pro career record and a highlight. The WebGL version (Three.js) adds thin-film foil keyed to the reflection vector, a translucent penny sleeve, spring tilt toward the pointer, idle float and flip. The DOM card is the first paint and the no-WebGL fallback (CSS 3D flip, 0.8s). The Flip button below is a crest-black stitched patch with a turn icon. Rendering pauses off-screen and in hidden tabs, and reduced motion removes idle and spring animation.
+A 5:7 trading card. Front: kit stock, gold-framed natural-colour photo with holo foil on the backdrop only, the 168 mark (`168.svg`) in the corner, "RC" rookie shield, skewed name plate, "Brand × Dev" band and "No. 168" with a print shadow. Back: a stat sheet on the shorts colour with a band header, four stat boxes, a pro career record and a highlight. The WebGL version (Three.js) adds thin-film foil keyed to the reflection vector, a translucent penny sleeve, spring tilt toward the pointer, idle float and flip. The DOM card is the first paint and the no-WebGL fallback (CSS 3D flip, 0.8s). The Flip button below is a crest-black stitched patch with a turn icon. Rendering pauses off-screen and in hidden tabs, and reduced motion removes idle and spring animation.
 
-### Crest
-The KN shield: crest-black fill, 5px gold edge, dashed gold inner stitch, a white peak line with a gold arrow, "KN" in Anton gold. Used in the strip, on the card, and large in the contact band at -6deg.
+### 168 mark (logo)
+The 168 kit-number mark: the shirt number set as white chamfered jersey numerals (squared block figures with clipped corners and a waist notch on the 8) with a gold (#C9A227) outline and a flat black (#14110F) drop shadow offset down-right, printed the way a number is pressed on a shirt back. It replaces the old KN shield crest; there is no shield, peak, arrow or KN monogram any more.
+
+- **Files** (assets/img/logo/): `168.svg` (full-colour mark), `168-mono.svg` (one colour, currentColor), `168-nav.svg` (pixel-fitted 37x30 for exactly height:30px; never scale it), `168-lockup.svg` (arched NISHAD over 168), `168-lockup-full.svg` (arched KRISHNA NISHAD over 168).
+- **Nav:** `168-nav.svg` at exactly 30px high, followed by NISHAD in Anton. Never "168 KN·168" or any KN wordmark.
+- **Card corner:** `168.svg`.
+- **Contact band:** `168-lockup-full.svg`, large, with the mark drop.
+- **Icons:** `favicon.ico` holds 16 and 32 px bitmaps rendered from the pixel-fitted favicon SVGs; never link an SVG favicon. `apple-touch-icon.png` is 180px on an opaque crimson (#C8102E) ground.
+- **Colour in both kits:** white, gold and black are fixed (the Shared Thread Rule) and never repaint on kit switch; on white (HOME) or volt (AWAY) card stock the gold outline and black shadow carry the edge. Where one colour is needed, use `168-mono.svg` with `color` set to a role variable (`--ink` on the field, `--s-ink` on the shorts panel), never a kit hex.
 
 ## Do's and Don'ts
 
 ### Do:
 - **Do** colour every new surface through kit role variables (`--field`, `--deep`, `--trim`, `--on-trim`, `--shorts`, `--s-*`) so it works in both kits.
-- **Do** keep gold (#C9A227) and crest black (#14110F) for stitching, crests and patches in both kits.
+- **Do** keep gold (#C9A227) and crest black (#14110F) for stitching, the 168 mark and patches in both kits.
 - **Do** set names, titles and results in uppercase Anton with a zero-blur offset shadow in the kit's deep tone.
 - **Do** set labels, dates, roles and nav in Barlow Condensed caps tracked 0.06-0.2em.
 - **Do** separate sections with full-bleed bands and a 6px trim rule; put records and tables on the shorts panel.

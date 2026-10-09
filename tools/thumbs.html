@@ -1,5 +1,6 @@
 <!doctype html>
-<!-- Source for the Dev Fixtures thumbnails (1280x720): ?p=desk | face | ue5.
+<!-- Source for the Dev Fixtures thumbnails (1280x720): ?p=desk | iot | audio | face | ue5.
+     Tag mark: /assets/img/logo/168.svg (full colour reads cleaner than gold mono at 46px).
      Render: python -m http.server 8765, headless Chrome --window-size=1280,720 --screenshot, then convert to webp.
      Crest black + gold thread so they sit in both kits. -->
 <html lang="en">
@@ -15,7 +16,7 @@ body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mes
 .t{position:relative;width:1280px;height:720px;overflow:hidden}
 .t:after{content:"";position:absolute;inset:22px;border:2px dashed var(--gold);border-radius:14px;pointer-events:none;z-index:5}
 .tag{position:absolute;left:58px;top:54px;display:flex;align-items:center;gap:14px;z-index:4;font-weight:700;font-size:26px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.tag svg{width:46px;height:49px}
+.tag img{width:46px;height:46px}
 .plate{position:absolute;left:58px;bottom:62px;z-index:4}
 .plate h1{font:400 112px/.86 Anton;text-transform:uppercase;text-shadow:6px 6px 0 #000}
 .plate p{margin-top:14px;font-weight:700;font-size:28px;letter-spacing:.14em;text-transform:uppercase}
@@ -57,21 +58,14 @@ body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mes
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><g id="crest">
-  <path d="M50 4 L92 15 V52 C92 77 73 93 50 102 C27 93 8 77 8 52 V15 Z" fill="#14110F" stroke="#C9A227" stroke-width="5"/>
-  <path d="M50 4 L92 15 V52 C92 77 73 93 50 102 C27 93 8 77 8 52 V15 Z" transform="translate(50 53) scale(.8) translate(-50 -53)" fill="none" stroke="#C9A227" stroke-width="1.6" stroke-dasharray="3 2.4"/>
-  <path d="M24 50 L38 35 L46 43 L60 25 L76 50" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/><path d="M60 25 V12 M54 18 L60 12 L66 18" fill="none" stroke="#C9A227" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="50" y="84" text-anchor="middle" font-family="Anton" font-size="27" fill="#C9A227" letter-spacing="1">KN</text>
-</g></defs></svg>
-
 <div class="t" id="desk" hidden>
-  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 01 · Web-App</p>
+  <p class="tag"><img src="/assets/img/logo/168.svg" alt="">Fixture 01 · Web-App</p>
   <div class="screen"><img src="/assets/img/project/availclouds.webp" alt=""></div>
   <div class="plate"><h1>MSP<br>Help Desk</h1><p><b>Live</b>Availclouds · Frontend UI</p></div>
 </div>
 
 <div class="t" id="face" hidden>
-  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 04 · Project</p>
+  <p class="tag"><img src="/assets/img/logo/168.svg" alt="">Fixture 04 · Project</p>
   <div class="photo"><img src="/assets/img/krishna_profile.webp" alt="">
     <div class="box"><i></i><i></i><i></i><i></i><span>FACE</span></div><div class="scan"></div></div>
   <div class="plate"><h1>Face<br>Detection</h1><p><b>CV</b>Python · OpenCV</p></div>
@@ -82,7 +76,7 @@ body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mes
     <circle cx="930" cy="300" r="96" fill="#C8102E"/>
     <g id="grid" fill="#14110F" stroke="#C9A227" stroke-width="2.2" stroke-linejoin="round"></g>
   </svg>
-  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 05 · Game</p>
+  <p class="tag"><img src="/assets/img/logo/168.svg" alt="">Fixture 05 · Game</p>
   <div class="plate"><h1>Unreal<br>Engine 5</h1><p><b>UE5</b>Game build</p></div>
 </div>
 
@@ -93,7 +87,7 @@ body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mes
   </svg>
   <span class="stop" style="left:520px;top:596px">Kitchen</span><span class="stop" style="left:790px;top:436px">Rider</span><span class="stop" style="left:1112px;top:556px">Door</span>
   <div class="qr" id="qr"></div><span class="seal">Sealed</span>
-  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 02 · IoT</p>
+  <p class="tag"><img src="/assets/img/logo/168.svg" alt="">Fixture 02 · IoT</p>
   <div class="plate"><h1>Pure<br>Route</h1><p><b>IoT</b>Delivery verification</p></div>
 </div>
 
@@ -108,7 +102,7 @@ body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mes
       <span class="pp"><svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></span>
       <svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg></div>
   </div>
-  <p class="tag"><svg viewBox="0 0 100 106"><use href="#crest"/></svg>Fixture 03 · Open source</p>
+  <p class="tag"><img src="/assets/img/logo/168.svg" alt="">Fixture 03 · Open source</p>
   <div class="plate"><h1>WiFi<br>Audio</h1><p><b>Mod</b>PC audio to phone</p></div>
 </div>
 

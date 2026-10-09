@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 30">
+<!-- pixel-fitted for exactly height:30px (width 37px); 1px gold, 2px shadow. Not for other sizes. -->
+<defs><path id="n" fill-rule="evenodd" d="M4 2H7V26H4V6H2V4ZM11 2H20V5H12V12H18L20 14V24L18 26H11L9 24V4ZM12 15H17V23H12ZM24 2H31L33 4V24L31 26H24L22 24V4ZM25 5H30V12H25ZM25 15H30V23H25Z"/></defs>
+<use href="#n" x="2" y="2" fill="#14110F" stroke="#14110F" stroke-width="2"/>
+<use href="#n" fill="#C9A227" stroke="#C9A227" stroke-width="2"/>
+<use href="#n" fill="#fff"/>
+</svg>

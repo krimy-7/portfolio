@@ -365,9 +365,9 @@
         "purpose": "Now-playing crest patch."
       },
       {
-        "name": "crest-drop",
+        "name": "mark-drop",
         "value": "filter: drop-shadow(10px 14px 18px rgba(0,0,0,.35))",
-        "purpose": "Large contact crest."
+        "purpose": "Large 168 lockup in the contact band."
       }
     ],
     "motion": [
@@ -406,7 +406,27 @@
         "name": "single-column",
         "value": "900px"
       }
-    ]
+    ],
+    "logo": {
+      "name": "168 kit-number mark",
+      "replaces": "KN shield crest (retired)",
+      "description": "White chamfered jersey numerals (the 8 has a waist notch) with a gold #C9A227 outline and a flat black #14110F drop shadow offset down-right.",
+      "files": {
+        "assets/img/logo/168.svg": "Full-colour mark; rookie card corner.",
+        "assets/img/logo/168-mono.svg": "One colour via currentColor; set color to a kit role variable.",
+        "assets/img/logo/168-nav.svg": "Pixel-fitted 37x30; use ONLY at exactly height:30px in the strip.",
+        "assets/img/logo/168-lockup.svg": "Arched NISHAD over 168.",
+        "assets/img/logo/168-lockup-full.svg": "Arched KRISHNA NISHAD over 168; contact band, with the mark-drop shadow."
+      },
+      "usage": [
+        "Nav: 168-nav.svg at exactly 30px followed by NISHAD in Anton; never \"168 KN·168\".",
+        "Card corner: 168.svg.",
+        "Contact: 168-lockup-full.svg.",
+        "favicon.ico with 16 and 32 px bitmaps from the pixel-fitted favicon SVGs; never link an SVG favicon.",
+        "apple-touch-icon.png: 180px, opaque crimson #C8102E ground."
+      ],
+      "colorBehavior": "White, gold and black are fixed in both kits and never repaint on kit switch (Shared Thread Rule); on white (HOME) or volt (AWAY) card stock the gold outline and black shadow carry the edge. Single-colour use: 168-mono.svg with color set to --ink or --s-ink, never a kit hex."
+    }
   },
   "components": [
     {
@@ -453,9 +473,9 @@
       "name": "Matchday Strip",
       "kind": "nav",
       "refersTo": "strip-nav-link",
-      "description": "Deep-tone top bar with trim underline, crest + KN·168, condensed caps links.",
-      "html": "<header class=\"ds-strip\"><a class=\"ds-club\" href=\"#\"><svg viewBox=\"0 0 100 106\" width=\"30\" height=\"32\"><path d=\"M50 4 L92 15 V52 C92 77 73 93 50 102 C27 93 8 77 8 52 V15 Z\" fill=\"#14110F\" stroke=\"#C9A227\" stroke-width=\"5\"/><text x=\"50\" y=\"84\" text-anchor=\"middle\" font-family=\"Anton\" font-size=\"27\" fill=\"#C9A227\">KN</text></svg><b>KN·168</b></a><nav><a href=\"#\">About</a><a href=\"#\">Experience</a><a href=\"#\">Projects</a><a href=\"#\">Contact</a></nav></header>",
-      "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-strip{display:flex;align-items:stretch;background:var(--deep);color:var(--ink);border-bottom:3px solid var(--trim);min-height:56px} .ds-club{display:flex;align-items:center;gap:10px;padding:0 22px;color:inherit;text-decoration:none;border-right:1px solid rgba(255,255,255,.18)} .ds-club b{font:400 22px/1 Anton,sans-serif;letter-spacing:.04em} .ds-strip nav{display:flex} .ds-strip nav a{display:flex;align-items:center;padding:0 18px;color:inherit;text-decoration:none;font:600 15px/1 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;border-right:1px solid rgba(255,255,255,.12)} .ds-strip nav a:hover{background:rgba(255,255,255,.1)} .ds-strip a:focus-visible{outline:3px solid var(--trim);outline-offset:-3px}"
+      "description": "Deep-tone top bar with trim underline, 168 nav mark (exactly 30px) + NISHAD in Anton, condensed caps links.",
+      "html": "<header class=\"ds-strip\"><a class=\"ds-club\" href=\"#\"><img src=\"assets/img/logo/168-nav.svg\" width=\"37\" height=\"30\" alt=\"\"><b>NISHAD</b></a><nav><a href=\"#\">About</a><a href=\"#\">Experience</a><a href=\"#\">Projects</a><a href=\"#\">Contact</a></nav></header>",
+      "css": ":host{--gold:#C9A227;--crest:#14110F;--field:#C8102E;--deep:#8A0B20;--ink:#fff;--trim:#fff;--on-trim:#A00D25;--shorts:#fff;--s-ink:#22090E;--s-mute:#6B4A50;--s-acc:#A00D25;--s-rule:rgba(34,9,14,.14)} .ds-strip{display:flex;align-items:stretch;background:var(--deep);color:var(--ink);border-bottom:3px solid var(--trim);min-height:56px} .ds-club{display:flex;align-items:center;gap:10px;padding:0 22px;color:inherit;text-decoration:none;border-right:1px solid rgba(255,255,255,.18)} .ds-club img{height:30px;width:37px;flex:none} .ds-club b{font:400 22px/1 Anton,sans-serif;letter-spacing:.04em} .ds-strip nav{display:flex} .ds-strip nav a{display:flex;align-items:center;padding:0 18px;color:inherit;text-decoration:none;font:600 15px/1 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;border-right:1px solid rgba(255,255,255,.12)} .ds-strip nav a:hover{background:rgba(255,255,255,.1)} .ds-strip a:focus-visible{outline:3px solid var(--trim);outline-offset:-3px}"
     },
     {
       "name": "Fixture Row",
@@ -476,7 +496,7 @@
   ],
   "narrative": {
     "northStar": "One Player, Two Kits",
-    "overview": "The page is a club's shirt launch for a single player. The ground is a football-kit colourway with a fine knitted mesh, and everything on it is printed, stitched or badged the way kit is: heavy condensed numerals with a flat drop shadow, caps lettering in a narrow sans, embroidered patches with a dashed gold running stitch, and a shield crest. The player's ID is a holographic rookie card in a penny sleeve.\n\nThere are two complete kits and the visitor chooses. HOME (crimson field, white trim) is the brand and social side; AWAY (navy field, volt trim) is the developer side. Gold thread and the crest-black patch are shared by both kits and never change. Switching kit repaints every surface through custom properties, ripples the new kit out from the pressed label, and turns the card a full rotation. The kit choice is identity, not decoration: the content order also changes (Away puts dev fixtures before club career).\n\nDensity is a matchday programme: full-bleed colour bands divided by thick trim rules, tables of fixtures with results on the right, and no floating cards on the field. The one rejected default, confirmed in the direction, is the dark developer portfolio with a particle hero.",
+    "overview": "The page is a club's shirt launch for a single player. The ground is a football-kit colourway with a fine knitted mesh, and everything on it is printed, stitched or badged the way kit is: heavy condensed numerals with a flat drop shadow, caps lettering in a narrow sans, embroidered patches with a dashed gold running stitch, and a 168 kit-number mark. The player's ID is a holographic rookie card in a penny sleeve.\n\nThere are two complete kits and the visitor chooses. HOME (crimson field, white trim) is the brand and social side; AWAY (navy field, volt trim) is the developer side. Gold thread and the crest-black patch are shared by both kits and never change. Switching kit repaints every surface through custom properties, ripples the new kit out from the pressed label, and turns the card a full rotation. The kit choice is identity, not decoration: the content order also changes (Away puts dev fixtures before club career).\n\nDensity is a matchday programme: full-bleed colour bands divided by thick trim rules, tables of fixtures with results on the right, and no floating cards on the field. The one rejected default, confirmed in the direction, is the dark developer portfolio with a particle hero.",
     "keyCharacteristics": [
       "Two full colour kits switched by one `data-kit` attribute on `<html>`; gold and crest-black are constant.",
       "Anton numerals and names with a hard flat drop shadow in the kit's deep tone, like printed shirt lettering.",
@@ -514,7 +534,7 @@
     ],
     "dos": [
       "**Do** colour every new surface through kit role variables (`--field`, `--deep`, `--trim`, `--on-trim`, `--shorts`, `--s-*`) so it works in both kits.",
-      "**Do** keep gold (#C9A227) and crest black (#14110F) for stitching, crests and patches in both kits.",
+      "**Do** keep gold (#C9A227) and crest black (#14110F) for stitching, the 168 mark and patches in both kits.",
       "**Do** set names, titles and results in uppercase Anton with a zero-blur offset shadow in the kit's deep tone.",
       "**Do** set labels, dates, roles and nav in Barlow Condensed caps tracked 0.06-0.2em.",
       "**Do** separate sections with full-bleed bands and a 6px trim rule; put records and tables on the shorts panel.",
