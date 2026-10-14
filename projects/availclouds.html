@@ -225,7 +225,13 @@ a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1.5px
   .pin.pin-ny[data-side] .pin-card { top: -58px; left: -14px; }
   .pin-ny .pin-card::before, .pin-ktm .pin-card::before { display: none; }
   .pin.pin-ktm[data-side] .pin-card { top: 16px; right: -10px; }
-  .tally { gap: 12px; flex-wrap: wrap; }
+  /* Phone readout: the tally becomes three even tiles (count over label), the clock sits on its own line below */
+  .js .controls { display: grid; gap: 12px; }
+  .hero[data-mode="night"] .tally, .hero[data-mode="hold"] .tally { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .tally span { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; padding: 10px 12px 11px; border: 1px solid var(--line-n); border-radius: 8px; background: rgba(18, 30, 66, 0.55); white-space: normal; font-size: 13px; line-height: 1.25; }
+  .tally b { order: -1; flex-basis: 100%; font-size: 22px; line-height: 1.1; }
+  .tally span { position: relative; }
+  .tally i { position: absolute; top: 14px; right: 12px; }
 }
 @media (max-width: 480px) { .hero .btn-lg { width: 100%; } }
 /* Short laptop screens (1366x768, 1280x720): the headline scales with height too, so the copy clears the map pins and the status bar stays on screen */
