@@ -197,6 +197,7 @@ a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1.5px
 .controls { display: none; align-items: center; gap: 22px; }
 .js .controls { display: flex; }
 .livechip { font-size: 14px; }
+@media (max-width: 1439px) { .livechip .long { display: none; } }
 .livechip b { color: var(--text); }
 .livechip .mono { color: var(--text); font-size: 13.5px; }
 .nojs-only { display: inline; }
@@ -503,6 +504,7 @@ a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1.5px
 .footer-id { display: grid; gap: 6px; }
 .footer-id .logo { color: var(--text); font-size: 19px; margin-bottom: 4px; }
 .footer-id .mark { width: 40px; height: 30px; }
+.credit a { color: var(--text); }
 .footer-links { display: flex; flex-wrap: wrap; gap: 0 24px; list-style: none; padding: 0; }
 .footer-links a { color: var(--text); display: inline-block; padding-block: 11px; }
 </style>
@@ -942,6 +944,7 @@ a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1.5px
       <a class="logo" href="#main" aria-label="Availclouds, back to top"><svg class="mark" aria-hidden="true"><use href="#acMark"/></svg><span class="word"><b>Availclouds</b><small>After-hours desk</small></span></a>
       <p>Availclouds LLC, 701 Rising Star Dr, Henderson, NV 89014.</p>
       <p>&copy; <span id="year">2026</span> Availclouds LLC</p>
+      <p class="credit">A project by Krishna Nishad. <a href="/#projects">Back to the portfolio</a></p>
     </div>
     <ul class="footer-links">
       <li><a href="https://availclouds.com/">Availclouds home</a></li>
@@ -1402,7 +1405,7 @@ a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1.5px
     document.querySelector('[data-shift-dot]').hidden = !on;
     var st = $('status-text');
     if (mode === 'night') {
-      st.innerHTML = 'Example night, invented clients &middot; <span class="mono">' + h[0] + '</span> in New York &middot; <span class="mono">' + h[1] + '</span> in Kathmandu';
+      st.innerHTML = 'Example night, invented clients &middot; <span class="mono">' + h[0] + '</span> in New York';
     } else if (mode === 'hold') {
       st.innerHTML = '<b>8:00 AM: morning handoff sent.</b> <a href="#handoff">Read the note</a>';
     } else if (mode === 'day') {
@@ -1414,7 +1417,7 @@ a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1.5px
   /* The real clocks stay visible while the example loops */
   function setLiveChip() {
     var d = new Date(), on = covered(d, NY);
-    $('livechip').innerHTML = '<b>Now</b> <span class="mono">' + clockHTML(d, NY) + '</span> New York &middot; <span class="mono">' + clockHTML(d, TEAM_TZ) + '</span> Kathmandu &middot; ' + (on ? 'desk on shift' : 'desk starts 6 PM ET');
+    $('livechip').innerHTML = '<b>Now</b> <span class="mono">' + clockHTML(d, NY) + '</span> New York &middot; <span class="mono">' + clockHTML(d, TEAM_TZ) + '</span> Kathmandu<span class="long"> &middot; ' + (on ? 'desk on shift' : 'desk starts 6 PM ET') + '</span>';
   }
   function setMode(m) { mode = m; hero.setAttribute('data-mode', m); lastPinText = ''; }
 
