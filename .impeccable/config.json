@@ -21,6 +21,168 @@
         "rule": "design-system-font",
         "value": "condensed",
         "createdAt": "2026-10-09T08:26:10.805Z"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          "projects/availclouds.html"
+        ],
+        "createdAt": "2026-10-14T05:41:43.182Z",
+        "reason": "Agent: PRODUCT.md says projects/availclouds.html has its own design and is outside the portfolio DESIGN.md; its fonts are not the portfolio type system"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/availclouds/**"
+        ],
+        "createdAt": "2026-10-14T05:43:00.109Z",
+        "reason": "Agent: throwaway direction-round samples, never shipped; the canon card is the category standard by design"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/availclouds/**"
+        ],
+        "createdAt": "2026-10-14T05:43:00.311Z",
+        "reason": "Agent: throwaway direction-round samples, never shipped; the canon card is the category standard by design"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/availclouds/**"
+        ],
+        "createdAt": "2026-10-14T05:43:00.505Z",
+        "reason": "Agent: throwaway direction-round samples, never shipped; the canon card is the category standard by design"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/availclouds/**"
+        ],
+        "createdAt": "2026-10-14T05:46:25.864Z",
+        "reason": "Agent: throwaway direction-round samples, never shipped; findings noted for the chosen build"
+      },
+      {
+        "rule": "wide-tracking",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/availclouds/**"
+        ],
+        "createdAt": "2026-10-14T05:46:26.062Z",
+        "reason": "Agent: throwaway direction-round samples, never shipped; findings noted for the chosen build"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/availclouds/**"
+        ],
+        "createdAt": "2026-10-14T05:46:26.271Z",
+        "reason": "Agent: throwaway direction-round samples, never shipped; findings noted for the chosen build"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/decision/availclouds/**"
+        ],
+        "createdAt": "2026-10-14T05:46:26.468Z",
+        "reason": "Agent: throwaway direction-round samples, never shipped; findings noted for the chosen build"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "*",
+        "files": [
+          "projects/availclouds.html"
+        ],
+        "createdAt": "2026-10-14T06:14:54.048Z",
+        "reason": "Agent: PRODUCT.md marks projects/availclouds.html as its own design, outside the portfolio DESIGN.md; its world is recorded in .impeccable/surfaces/projects-availclouds-html.md"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "*",
+        "files": [
+          "projects/availclouds.html"
+        ],
+        "createdAt": "2026-10-14T06:14:54.232Z",
+        "reason": "Agent: PRODUCT.md marks projects/availclouds.html as its own design, outside the portfolio DESIGN.md; its world is recorded in .impeccable/surfaces/projects-availclouds-html.md"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          "projects/availclouds.html"
+        ],
+        "createdAt": "2026-10-14T06:14:54.415Z",
+        "reason": "Agent: PRODUCT.md marks projects/availclouds.html as its own design, outside the portfolio DESIGN.md; its world is recorded in .impeccable/surfaces/projects-availclouds-html.md"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "projects/availclouds.html"
+        ],
+        "createdAt": "2026-10-14T06:14:54.599Z",
+        "reason": "Agent: measured in Chrome at 320-1536px, every flagged container has >=14px padding via clamp(); list rows inset by padding-block 16-22px"
+      },
+      {
+        "rule": "undersized-ui-text",
+        "value": "*",
+        "files": [
+          "projects/availclouds.html"
+        ],
+        "createdAt": "2026-10-14T06:14:54.784Z",
+        "reason": "Agent: .price-big span renders 14.6-21px (0.28em of a clamp(52px..76px) parent); detector resolves against 18px"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "projects/availclouds.html"
+        ],
+        "createdAt": "2026-10-14T06:14:54.967Z",
+        "reason": "Agent: --paper-shadow is an offset drop shadow (0 22px 44px) on light sections, not a glow; the html night background misleads the rule"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/logo-availclouds/**"
+        ],
+        "createdAt": "2026-10-14T06:38:23.809Z",
+        "reason": "Agent: throwaway logo sample sheet; it is not the portfolio and uses this page's own type"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/logo-availclouds/**"
+        ],
+        "createdAt": "2026-10-14T06:41:45.264Z",
+        "reason": "Agent: throwaway logo option sheet (labels are 3-6 word tags; padding is a mock layout), never shipped"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/logo-availclouds/**"
+        ],
+        "createdAt": "2026-10-14T06:41:45.460Z",
+        "reason": "Agent: throwaway logo option sheet (labels are 3-6 word tags; padding is a mock layout), never shipped"
+      },
+      {
+        "rule": "wide-tracking",
+        "value": "*",
+        "files": [
+          ".impeccable/mocks/logo-availclouds/**"
+        ],
+        "createdAt": "2026-10-14T06:45:23.646Z",
+        "reason": "Agent: the tracked text is the short uppercase 'AFTER-HOURS DESK' tagline and option labels on a throwaway logo sheet"
       }
     ]
   }
