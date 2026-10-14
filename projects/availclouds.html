@@ -138,7 +138,16 @@ a { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1.5px
   .site-header .btn { padding: 0 14px; font-size: 15px; }
   .hide-sm { display: none; }
 }
-@media (max-width: 359px) { .logo span.word { display: none; } }
+/* Narrow phones keep the name: the header tightens first, and below 340px the header CTA goes (the hero's big button sits right under it) */
+@media (max-width: 379px) {
+  .header-row { gap: 8px; }
+  .logo { gap: 7px; }
+  .mark { width: 34px; height: 26px; }
+  .word b { font-size: 17px; }
+  .word small { font-size: 8.5px; letter-spacing: 0.12em; }
+  .site-header .btn { padding: 0 11px; font-size: 14px; }
+}
+@media (max-width: 339px) { .site-header .btn { display: none; } }
 
 /* ---------- Hero: the map is the ground ---------- */
 .hero { position: relative; height: clamp(600px, 100svh, 960px); overflow: hidden; isolation: isolate; background: var(--night); color: var(--text); }
