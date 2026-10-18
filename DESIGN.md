@@ -23,7 +23,7 @@ typography:
     fontSize: "clamp(64px, 9.2vw, 146px)"
     fontWeight: 400
     lineHeight: 0.86
-    letterSpacing: "0.005em"
+    letterSpacing: "0.07em"
   headline:
     fontFamily: "Anton, sans-serif"
     fontSize: "clamp(48px, 6vw, 92px)"
