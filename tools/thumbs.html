@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Source for the Dev Fixtures thumbnails (1280x720): ?p=desk | iot | audio | face | ue5.
+<!-- Source for the Dev Fixtures thumbnails (1280x720): ?p=desk | iot | audio | face | ue5 | tide.
      Tag mark: /assets/img/logo/168.svg (full colour reads cleaner than gold mono at 46px).
      Render: python -m http.server 8765, headless Chrome --window-size=1280,720 --screenshot, then convert to webp.
      Crest black + gold thread so they sit in both kits. -->
@@ -55,6 +55,8 @@ body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mes
 .ctl svg{width:44px;height:44px;fill:#fff}.ctl .pp{width:74px;height:74px;border-radius:50%;background:var(--volt);display:grid;place-items:center}.ctl .pp svg{fill:var(--crest);width:36px;height:36px}
 .waves{position:absolute;left:560px;top:250px;width:260px;height:260px}
 #ue5 .plate{background:var(--crest);padding:18px 22px 20px;margin-left:-22px;border-radius:4px}
+/* tide: the game itself in the gold-framed screen, tilted the other way */
+#tide .screen{transform:rotate(-3deg)}#tide .screen img{object-position:center}
 </style>
 </head>
 <body>
@@ -78,6 +80,12 @@ body{width:1280px;height:720px;overflow:hidden;background:var(--crest) var(--mes
   </svg>
   <p class="tag"><img src="/assets/img/logo/168.svg" alt="">Fixture 05 · Game</p>
   <div class="plate"><h1>Unreal<br>Engine 5</h1><p><b>UE5</b>Game build</p></div>
+</div>
+
+<div class="t" id="tide" hidden>
+  <p class="tag"><img src="/assets/img/logo/168.svg" alt="">Fixture 06 · Game</p>
+  <div class="screen"><img src="/assets/img/project/tidelight.webp" alt=""></div>
+  <div class="plate"><h1>Tide<br>light</h1><p><b>Live</b>three.js · WebGL</p></div>
 </div>
 
 <div class="t" id="iot" hidden>
