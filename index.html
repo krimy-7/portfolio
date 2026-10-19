@@ -175,8 +175,10 @@ h1 span{display:block}
 .tbl .res small{display:block;font:600 12px/1.3 "Barlow Condensed";letter-spacing:.16em;color:var(--s-mute);margin-top:6px}
 .dev li{grid-template-columns:minmax(200px,300px) minmax(0,1fr) minmax(170px,auto);align-items:center;position:relative}
 .dev .thumb{display:block;aspect-ratio:16/9;overflow:hidden;border:3px solid var(--s-ink);border-radius:3px;background:var(--s-rule)}
-.dev .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.dev li:hover .thumb img{transform:scale(1.04)}
+.dev .thumb img,.dev .thumb video{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.dev li:hover .thumb img,.dev li:hover .thumb video{transform:scale(1.04)}
+.dev .watch{position:relative;z-index:1;display:inline-flex;align-items:center;gap:6px;margin-top:12px;font:600 15px/1.2 "Barlow Condensed";letter-spacing:.12em;text-transform:uppercase;color:var(--s-acc);text-decoration:none}   /* sits above the row-wide tap target */
+.dev .watch:hover{text-decoration:underline}
 .dev h3 a{text-decoration:none}.dev h3 a:hover{text-decoration:underline}
 .dev h3 a::after{content:"";position:absolute;inset:0}   /* whole row is the tap target */
 .dev p{color:var(--s-mute);font-size:16px;max-width:52ch;margin-top:10px}   /* room under the title (and its hover underline) */
@@ -345,8 +347,8 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
       <li><a class="thumb" href="projects/availclouds.html" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-desk.webp" width="1280" height="720" loading="lazy" alt=""></a>
         <div><h3><a href="projects/availclouds.html">Availclouds MSP Help Desk</a></h3><p>I built the frontend UI and live tools. It's a white-label help desk that covers MSPs overnight and at weekends.</p></div>
         <strong class="res">Frontend<small>UI + live tools</small></strong></li>
-      <li><a class="thumb" href="https://krimy-7.github.io/tidelight/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-tide.webp?v=2" width="1280" height="720" loading="lazy" alt=""></a>
-        <div><h3><a href="https://krimy-7.github.io/tidelight/" target="_blank" rel="noopener" aria-describedby="newtab">Tidelight<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>A relaxing night ride on an endless sand road between two seas, playable in the browser. I rebuilt my Unreal idea in three.js, with hand-written shaders for the waves and the sea washing over the road, and sound made with ElevenLabs.</p></div>
+      <li><a class="thumb" href="https://krimy-7.github.io/tidelight/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><video src="/assets/video/tidelight-preview.mp4" poster="/assets/img/project/thumb-tide.webp?v=2" width="1280" height="720" muted loop playsinline preload="none"></video></a>
+        <div><h3><a href="https://krimy-7.github.io/tidelight/" target="_blank" rel="noopener" aria-describedby="newtab">Tidelight<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>A relaxing night ride on an endless sand road between two seas. I spent a year and a half trying to build it in Unreal and got stuck on 3D modelling, so I rebuilt it for the browser in three.js. Every model, wave and splash is made in code, and it runs smoothly on phones and computers.</p><a class="watch" href="/assets/video/tidelight-trailer.mp4" target="_blank" rel="noopener" aria-describedby="newtab">Watch the launch trailer<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></div>
         <strong class="res">Live<small>three.js · WebGL</small></strong></li>
       <li><a class="thumb" href="https://www.linkedin.com/posts/krishna-nishad_pureroute-is-an-iot-powered-food-delivery-ugcPost-7480318570745257984-JvGE/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/img/project/thumb-iot.webp" width="1280" height="720" loading="lazy" alt=""></a>
         <div><h3><a href="https://www.linkedin.com/posts/krishna-nishad_pureroute-is-an-iot-powered-food-delivery-ugcPost-7480318570745257984-JvGE/" target="_blank" rel="noopener" aria-describedby="newtab">PureRoute<svg class="i" aria-hidden="true"><use href="#out"/></svg></a></h3><p>Dev Gautam Kumar and I built it in a hackathon sprint. It pairs clip-on microcontroller modules with a cloud backend to give each food delivery an unforgeable audit trail from kitchen to doorstep. The demo shows mid-route tamper detection.</p></div>
@@ -422,6 +424,8 @@ footer{background:var(--deep);border-top:1px solid rgba(255,255,255,.14);padding
   const roles = ["Brand Identity Manager", "Developer", "Twitch Streamer"], el = document.getElementById("role");
   const theme = document.querySelector('meta[name="theme-color"]'), radios = [...document.querySelectorAll("input[name=kit]")];
   const rec = document.querySelector(".record"), exp = document.getElementById("experience"), proj = document.getElementById("projects");
+  // project previews: muted loops play only while on screen, never with reduced motion
+  if (!reduce && "IntersectionObserver" in window) proj?.querySelectorAll(".thumb video").forEach(v => new IntersectionObserver(([e]) => e.isIntersecting ? v.play().catch(() => {}) : v.pause()).observe(v));
   const store = { get() { try { return localStorage.getItem("kit") } catch { return null } }, set(v) { try { localStorage.setItem("kit", v) } catch {} } };
   let ri = 0, timer;
   function typeTo(word, then) {          // deletes back to the shared prefix, then types the new word
