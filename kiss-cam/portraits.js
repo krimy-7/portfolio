@@ -1,0 +1,26 @@
+/* Portraits: CC / public-domain files from Wikimedia Commons. The used ones are self-hosted in img/ (resized to 640px, JPEG);
+   credit, licence and source page are unchanged. Keys still pointing at Wikimedia are not shown on the page. */
+window.PORTRAITS = {
+  huang: { url: "img/huang.jpg", credit: "Anderseidesvik, CC BY-SA 4.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Jensen_Huang_Stanford_2026-04-30_010_%28cropped%29.jpg" },
+  easterbrook: { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Steve-Easterbrook-Dec-2023.jpg?width=500", credit: "Steve Easterbrook, CC BY-SA 4.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Steve-Easterbrook-Dec-2023.jpg" },
+  bezos: { url: "img/bezos.jpg", credit: "Seattle City Council, CC BY 2.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_%2839074799225%29_%28cropped%29.jpg" },
+  hurd: { url: "img/hurd.jpg", credit: "Oracle PR, CC BY 2.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Mark_Hurd_%28cropped2%29.jpg" },
+  moonves: { url: "img/moonves.jpg", credit: "David Shankbone, CC BY 3.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Les_Moonves_at_the_2009_Tribeca_Film_Festival.jpg" },
+  looney: { url: "img/looney.jpg", credit: "Graham Trott, CC BY 4.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Bernard_Looney.jpg" },
+  buchanan: { url: "img/buchanan.jpg", credit: "Sebron Snyder, CC BY-SA 3.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Ashley_Buchanan.jpeg" },
+  hamm: { url: "img/hamm.jpg", credit: "David Shankbone, CC BY 3.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Harold_Hamm_2012_Shankbone.JPG" },
+  wynn: { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Steve%20Wynn%2001.jpg?width=500", credit: "Joe Mabel, CC BY-SA 3.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Steve_Wynn_01.jpg" },
+  krzanich: { url: "img/krzanich.jpg", credit: "Intel, CC BY 4.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Brian_Krzanich.jpg" },
+  freixe: { url: "img/freixe.jpg", credit: "World Economic Forum, CC BY 3.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Laurent_Fran%C3%A7ois_Charles_Freixe_%28born_1962%29_at_World_Economic_Forum_Annual_Meeting_2025.png" },
+  mcmahon: { url: "img/mcmahon.jpg", credit: "Navy Petty Officer 2nd Class Dominique A. Pineiro, public domain, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Vince_McMahon_in_2016.jpg" },
+  shell: { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Jeff-shell-by-bill-cramer.jpg?width=500", credit: "BillCramer, CC BY-SA 4.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Jeff-shell-by-bill-cramer.jpg" },
+  wiseman: { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Mark%20Wiseman%20World%20Economic%20Forum%202013%20%28cropped%29.jpg?width=500", credit: "World Economic Forum, CC BY-SA 2.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Mark_Wiseman_World_Economic_Forum_2013_%28cropped%29.jpg" },
+  gates: { url: "img/gates.jpg", credit: "European Commission / Lukasz Kobus, CC BY 4.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Bill_Gates_-_2023_-_P062021-967902_%28cropped%29.jpg" },
+  rybolovlev: { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Dmitry%20Rybolovlev%20in%202012.jpg?width=500", credit: "Franck Nataf, CC BY-SA 3.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Dmitry_Rybolovlev_in_2012.jpg" },
+  zhou: { url: "img/zhou.jpg", credit: "China News Service, CC BY 4.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Zhou_Hongyi-20240307.png" },
+  hassan: { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Scott%20Hassan%2C%20CEO%20of%20Beam%2C%20%2813223545153%29.jpg?width=500", credit: "Danny Robinson, CC BY 2.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Scott_Hassan%2C_CEO_of_Beam%2C_%2813223545153%29.jpg" },
+  murdoch: { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Rupert%20Murdoch%202011%20Shankbone%203%20%285663630358%29.jpg?width=500", credit: "David Shankbone, CC BY 2.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Rupert_Murdoch_2011_Shankbone_3_%285663630358%29.jpg" },
+  charney: { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Dov%20charney.jpg?width=500", credit: "Dovcharney @ Flickr, CC BY-SA 2.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Dov_charney.jpg" },
+  huston: { url: "img/huston.jpg", credit: "World Travel & Tourism Council, CC BY 2.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Darren_Huston.jpg" },
+  browne: { url: "https://commons.wikimedia.org/wiki/Special:FilePath/Official%20portrait%20of%20Lord%20Browne%20of%20Madingley.jpg?width=500", credit: "Roger Harris, CC BY 3.0, via Wikimedia Commons", page: "https://commons.wikimedia.org/wiki/File:Official_portrait_of_Lord_Browne_of_Madingley.jpg" },
+};
