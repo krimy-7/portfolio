@@ -43,12 +43,12 @@ button{font:inherit;color:inherit}
 .lab{font:400 12px/1.4 "Silkscreen",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--amber)}
 .wrap{max-width:1240px;margin:0 auto;padding:0 16px}
 section{padding:64px 0}
-h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4vw,88px);line-height:1;color:var(--amber);text-transform:uppercase;margin:0 0 12px}
+h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4vw,88px);line-height:1.3;color:var(--amber);text-transform:uppercase;margin:0 0 12px}
 .intro{color:var(--mute);max-width:60ch;margin-bottom:24px}
 [hidden]{display:none!important}
 .dots{position:relative}
 .dots::after{content:"";position:absolute;inset:0;background:var(--dot);background-size:4px 4px;pointer-events:none;z-index:3}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 12px/1.2 "Silkscreen",monospace;letter-spacing:.05em;text-transform:uppercase;color:#000;background:var(--amber);border:0;padding:12px 16px;cursor:pointer;min-height:44px;text-decoration:none;transition:transform .15s ease-out}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 12px/1.4 "Silkscreen",monospace;letter-spacing:.05em;text-transform:uppercase;color:#000;background:var(--amber);border:0;padding:12px 16px;cursor:pointer;min-height:44px;text-decoration:none;transition:transform .15s ease-out}
 .btn:hover{background:#ffc83d}
 .btn:active{transform:translateY(1px)}
 .btn.ghost{background:transparent;color:var(--amber);box-shadow:inset 0 0 0 1px var(--amber)}
@@ -88,7 +88,7 @@ h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4v
 .namesign h1{position:relative;font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(30px,4.6vw,60px);line-height:1;color:var(--amber);text-transform:uppercase;white-space:nowrap}
 .namesign::after{content:"";position:absolute;inset:0;background:var(--dot);background-size:4px 4px;pointer-events:none}
 .live{font:700 11px/1 "Silkscreen",monospace;color:#000;background:var(--red);padding:5px 8px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
-.hero{display:grid;grid-template-columns:5fr 6fr;grid-template-areas:"cam info" "strip strip";column-gap:28px}
+.hero{display:grid;grid-template-columns:minmax(260px,340px) 1fr;grid-template-areas:"cam info" "strip strip";column-gap:28px}
 .hero>*{min-width:0}
 .hero-cam{grid-area:cam}.hero-info{grid-area:info;padding-bottom:22px}.strip{grid-area:strip}
 .cam{position:relative;border:2px solid var(--amber)}
@@ -97,14 +97,14 @@ h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4v
 .hero-cam .cam{border-bottom:0}
 .hero-cam .cam::before{bottom:0}
 .kiss-tag{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);z-index:7;background:var(--red);color:#000;font:700 12px/1 "Silkscreen",monospace;padding:5px 12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
-.portrait{position:relative;display:grid;place-items:center;aspect-ratio:16/10;background:var(--amber);overflow:hidden}
+.portrait{position:relative;display:grid;place-items:center;aspect-ratio:4/5;background:var(--amber);overflow:hidden}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(1) contrast(1.15);mix-blend-mode:multiply}
 .portrait .ini{font:400 clamp(44px,8vw,80px)/1 "DotGothic16",monospace;color:#3a2600}
-.portrait::after{content:"";position:absolute;inset:0;background:var(--dot);background-size:4px 4px;z-index:3;pointer-events:none}
-.l3{position:absolute;left:0;bottom:12px;z-index:5;max-width:92%}
-.l3 b,.l3 h3{display:block;width:max-content;max-width:100%;background:var(--amber);color:#000;font:400 clamp(20px,2.4vw,28px)/1.1 "DotGothic16",monospace;padding:4px 12px 3px}
-.l3 span{display:block;width:max-content;max-width:100%;background:#000;color:var(--amber);font:600 15px/1.2 "Barlow Condensed",sans-serif;padding:4px 12px}
-.call{position:absolute;top:10px;right:10px;z-index:5;max-width:70%;text-align:right;font:700 12px/1.4 "Silkscreen",monospace;letter-spacing:.05em;text-transform:uppercase;padding:5px 9px;background:#000;color:var(--amber);box-shadow:inset 0 0 0 2px var(--amber)}
+.portrait::after{content:"";position:absolute;inset:0;background:var(--dot);background-size:4px 4px;z-index:3;pointer-events:none;opacity:.38}
+.l3{position:relative;z-index:5;display:flex;flex-wrap:wrap;background:#000}
+.l3 b,.l3 h3{display:block;max-width:100%;background:var(--amber);color:#000;font:400 clamp(20px,2.4vw,28px)/1.3 "DotGothic16",monospace;padding:3px 12px 2px}
+.l3 span{display:flex;align-items:center;flex:1 1 auto;background:#000;color:var(--amber);font:600 15px/1.4 "Barlow Condensed",sans-serif;padding:3px 12px}
+.call{max-width:62%;text-align:right;font:700 12px/1.4 "Silkscreen",monospace;letter-spacing:.05em;text-transform:uppercase;padding:5px 9px;background:#000;color:var(--amber);box-shadow:inset 0 0 0 2px var(--amber)}
 .call.red{color:var(--red);box-shadow:inset 0 0 0 2px var(--red)}
 .call.green{color:var(--green);box-shadow:inset 0 0 0 2px var(--green)}
 .replaybox{margin:0}
@@ -131,8 +131,9 @@ h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4v
 .digits{display:flex;gap:.02em;font:400 48px/1 "DotGothic16",monospace;color:var(--red)}
 .digits span{display:inline-block;text-align:center;background:#0d0806;padding:.02em .02em 0;box-shadow:inset 0 0 0 1px #24130f}
 .digits span.c{background:none;box-shadow:none;padding:0;width:.26em;text-align:left}
-.digits.err{display:block;white-space:normal}
+.digits.err{display:block;white-space:normal;line-height:1.3}
 .digits span.f{animation:flip .16s ease-out}
+.digits span.r{color:#8a3328}
 .digits.err{color:var(--amber);font-size:min(6vw,56px)!important}
 .digits.err span{background:none;box-shadow:none}
 .glitch{animation:glitch .12s steps(2) 6}
@@ -140,7 +141,7 @@ h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4v
 @keyframes flip{from{transform:rotateX(70deg);opacity:.3}to{transform:none;opacity:1}}
 .fnm{font:400 .5em/1 "DotGothic16",monospace;color:var(--red);text-decoration:none;padding:0 2px}
 .fnm:hover{color:var(--ink)}
-.dead{font:600 19px/1.25 "Barlow Condensed",sans-serif;color:var(--ink)}
+.dead{font:600 19px/1.4 "Barlow Condensed",sans-serif;color:var(--ink)}
 .fn{font-size:13px;color:var(--mute);margin-top:4px}
 .fn:target{color:var(--ink)}
 .strip-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;margin-top:10px;align-items:baseline}
@@ -154,8 +155,6 @@ h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4v
 .chart{display:block;width:100%;height:96px;background:#000}
 .chart .gr{stroke:var(--line);stroke-width:1}
 .chart .ln{fill:none;stroke-width:3;stroke-linejoin:miter}
-.chart .wipe{fill:#000;transform-box:fill-box;transform-origin:100% 50%;transform:scaleX(0);animation:wipe 1.4s cubic-bezier(.2,.7,.2,1) .4s backwards}
-@keyframes wipe{from{transform:scaleX(1)}}
 .illu{font-size:13px;line-height:1.4;color:var(--mute);margin-top:4px}
 .hero-chart{margin-top:18px;border:1px solid var(--line);padding:8px}
 .actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
@@ -199,21 +198,21 @@ h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4v
 /* scoreboard */
 .score{background:var(--panel) var(--grid);background-size:5px 5px;border:1px solid var(--line);padding:22px}
 .sb-top{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;text-align:center}
-.sb-top .team{font:400 clamp(15px,2.4vw,24px) "DotGothic16",monospace;color:var(--amber);text-transform:uppercase}
+.sb-top .team{font:400 clamp(15px,2.4vw,24px)/1.3 "DotGothic16",monospace;color:var(--amber);text-transform:uppercase}
 .sb-top .n{font:400 clamp(64px,12vw,150px)/1 "DotGothic16",monospace;color:var(--amber)}
 .sb-top .n.r{color:var(--red)}
 .sb-top .colon{font:400 clamp(40px,8vw,90px) "DotGothic16",monospace;color:var(--mute)}
 .sb-note{text-align:center;color:var(--mute);font-size:15px;margin:6px auto 0;max-width:70ch}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
 .stat{border:1px solid var(--line);padding:14px;background:#000}
-.stat .v{font:400 clamp(26px,3vw,38px)/1.1 "DotGothic16",monospace;color:var(--red);margin:8px 0 6px;overflow-wrap:anywhere}
+.stat .v{font:400 clamp(26px,3vw,38px)/1.3 "DotGothic16",monospace;color:var(--red);margin:8px 0 6px;overflow-wrap:anywhere}
 .stat .v.g{color:var(--green)}
 .stat p{font-size:14px;color:var(--mute)}
 
 /* replays */
 .reelbar{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap}
 .nav{display:flex;gap:8px;align-items:center}
-.nav .pos{font:400 18px "DotGothic16",monospace;color:var(--mute);min-width:64px;text-align:center}
+.nav .pos{font:400 18px/1.3 "DotGothic16",monospace;color:var(--mute);min-width:64px;text-align:center}
 .reel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px 2px 18px;scrollbar-color:var(--amber) #000;scrollbar-width:thin}
 .replay{flex:0 0 min(400px,86vw);scroll-snap-align:start;display:flex;flex-direction:column;gap:14px;background:var(--panel) var(--grid);background-size:5px 5px;border:1px solid var(--line);padding:16px;position:relative;scroll-margin:80px 16px 16px}
 .rp-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -221,11 +220,12 @@ h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4v
 .rp-top .rec::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red)}
 .rp-top .lab:last-child{color:var(--mute)}
 .replay .l3 h3{font-size:22px}
+.hero-cam .portrait,.hero-cam .cutaway{aspect-ratio:1}
 .tag-al{display:inline-block;font:700 11px/1 "Silkscreen",monospace;letter-spacing:.05em;text-transform:uppercase;color:#000;background:var(--mute);padding:4px 6px;margin-right:6px;vertical-align:2px}
 .fact{font-size:16px}
 .boards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .sbx{background:#000;border:1px solid var(--line);padding:10px}
-.sbx .v{display:block;font:400 clamp(20px,2vw,26px)/1.1 "DotGothic16",monospace;color:var(--red);margin:6px 0 4px;overflow-wrap:anywhere}
+.sbx .v{display:block;font:400 clamp(20px,2vw,26px)/1.3 "DotGothic16",monospace;color:var(--red);margin:6px 0 4px;overflow-wrap:anywhere}
 .sbx .v.long{font-size:clamp(17px,1.5vw,20px)}
 .sbx .v.g{color:var(--green)} .sbx .v.nf{color:var(--mute)}
 .sbx .nt{display:block;font-size:14px;line-height:1.4;color:var(--mute)}
@@ -238,12 +238,12 @@ h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4v
 .rcpt summary:hover{color:var(--amber)}
 .rcpt[open]{flex-basis:100%;margin-left:0}
 .rcpt ul{padding-left:16px;display:grid;gap:2px;font-size:14px}
-.hl::before{content:"";position:absolute;inset:-4px;border:3px solid var(--amber);pointer-events:none;z-index:8;animation:hl 2.4s ease-out forwards}
+.hl::before{content:"";position:absolute;inset:0;border:3px solid var(--amber);pointer-events:none;z-index:8;animation:hl 2.4s ease-out forwards}
 @keyframes hl{0%,30%,60%{opacity:1}15%,45%{opacity:.2}100%{opacity:0}}
-.cutaway{position:relative;aspect-ratio:16/10;display:grid;grid-template-columns:repeat(6,1fr);overflow:hidden}
+.cutaway{position:relative;aspect-ratio:4/5;display:grid;grid-template-columns:repeat(6,1fr);overflow:hidden}
 .cutaway i:nth-child(1){background:var(--ink)}.cutaway i:nth-child(2){background:var(--amber)}.cutaway i:nth-child(3){background:var(--green)}.cutaway i:nth-child(4){background:var(--mute)}.cutaway i:nth-child(5){background:var(--red)}.cutaway i:nth-child(6){background:#1a1410}
 .cutaway .msg{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);z-index:4;background:#000;color:var(--ink);text-align:center;padding:10px 14px;box-shadow:inset 0 0 0 2px var(--ink);width:max-content;max-width:86%}
-.cutaway .msg b{display:block;font:700 13px/1.2 "Silkscreen",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--amber)}
+.cutaway .msg b{display:block;font:700 13px/1.3 "Silkscreen",monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--amber)}
 .cutaway .msg span{font-size:15px}
 
 /* roster */
@@ -256,7 +256,7 @@ h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4v
 .count{font-size:14px;color:var(--mute);margin-bottom:8px}
 .rhead,.row-btn{display:grid;grid-template-columns:30px 48px minmax(170px,1.5fr) 110px minmax(110px,1fr) minmax(110px,1fr) 150px 18px;gap:12px;align-items:center}
 .rhead{padding:0 12px 8px;border-bottom:2px solid var(--amber)}
-.rhead span{font:400 11px/1.2 "Silkscreen",monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.rhead span{font:400 11px/1.3 "Silkscreen",monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
 .roster{list-style:none;padding:0}
 .row{border-bottom:1px solid var(--line);position:relative;scroll-margin:80px 0 16px}
 .row-btn{width:100%;background:none;border:0;text-align:left;padding:10px 12px;cursor:pointer;min-height:64px}
@@ -264,7 +264,7 @@ h2{font-family:"DotGothic16",monospace;font-weight:400;font-size:clamp(40px,6.4v
 .r-pos{font:400 16px "DotGothic16",monospace;color:var(--mute)}
 .thumb{width:48px;aspect-ratio:1;display:grid}
 .thumb .ini{font-size:18px}
-.r-name b{display:block;font:400 19px/1.15 "DotGothic16",monospace;color:var(--amber)}
+.r-name b{display:block;font:400 19px/1.3 "DotGothic16",monospace;color:var(--amber)}
 .r-name span{font-size:15px;color:var(--mute)}
 .r-type{font-size:15px;color:var(--mute)}
 .r-v{font:400 18px/1.4 "DotGothic16",monospace;color:var(--red);overflow-wrap:anywhere}
@@ -301,6 +301,127 @@ footer{border-top:1px solid var(--line);padding:32px 0 56px;color:var(--mute);fo
 footer ul{list-style:none;padding:0;display:grid;gap:8px;margin-top:12px;max-width:80ch}
 footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spacing:.05em;margin-right:8px}
 
+
+/* ---- round 5: fluid scale, locked hero, broadcast replays, keyboard ---- */
+body{font-size:clamp(17px,.42vw + 11.3px,21px)}
+.wrap,.rig{max-width:clamp(1240px,84vw,1680px)}
+.skip{position:absolute;left:12px;top:-80px;z-index:60;background:var(--amber);color:#000;font:700 12px/1 "Silkscreen",monospace;letter-spacing:.05em;text-transform:uppercase;padding:14px 16px;text-decoration:none}
+.skip:focus{top:10px}
+.btn:focus-visible,.chip:focus-visible,.row-btn:focus-visible,.poster:focus-visible,.rcpt summary:focus-visible,.fnm:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.btn:not(.ghost):focus-visible{outline-color:var(--ink)}
+.replay:focus-visible,.replay:focus-within{outline:3px solid var(--amber);outline-offset:4px}
+.reel:focus-visible{outline:2px dashed var(--amber);outline-offset:4px}
+.linkbox{width:100%;max-width:380px;margin-top:4px;background:#000;color:var(--ink);border:1px solid var(--amber);font:500 15px "Barlow Condensed",sans-serif;padding:8px}
+/* hero: the sign, the kiss cam and the number board always share one screen */
+.truss{height:12px}
+.hang{height:8px}
+.namesign{padding:6px 18px 4px}
+.namesign h1{font-size:clamp(26px,min(4.6vw,6.4svh),60px)}
+.screen{padding:10px 14px}
+.scr-top{margin-bottom:12px}
+.hero{--camh:clamp(120px,calc(100svh - 480px),400px);grid-template-columns:auto minmax(0,1fr);grid-template-areas:"cam info" "strip strip" "more more"}
+.hero-cam .cam{width:calc(var(--camh) + 4px);margin:0 auto;background:#000}
+.hero-cam .portrait,.hero-cam .cutaway{width:var(--camh);height:var(--camh);aspect-ratio:auto}
+.hero-info{align-self:center;padding:0 0 14px}
+.hero-more{grid-area:more;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:12px 28px;padding-top:18px}
+.hero-more .hero-chart{margin-top:0}
+.hero-more .lede{margin-top:0}
+.strip{padding:10px 14px 12px}
+.numrow{margin:6px 0 2px}
+.strip-foot{margin-top:6px}
+/* replays: a broadcast stage */
+.stage{position:relative}
+.stage-ctl{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:14px}
+.reel{position:relative}
+.rp-l,.rp-r{display:flex;flex-direction:column;gap:12px;min-width:0}
+.rw{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:9}
+.rw::after{content:"Replay";position:absolute;inset:0;display:grid;place-items:center;background:var(--red);color:#000;font:400 clamp(48px,6vw,96px)/1 "DotGothic16",monospace;text-transform:uppercase;opacity:0;transform:translateX(101%);pointer-events:none}
+.replay.wiping .rw::after{animation:rwipe .55s cubic-bezier(.7,0,.3,1)}
+@keyframes rwipe{0%{opacity:1;transform:translateX(-101%)}45%{opacity:1;transform:none}100%{opacity:1;transform:translateX(101%)}}
+@media (min-width:1001px){
+  .stage-ctl{position:absolute;inset:0;margin:0;pointer-events:none;z-index:6}
+  .stage-ctl .pos{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .stage-ctl .btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;background:#000}
+  .stage-ctl #prev{left:0}.stage-ctl #next{right:0}
+  .reel{--cw:min(1040px,calc(100% - 200px));gap:28px;padding:12px calc((100% - var(--cw))/2) 16px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .reel::-webkit-scrollbar{display:none}
+  .replay{flex:0 0 var(--cw);scroll-snap-align:center;display:grid;grid-template-columns:240px minmax(0,1fr);grid-template-areas:"top top" "l r";gap:12px 28px;align-items:start;opacity:.32;transform:scale(.95);transition:opacity .3s ease-out,transform .3s ease-out;scroll-margin:60px 0 0}
+  .replay.on{opacity:1;transform:none}
+  .rp-top{grid-area:top}.rp-l{grid-area:l}.rp-r{grid-area:r}
+  .replay .portrait,.replay .cutaway{aspect-ratio:1}
+  .replay .chart{height:60px}
+  .replay .tapebox.x{max-height:250px;overflow-y:auto}
+  .replay .poster .play{width:52px;height:36px;margin:-18px 0 0 -26px}
+  .replay .poster .play::before{left:20px;top:9px}
+  .panel{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;max-width:none;gap:12px 32px}
+  .panel .replaybox{max-width:none}
+  .panel .tapebox.x{max-height:440px;overflow-y:auto}
+}
+.pl{display:grid;gap:12px;min-width:0}
+
+
+/* ---- round 7 ---- */
+.narr{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;margin-top:12px}
+.narr .btn{gap:10px}
+.narr .eq{height:16px}
+.narr .eq i{width:3px}
+.narr-note{font-size:14px;color:var(--mute)}
+.talk .eq i{animation:eq .9s ease-in-out infinite alternate}
+.conv.narrating{color:var(--ink);font-style:italic}
+.rp-top>*{white-space:nowrap}
+.pos{white-space:nowrap}
+@media (min-width:821px){
+  .hero{grid-template-columns:minmax(220px,30%) minmax(0,1fr);grid-template-areas:"cam info" "cam strip" "more more";column-gap:24px;--camh:clamp(200px,calc(100svh - 230px),560px)}
+  .hero-cam{align-self:stretch;display:flex}
+  .hero-cam .cam{width:100%;border-bottom:2px solid var(--red);display:flex;flex-direction:column}
+  .hero-cam .cam::before{bottom:-11px}
+  .hero-cam .portrait,.hero-cam .cutaway{width:100%;height:auto;flex:1;min-height:200px;max-height:calc(var(--camh) - 40px)}
+  .hero-info{align-self:start;padding:0 0 12px}
+  .strip{align-self:end}
+}
+@media (max-width:1000px){
+  .rp-top .rl{display:none}
+  .replay .call{font-size:11px;letter-spacing:0;padding:4px 6px;max-width:calc(100% - 64px);overflow:visible}
+  .replay .sbx .v.long{font-size:15px}
+  .replay .foot{gap:6px}
+  .replay .foot .btn{font-size:11px;letter-spacing:.03em;padding:10px}
+  .replay .more summary .ml{display:none}
+  .sbx{padding:8px}
+}
+
+/* ---- round 6 ---- */
+.hero-cam .l3{flex-direction:column}
+.hero-cam .l3 b{font-size:clamp(15px,2.6svh,22px);white-space:nowrap}
+.hero-cam .l3 span{font-size:13px;padding:3px 12px}
+.chip{min-height:44px}
+.rcpt summary{min-height:44px;display:flex;align-items:center}
+.credit a{display:inline-block;padding:14px 0;margin:-14px 0}
+.nr{font:400 11px/1.4 "Silkscreen",monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.stat .lab{font-size:12px;text-wrap:balance}
+.stat p:not(.lab){font-size:14px}
+.convline{font-size:15px;color:var(--amber)}
+.nt-m{display:none}
+.more[open] .chart{height:64px}
+.more[open]{display:grid;gap:8px}
+.wave{margin-top:40px}
+.cheer-grid .stat:last-child:nth-child(odd){grid-column:1/-1}
+.poster.rolling::before{content:"Rolling tape\2026";position:absolute;right:8px;bottom:8px;z-index:3;background:#000;color:var(--red);font:700 11px/1.4 "Silkscreen",monospace;letter-spacing:.05em;text-transform:uppercase;padding:4px 8px}
+.poster.rolling .play{opacity:.4}
+.tapebox iframe.loading{position:absolute;inset:0;width:100%;height:100%;opacity:0}
+.rules li{line-height:1.4}
+.fineprint summary{cursor:pointer;min-height:44px;display:inline-flex;align-items:center;color:var(--amber);font:400 12px/1 "Silkscreen",monospace;letter-spacing:.05em;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px}
+.fineprint ul{margin-top:4px}
+@media (max-width:1000px){
+  .replay .nt{display:none}
+  .nt-m{display:block}
+  .replay .portrait,.replay .cutaway{aspect-ratio:1}
+  .replay{gap:8px;padding:10px}.rp-l,.rp-r{gap:8px}
+  .replay .replaybox>.lab{display:none}
+  .replay .replaybox:has(.poster) .tapenote{display:none}
+  .replay .fact{font-size:15px}
+  .replay .cap{font-size:17px}
+  .seg{-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent);padding-right:48px}
+}
 @media (max-width:1000px){
   .rhead{display:none}
   .row-btn{grid-template-columns:40px minmax(0,1fr) auto 14px;grid-template-areas:"t n h c";column-gap:10px;padding:8px 4px;min-height:58px}
@@ -310,8 +431,9 @@ footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spaci
   .r-name b,.r-name span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .r-name b{font-size:17px}
   .r-name span{font-size:14px;line-height:1.4}
-  .r-he{grid-area:h;text-align:right;font-size:16px;max-width:46vw}
-  .r-v small{display:block;font:400 11px/1.2 "Silkscreen",monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+  .r-he{grid-area:h;text-align:right;font-size:16px;max-width:36vw}
+  .r-he .nr{display:block;white-space:normal}
+  .r-v small{display:block;font:400 11px/1.3 "Silkscreen",monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
   .chev{grid-area:c}
   .panel{padding:4px 4px 22px}
   .pm{display:block!important}
@@ -327,7 +449,7 @@ footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spaci
   .hero-chart .chart{height:72px}
   .cheer-grid{grid-template-columns:1fr 1fr;gap:8px}
   .cheers{padding:18px}
-  .wave{height:64px;margin:4px 0 16px}
+  .wave{height:64px;margin:40px 0 16px}
   .score{padding:14px}
   .stats{gap:8px}
   .stat{padding:10px}
@@ -336,12 +458,12 @@ footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spaci
   .controls{gap:10px}
   .rb{padding:14px}
   .ruling{gap:10px;margin-top:20px}
-  .hero{grid-template-columns:1fr;grid-template-areas:"cam" "strip" "info"}
-  .hero-info{padding:18px 0 0}
+  .hero{grid-template-columns:1fr;grid-template-areas:"cam" "strip" "info" "more";--camh:clamp(130px,calc(100svh - 470px),calc(100vw - 62px))}
+  .hero-info{padding:16px 0 0}
+  .hero-more{grid-template-columns:1fr;padding-top:16px}
   .screen{padding:10px}
   .rig{padding:0 10px}
   .housing{padding:7px}
-  .hero-cam .portrait,.hero-cam .cutaway{aspect-ratio:16/11}
   .reel{gap:12px;margin:0 -16px;padding:16px;scroll-padding:0 16px}
   .replay{flex-basis:82vw;padding:12px;gap:12px}
   .nav .btn{padding:10px 12px}
@@ -360,12 +482,12 @@ footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spaci
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
   .tape,.adboard{overflow-x:auto}
-  .chart .wipe{transform:scaleX(0)}
   .eq i{transform:scaleY(.6)}
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#roster">Skip to the roster</a>
 <div class="tape" aria-label="Ticker: every case and its share move"><div class="tape-in" id="tape"></div></div>
 
 <main>
@@ -395,19 +517,21 @@ footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spaci
           </div>
           <div class="hero-info">
             <p class="premise" id="premise"></p>
-            <p class="lede" id="heroFact"></p>
-            <div class="hero-chart"><div id="heroChart"></div><p class="illu">Illustrative shape, not price data</p></div>
             <div class="actions">
               <button class="btn share" type="button" data-id="huang">Send to the group chat</button>
-              <a class="btn ghost" href="#roster">See the full roster</a>
+              <a class="btn ghost" href="#huang">Open Huang's file</a>
             </div>
             <p class="say" role="status"></p>
-            <div class="ann" id="ann">
-              <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <button class="btn ghost" type="button" id="announcer" data-audio="huang" disabled><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0l9 5-9 5z"/></svg><span>Announcer: audio coming</span></button>
-              <p>Stadium announcer: a made-up narrator, not anyone's real voice. Audio coming.</p>
+            <div class="narr" id="ann" hidden>
+              <button class="btn ghost" type="button" id="narrator" data-audio="huang" aria-describedby="narrNote"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span class="nl">Play the narrator</span></button>
+              <p class="narr-note" id="narrNote">A stock documentary voice. Not anyone real.</p>
             </div>
-            <p class="credit" data-credit="huang"></p>
+          </div>
+          <div class="hero-more">
+            <div><p class="lede" id="heroFact"></p><p class="credit" data-credit="huang"></p></div>
+            <div>
+            <div class="hero-chart"><div id="heroChart"></div><p class="illu">Illustrative shape, not price data</p></div>
+            </div>
           </div>
         </div>
       </div>
@@ -422,15 +546,15 @@ footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spaci
   <div class="wrap">
     <p class="flag lab"><i aria-hidden="true"></i>Nvidia &middot; video review</p>
     <h2 id="rv-h">Play under review</h2>
-    <p class="disclaim">Internet jokes about an unconfirmed report. China calls it groundless; Nvidia says it has no reason to believe any secrets were compromised. The signs are our paraphrases of formats the press spotted on X and Reddit.</p>
+    <p class="disclaim">Jokes about an unconfirmed report. China calls it groundless; Nvidia says it has no reason to believe any secrets were compromised. The signs are ours; the rumour is not.</p>
   </div>
   <div class="wrap">
     <div class="signs">
-      <div class="sign" style="--r:-2.5deg"><p>Every camera is a kiss cam now.</p></div>
-      <div class="sign" style="--r:2deg"><p>My CEO has never been honey-trapped. How small is our market cap?</p></div>
-      <div class="sign" style="--r:-1deg"><p>The dance video is AI. The sell-off was not.</p></div>
-      <div class="sign" style="--r:3deg"><p>The leather jacket has retained outside counsel.</p></div>
-      <div class="sign" style="--r:-2deg"><p>Buy the rumour. Sell the memo.</p></div>
+      <div class="sign" style="--r:-2.5deg"><p>Reply all: "Noted."</p></div>
+      <div class="sign" style="--r:2deg"><p>The independent review will now be independently reviewed.</p></div>
+      <div class="sign" style="--r:-1deg"><p>A Sunday email. A Monday sell-off.</p></div>
+      <div class="sign" style="--r:3deg"><p>Outside counsel: the only Nvidia division hiring this week.</p></div>
+      <div class="sign" style="--r:-2deg"><p>Earnings call on the 17th. First question is not about GPUs.</p></div>
     </div>
   </div>
   <div class="stands" aria-hidden="true" data-crowd="#16120b"></div>
@@ -448,7 +572,7 @@ footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spaci
       </ul></div>
     </div>
     <p class="dry">The board review is real. Everything on a cardboard sign is not.</p>
-    <p class="small">Formats as reported by ThePrint and WION; how widespread they are was not measured.</p>
+    <p class="small">Written in the spirit of the jokes ThePrint and WION reported from X and Reddit. None of them is evidence of anything.</p>
   </div>
 </section>
 
@@ -472,10 +596,12 @@ footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spaci
 <section id="replays" aria-labelledby="rp-h">
   <div class="wrap">
     <div class="reelbar">
-      <div><h2 id="rp-h">Instant replays</h2><p class="intro" style="margin:0">Nine cases that defined the genre. Swipe, scroll or use the arrow keys.</p></div>
-      <div class="nav"><button class="btn ghost" type="button" id="prev" aria-label="Previous replay"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M9 0v10L0 5z"/></svg>Prev</button><span class="pos" id="pos" aria-live="polite">01 / 09</span><button class="btn ghost" type="button" id="next" aria-label="Next replay">Next<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0l9 5-9 5z"/></svg></button></div>
+      <div><h2 id="rp-h">Instant replays</h2><p class="intro" style="margin:0" id="rpIntro">The cases that defined the genre. Swipe, scroll or use the arrow keys.</p></div>
     </div>
-    <div class="reel" id="reel" tabindex="0" role="region" aria-label="Instant replays, use left and right arrow keys"></div>
+    <div class="stage">
+      <div class="stage-ctl nav"><button class="btn ghost" type="button" id="prev" aria-label="Previous replay"><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M9 0v10L0 5z"/></svg>Prev</button><span class="pos" id="pos" aria-live="polite">Replay 01/08</span><button class="btn ghost" type="button" id="next" aria-label="Next replay">Next<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0l9 5-9 5z"/></svg></button></div>
+      <div class="reel" id="reel" tabindex="0" role="region" aria-label="Instant replays. Left and right arrows change the replay; Home and End jump to the first and last."></div>
+    </div>
   </div>
 </section>
 
@@ -524,12 +650,18 @@ footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spaci
 </main>
 
 <footer><div class="wrap">
-  <p class="lab">How this list is built</p>
-  <ul>
-    <li><b>Receipts</b>Every figure comes from a published report or filing, listed under "receipts" on each case. Where outlets disagree we lead with the biggest number a real outlet reported and say who reported it. "Est." means a press estimate. "Not found" means we did not find it.</li>
-    <li><b>Allegations</b>Allegations are labelled, and so are denials. The Nvidia spy story is an unconfirmed report. We do not name or picture anyone but the executives.</li>
-    <li><b>Not advice</b>Comedy with citations, not investment advice. Figures as of 10 Nov 2026. Photos via Wikimedia Commons; clips load from their original publishers only when you press play.</li>
+  <p class="lab">Stadium rules</p>
+  <ul class="rules">
+    <li><b>01</b>Every number has a receipt. The biggest reported figure goes on the board, with who reported it.</li>
+    <li><b>02</b>Allegations are labelled, denials are printed, and the rumour stays a rumour.</li>
+    <li><b>03</b>Comedy, not investment advice. The executives are the joke; nobody else is named.</li>
   </ul>
+  <details class="fineprint"><summary>The fine print</summary><ul>
+    <li><b>Receipts</b>Every figure comes from a published report or filing, listed under "receipts" on each case. Where outlets disagree we lead with the biggest number a real outlet reported and say who reported it. "Est." means a press estimate. "No figure on record" means we did not find one.</li>
+    <li><b>Allegations</b>Allegations are labelled, and so are denials. The Nvidia spy story is an unconfirmed report. We do not name or picture anyone but the executives.</li>
+    <li><b>Conversions</b>Unit prices in the "that is" lines are our round assumptions, listed in the page source. The figures they convert are the reported ones.</li>
+    <li><b>Not advice</b>Comedy with citations, not investment advice. Figures as of 10 Nov 2026. Photos via Wikimedia Commons; clips load from their original publishers.</li>
+  </ul></details>
 </div></footer>
 <noscript><p class="wrap" style="padding-bottom:40px">The cases, ticker and roster need JavaScript to draw.</p></noscript>
 
@@ -549,7 +681,7 @@ footer li b{color:var(--amber);font:400 12px "Silkscreen",monospace;letter-spaci
              tape:null   (no button is shown)
  Lead figures: the largest number a real outlet reported (owner's call), with the spread in the note and receipts. */
 const CASES = [
-{id:"huang",feat:1,name:"Jensen Huang",ini:"JH",co:"Nvidia",year:"2026",date:"2026-11",when:"Nov 2026",type:"rel",out:false,tick:"NVDA",move:"−8.8%*",moveNote:"intraday, Bloomberg",
+{id:"huang",feat:0,name:"Jensen Huang",ini:"JH",co:"Nvidia",year:"2026",date:"2026-11",when:"Nov 2026",type:"rel",out:false,tick:"NVDA",move:"−8.8%*",moveNote:"intraday, Bloomberg",
  pct:-8.8,dir:"down",heB:9.7,coB:400,call:"Under review",tone:"",chart:"cliff",
  fact:"Told staff he had been unfaithful; the board opened an independent investigation. Separate reports that he was the target of a foreign intelligence effort are unconfirmed and denied.",
  joke:"The rumour is a spy thriller. The confirmed part is an all-staff email.",
@@ -752,16 +884,29 @@ const CASES = [
  src:[["SEC S-1/A","https://www.sec.gov/Archives/edgar/data/0001528849/000119312512421007/d70987ds1a.htm"]],
  tape:null}
 ];
-/* Portrait crops, set by eye: [object-position, zoom]. The zoom scales around the same point so the face fills the frame.
-   A portrait key listed as null is dropped (busy background or not a clear solo face) and gets "footage withheld". */
+/* Portrait crops, set by eye: [object-position, zoom, thumbnail zoom?]. Whole head plus shoulders, zoom 1 unless a photo truly needs it.
+   A portrait key listed as null is dropped (subject too small or murky to show a clear full head) and gets "footage withheld". */
 const CROPS = {
- huang:["50% 38%",1], easterbrook:["50% 20%",3.4], bezos:["50% 24%",1], hurd:["50% 22%",1.35], moonves:["48% 20%",1.3],
- looney:["46% 26%",1.9], buchanan:["44% 22%",1.7], hamm:["48% 32%",1.9], wynn:["38% 38%",2.3], krzanich:["46% 22%",1.35],
- freixe:["56% 24%",1.6], mcmahon:["34% 16%",1.6], gates:["46% 28%",1.1], rybolovlev:["42% 16%",2.1], zhou:["58% 30%",2.5], huston:["56% 16%",1.9]
+ huang:["50% 4%",1], easterbrook:null, bezos:["50% 10%",1], hurd:["50% 18%",1,1.3], moonves:["50% 5%",1],
+ looney:["48% 28%",1,1.5], buchanan:["45% 22%",1], hamm:["45% 18%",1], wynn:null, krzanich:["46% 18%",1],
+ freixe:["55% 26%",1,1.5], mcmahon:["38% 4%",1,1.6], gates:["46% 18%",1], rybolovlev:null, zhou:["50% 28%",1,1.9], huston:["56% 20%",1,1.4]
+};
+/* One conversion per case, each in its own world. The amount comes from CASES (heB/coB in US$ billions, or the stated number);
+   the unit prices are our round assumptions, not reported figures:
+   H100-class GPU $30,000 | Big Mac $5.79 (Economist Big Mac index, US) | Amazon Prime $139/yr | HP ink cartridge $30 |
+   Paramount+ $7.99/month | UK unleaded £1.40/litre | Coldplay ticket $150 | Kohl's Cash $10 coupon | oil $75/barrel |
+   container freight $2,000/box | Windows 11 Home $139 | PC game $60 | antivirus $30/yr | Core i9 $589 | WWE Network $9.99/month | hotel night $150 */
+const CONVS = {
+ huang:["coB",30000,"H100-class GPUs at $30,000 each"], easterbrook:["heB",5.79,"Big Macs at $5.79"], bezos:["heB",139,"years of Amazon Prime at $139"],
+ hurd:["coB",30,"HP ink cartridges at $30"], moonves:["heB",7.99,"months of Paramount+ at $7.99"], looney:[32.4e6,1.40,"litres of UK unleaded at £1.40"],
+ byron:[1.3e9,150,"Coldplay tickets at $150, if you convert the company's reported valuation instead"], buchanan:["heB",10,"$10 Kohl's Cash coupons"],
+ hamm:["heB",75,"barrels of oil at $75"], white:["heB",2000,"container shipments at $2,000 a box"], gates:["heB",139,"Windows 11 Home licences at $139"],
+ kwon:["heB",60,"PC games at $60"], zhou:["heB",30,"antivirus subscriptions at $30 a year"], krzanich:["heB",589,"Core i9 processors at $589"],
+ mcmahon:["heB",9.99,"months of WWE Network at $9.99"], huston:["heB",150,"hotel nights at $150"]
 };
 const COFFEE_URL = '#';
 const SITE_URL = 'https://www.krishnanishad.com.np/kiss-cam/'; // trailing slash; deep links are SITE_URL + '#id'
-const AUDIO_READY = []; // ids whose audio/<id>.mp3 exists, e.g. ["huang"]. Listed so a missing file never 404s in the console.
+const AUDIO_READY = ["huang"]; // ids whose audio/<id>.mp3 exists. Listed so a missing file never 404s in the console.
 
 const TYPES={rel:"Affair or relationship",div:"Divorce",alg:"Misconduct or allegation"};
 const P={cliff:"M0 22 L90 20 L170 24 L230 21 L270 26 L296 32 L306 82 L400 78",flat:"M0 50 L100 47 L180 53 L260 48 L330 52 L400 50",
@@ -775,7 +920,7 @@ const pk=c=>c.pk||c.id;
 const hasPhoto=c=>!c.cut&&CROPS[pk(c)]!==null&&!!(window.PORTRAITS&&window.PORTRAITS[pk(c)]&&window.PORTRAITS[pk(c)].url);
 const col=c=>c.chart==="none"?"#b9b09c":c.dir==="up"?"#3ddc84":c.dir==="down"?"#ff4d3d":"#ffb000";
 const vcls=(x,c,isCo)=>(x.v.length>11?"long ":"")+(/^\+/.test(x.v)||(isCo&&c.dir==="up")?"g":/^(not found|nothing|no |flat)/i.test(x.v)?"nf":"");
-const val=x=>`${x.v}${x.est?'<span class="est">est.</span>':""}`;
+const val=x=>/^(not found|no figure)$/i.test(x.v)?'<span class="nr">No figure on record</span>':`${x.v}${x.est?'<span class="est">est.</span>':""}`;
 
 /* Conversions, all plain arithmetic on a reported figure. Assumptions (ours, round, stated on screen):
    coffee $5 each; salary $60,000 a year (a round figure near the US median full-time wage);
@@ -792,22 +937,25 @@ function conversions(usd){const bills=usd/100,km=bills*0.10922/1e6;
   `$${Math.round(usd/31536000).toLocaleString("en-US")} a second, every second, for a year`]}
 
 const chart=c=>{const s=c.chart||(c.dir==="up"?"up":c.dir==="down"?"dip":"flat");
- return `<svg class="chart" viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><line class="gr" x1="0" y1="50" x2="400" y2="50"/><path class="ln" d="${P[s]}" stroke="${col(c)}" ${s==="none"?'stroke-dasharray="6 8"':""} vector-effect="non-scaling-stroke"/><rect class="wipe" width="400" height="100"/></svg>`};
+ return `<svg class="chart" viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true"><line class="gr" x1="0" y1="50" x2="400" y2="50"/><path class="ln" d="${P[s]}" stroke="${col(c)}" ${s==="none"?'stroke-dasharray="6 8"':""} vector-effect="non-scaling-stroke"/></svg>`};
 const receipts=c=>`<details class="rcpt"><summary>Receipts</summary><ul>${c.src.map(([n,u])=>`<li><a href="${u}" rel="noopener" target="_blank">${n}</a></li>`).join("")}</ul></details>`;
 const shareBtn=c=>`<button class="btn share" type="button" data-id="${c.id}">Send to the group chat</button>`;
 const ytId=u=>{try{return new URL(u).searchParams.get("v")}catch{return null}};
 const replayBox=c=>{const t=c.tape;if(!t)return"";
- const inner=t.type==="youtube"&&ytId(t.url)?`<div class="tapebox"><button class="poster" type="button" aria-label="Play the clip from ${t.label}"><img src="https://i.ytimg.com/vi/${ytId(t.url)}/hqdefault.jpg" alt="" loading="lazy"><span class="tapetag">Tape · ${t.label}</span><span class="play" aria-hidden="true"></span></button></div>`
+ const inner=t.type==="youtube"&&ytId(t.url)?`<div class="tapebox"><button class="poster" type="button" aria-label="Play the clip from ${t.label}"><img src="https://i.ytimg.com/vi/${ytId(t.url)}/hqdefault.jpg" alt="" loading="lazy"><span class="tapetag">Tape · ${t.label} · not ours</span><span class="play" aria-hidden="true"></span></button></div>`
   :t.type==="x"?`<div class="tapebox x"><p>Loading the post from ${t.label}…</p></div>`:"";
- return inner?`<figure class="replaybox" data-tape="${c.id}"><figcaption class="lab">The replay</figcaption>${inner}<p class="tapenote">Footage hosted by the original poster (${t.label}). Not ours.</p></figure>`:""};
+ return inner?`<figure class="replaybox" data-tape="${c.id}"><figcaption class="lab">The replay</figcaption>${inner}<p class="tapenote">Footage hosted by ${t.label}. Not ours.</p></figure>`:""};
 const cutaway=(msg,thumb)=>`<div class="cutaway ${thumb?"thumb":""} dots" role="img" aria-label="Footage withheld"><i></i><i></i><i></i><i></i><i></i><i></i>${thumb?"":`<div class="msg"><b>Footage withheld</b><span>${msg}</span></div>`}</div>`;
 const photo=(c,i,thumb)=>hasPhoto(c)?`<div class="portrait ${thumb?"thumb":""}" data-person="${pk(c)}" data-initials="${c.ini}"></div>`:cutaway(c.cut||WITHHELD[i%WITHHELD.length],thumb);
 const alTag=c=>c.alleg?`<span class="tag-al">Allegation</span>`:"";
-const coffeeLine=c=>c.heB>=1?`<p class="coffees">That is ${big(c.heB*1e9/5)} coffees, at $5 each.</p>`:"";
+const convLine=c=>{const v=CONVS[c.id];if(!v)return"";const amt=typeof v[0]==="number"?v[0]:(c[v[0]]||0)*1e9;if(!amt)return"";
+ return `<p class="convline">That is ${big(amt/v[1])} ${v[2]}.</p>`};
+const srcItems=c=>c.src.map(([n,u])=>`<li><a href="${u}" rel="noopener" target="_blank">${n}</a></li>`).join("");
+const nn=n=>String(n).padStart(2,"0");
 
 /* ticker: every case */
-const tk=CASES.map(c=>`<a class="tk" href="#${c.id}"><b>${c.tick}</b><span class="mv ${c.dir==="up"?"up":c.pct==null?"nf":""}">${c.move}</span><small>${c.moveNote}</small></a>`).join("");
-$("#tape").innerHTML=tk+`<div style="display:contents" aria-hidden="true">${tk.replaceAll('<a ','<a tabindex="-1" ')}</div>`;
+const tk=CASES.map(c=>`<a class="tk" tabindex="-1" href="#${c.id}"><b>${c.tick}</b><span class="mv ${c.dir==="up"?"up":c.pct==null?"nf":""}">${c.move}</span><small>${c.moveNote}</small></a>`).join("");
+$("#tape").innerHTML=tk+`<div style="display:contents" aria-hidden="true">${tk}</div>`; // links are mouse shortcuts only; the roster is the keyboard path
 $("#tape").style.setProperty("--dur",CASES.length*6+"s");
 
 /* hero, from CASES[0] */
@@ -815,7 +963,7 @@ const L=CASES[0],LUSD=L.coB*1e9;
 const FINAL="−$"+LUSD.toLocaleString("en-US");
 $("#heroPhoto").outerHTML=photo(L,0).replace('class="portrait','class="portrait hero-p');
 $("#heroName").textContent=L.name;
-$("#heroMeta").textContent=`${L.co} · ${L.when} · developing`;
+$("#heroMeta").textContent=`${L.co} · ${L.when}`;
 $("#heroLab").textContent=`${L.tick} · market value, intraday low`;
 $("#dead").textContent=`${(FINAL.match(/0/g)||[]).length===11?"Eleven":(FINAL.match(/0/g)||[]).length} zeros. One all-staff email.`;
 $("#fn-lead").textContent=L.fn;
@@ -839,22 +987,25 @@ const dg=$("#digits"),strip=$("#strip");
 dg.setAttribute("aria-label",`Minus ${L.coB} billion dollars, see footnote`);
 const show=(t,flip=-1)=>{dg.innerHTML=[...t].map((ch,i)=>`<span class="${/[,.]/.test(ch)?"c ":""}${i===flip?"f":""}" aria-hidden="true">${ch}</span>`).join("")};
 const settle=()=>{dg.classList.remove("err");show(FINAL);dg.insertAdjacentHTML("beforeend",`<a class="fnm" href="#fn-lead" aria-label="Footnote">*</a>`)};
-function fit(){dg.style.fontSize="100px";show(FINAL+"*");const room=strip.clientWidth-30;dg.style.fontSize=Math.min(150,100*room/dg.scrollWidth)+"px"}
-/* Timeline (ms): 0-700 count up | 700 number settled | 1000-1240 spills three more groups | 1240 flicker | 1390 error | 1850 settled for good.
-   Every step is a timeout checked against `done`, and a hard 2000ms guard settles regardless, so a stalled rAF never strands the error. */
+function fit(){dg.style.fontSize="100px";show(FINAL+"*");const room=strip.clientWidth-30;dg.style.fontSize=Math.min(150,innerHeight*.15,100*room/dg.scrollWidth)+"px"} // height cap keeps the board on the first screen
+/* Timeline (ms): 0-900 LED refresh, digits lock left to right | 1200-1360 the board overflows by three groups | 1440 flicker |
+   1560 error | 1950 settled for good. Every step is a timeout checked against `done`; a hard 2000ms guard settles regardless,
+   and nothing animates when the tab is hidden or motion is reduced. */
 let done=false;const T=[];const at=(ms,f)=>T.push(setTimeout(()=>{if(!done)f()},ms));
 const finish=()=>{if(done)return;done=true;T.forEach(clearTimeout);strip.classList.remove("glitch");settle()};
 function runBoard(){
  fit();settle();
  if(reduce||document.visibilityState!=="visible"){done=true;return}
- const t0=performance.now();
- (function f(){if(done)return;const k=Math.min((performance.now()-t0)/700,1);if(k>=1){settle();return}
-  const s="−$"+(Math.round(LUSD*(1-Math.pow(1-k,3))/1e6)*1e6).toLocaleString("en-US");show(s,s.length-1);requestAnimationFrame(f)})();
- at(700,settle);
- [1000,1080,1160].forEach((ms,i)=>at(ms,()=>{const s=FINAL+",000".repeat(i+1);show(s,s.length-1)}));
- at(1240,()=>strip.classList.add("glitch"));
- at(1390,()=>{dg.classList.add("err");dg.textContent="ERR: SCOREBOARD OUT OF DIGITS"});
- at(1850,finish);setTimeout(finish,2000);
+ const chars=[...FINAL],slots=chars.map((ch,i)=>/\d/.test(ch)?i:-1).filter(i=>i>=0),t0=performance.now(),lockAt=i=>120+slots.indexOf(i)*(760/slots.length);
+ let locked=false;
+ (function f(){if(done||locked)return;const t=performance.now()-t0;if(t>=900){locked=true;settle();return}
+  dg.innerHTML=chars.map((ch,i)=>{const d=/\d/.test(ch),on=!d||t>=lockAt(i);return `<span class="${/[,.]/.test(ch)?"c ":""}${on?"":"r"}" aria-hidden="true">${on?ch:Math.floor(Math.random()*10)}</span>`}).join("");
+  setTimeout(()=>requestAnimationFrame(f),45)})();
+ at(900,()=>{locked=true;settle()});
+ [1200,1280,1360].forEach((ms,i)=>at(ms,()=>{const s=FINAL+",000".repeat(i+1);show(s,s.length-1)}));
+ at(1440,()=>strip.classList.add("glitch"));
+ at(1560,()=>{dg.classList.add("err");dg.textContent="ERR: SCOREBOARD OUT OF DIGITS"});
+ at(1950,finish);setTimeout(finish,2000);
 }
 runBoard();
 if(document.fonts)document.fonts.ready.then(()=>{if(done){fit();settle()}});
@@ -862,8 +1013,8 @@ addEventListener("resize",()=>{if(done){fit();settle()}});
 
 /* rotating conversions */
 const CONV=conversions(LUSD),cv=$("#conv");
-if(reduce){cv.outerHTML=`<ul class="convlist">${CONV.map(x=>`<li>That is ${x}.</li>`).join("")}</ul>`}
-else{let ci=0;cv.textContent=`That is ${CONV[0]}.`;setInterval(()=>{cv.classList.add("out");setTimeout(()=>{ci=(ci+1)%CONV.length;cv.textContent=`That is ${CONV[ci]}.`;cv.classList.remove("out")},300)},3800)}
+if(reduce){cv.insertAdjacentHTML("afterend",`<ul class="convlist">${CONV.map(x=>`<li>That is ${x}.</li>`).join("")}</ul>`)}
+else{let ci=0;cv.textContent=`That is ${CONV[0]}.`;setInterval(()=>{if(narrating)return;cv.classList.add("out");setTimeout(()=>{ci=(ci+1)%CONV.length;cv.textContent=`That is ${CONV[ci]}.`;cv.classList.remove("out")},300)},3800)}
 
 /* scoreboard: all cases */
 const out=CASES.filter(c=>c.out).length;
@@ -880,21 +1031,26 @@ $("#stats").innerHTML=`
 <div class="stat"><p class="lab">Times the stock went up</p><div class="v g">${ups.length}</div><p>${ups.map(c=>`${c.co} ${c.move}`).join(", ")}.</p></div>`;
 
 /* instant replays: the featured nine */
-const feat=CASES.filter(c=>c.feat);
-$("#reel").innerHTML=feat.map((c,i)=>`<article class="replay" id="${c.id}" tabindex="-1" aria-labelledby="h-${c.id}">
- <div class="rp-top"><span class="lab rec">Replay ${String(i+1).padStart(2,"0")}</span><span class="lab">${TYPES[c.type]}</span></div>
- <div class="tapewrap"><div class="cam ${c.cut?"kc":""}">${c.cut?`<span class="kiss-tag">Kiss cam</span>`:""}${photo(c,i)}
-  <span class="call ${c.tone}">${c.call}</span>
+const big1=c=>Math.max(c.heB||0,c.coB||0);
+const feat=CASES.filter(c=>c.feat).sort((a,b)=>big1(b)-big1(a)); // Huang lives in the hero and the roster, not here
+$("#reel").innerHTML=feat.map((c,i)=>`<article class="replay" id="${c.id}" tabindex="-1" aria-labelledby="h-${c.id}"><i class="rw" aria-hidden="true"></i>
+ <div class="rp-top"><span class="lab rec"><span class="rl">Replay </span>${nn(i+1)}/${nn(feat.length)}</span><span class="call ${c.tone}">${c.call}</span></div>
+ <div class="rp-l"><div class="cam ${c.cut?"kc":""}">${c.cut?`<span class="kiss-tag">Kiss cam</span>`:""}${photo(c,i)}
   <div class="l3"><h3 id="h-${c.id}">${c.name}</h3><span>${c.co} · ${c.year}</span></div></div>
-  ${hasPhoto(c)?`<p class="credit" data-credit="${pk(c)}"></p>`:""}</div>
- ${replayBox(c)}
- <p class="fact">${alTag(c)}${c.fact}</p>
+ ${replayBox(c)}</div>
+ <div class="rp-r"><p class="fact">${alTag(c)}${c.fact}</p>
  <div class="boards"><div class="sbx"><span class="lab">He lost</span><b class="v ${vcls(c.he,c)}">${val(c.he)}</b><span class="nt">${c.he.note}</span></div>
   <div class="sbx"><span class="lab">Company lost</span><b class="v ${vcls(c.cl,c,1)}">${val(c.cl)}</b><span class="nt">${c.cl.note}</span></div></div>
- ${coffeeLine(c)}
- <div>${chart(c)}<p class="illu">${c.chart==="none"?"No signal: private company":"Illustrative shape, not price data"}</p></div>
+ ${convLine(c)}
  <p class="cap">${c.joke}</p>
- <div class="foot">${shareBtn(c)}${receipts(c)}</div><p class="say" role="status"></p></article>`).join("");
+ <div class="foot">${shareBtn(c)}<details class="rcpt more"><summary><span class="ml">Chart and </span>receipts</summary>
+  <p class="small nt-m">He lost: ${c.he.note}. Company: ${c.cl.note}.</p>
+  ${chart(c)}<p class="illu">${c.chart==="none"?"No signal: private company":"Illustrative shape, not price data"}</p>
+  <ul>${srcItems(c)}</ul>
+  ${hasPhoto(c)?`<p class="credit" data-credit="${pk(c)}"></p>`:""}
+ </details></div><p class="say" role="status"></p></div></article>`).join("");
+
+$("#rpIntro").textContent=`${feat.length} cases that defined the genre, biggest first. Swipe, scroll or use the arrow keys.`;
 
 /* full roster: every case */
 $("#roIntro").textContent=`All ${CASES.length} cases we could source. Tap a row for the story, the tape and the receipts.`;
@@ -907,20 +1063,21 @@ $("#list").innerHTML=CASES.map((c,i)=>`<li class="row" ${c.feat?"":`id="${c.id}"
   <span class="r-v r-he ${vcls(c.he,c)}"><small>He lost</small>${val(c.he)}</span>
   <span class="r-v r-co ${vcls(c.cl,c,1)}"><small>Company</small>${val(c.cl)}</span>
   <span class="r-call ${c.tone}">${c.call}</span>${chev}</button>
- <div class="panel" id="p-${c.id}" hidden>
+ <div class="panel" id="p-${c.id}" hidden><div class="pl">
   <p class="fact">${alTag(c)}${c.fact}</p>
   <p class="pm" hidden>Company lost: <b class="r-v ${vcls(c.cl,c,1)}">${val(c.cl)}</b> <span class="r-call ${c.tone}">${c.call}</span></p>
   <p class="small" style="margin:0">He lost: ${c.he.note}. Company: ${c.cl.note}.</p>
-  ${coffeeLine(c)}
+  ${convLine(c)}
   <p class="cap">${c.joke}</p>
-  ${replayBox(c)}
   <div class="foot">${shareBtn(c)}${c.feat?`<a class="btn ghost" href="#${c.id}">Watch the replay</a>`:""}${receipts(c)}</div><p class="say" role="status"></p>
-  ${hasPhoto(c)?`<p class="credit" data-credit="${pk(c)}"></p>`:""}
+  ${hasPhoto(c)?`<p class="credit" data-credit="${pk(c)}"></p>`:""}</div>
+  ${replayBox(c)}
  </div></li>`).join("");
 $$("#list .row").forEach(r=>{$(".row-btn",r).querySelectorAll("[role=img]").forEach(x=>{x.removeAttribute("role");x.removeAttribute("aria-label");x.setAttribute("aria-hidden","true")})});
 
 const rows=Object.fromEntries($$("#list .row").map(r=>[r.dataset.id,r]));
-const toggle=(row,open)=>{$(".row-btn",row).setAttribute("aria-expanded",open);$(".panel",row).hidden=!open};
+const toggle=(row,open)=>{if(open)$$("#list .row-btn[aria-expanded=true]").forEach(b=>{if(b.parentElement!==row){b.setAttribute("aria-expanded","false");$(".panel",b.parentElement).hidden=true}});
+ $(".row-btn",row).setAttribute("aria-expanded",open);$(".panel",row).hidden=!open;if(open)loadX($(".tapebox.x",row))};
 $("#list").addEventListener("click",e=>{const b=e.target.closest(".row-btn");if(b)toggle(b.parentElement,b.getAttribute("aria-expanded")!=="true")});
 let sortBy="new",typeF="all";
 const SORTS={new:(a,b)=>b.date.localeCompare(a.date),he:(a,b)=>(b.heB??-1)-(a.heB??-1),drop:(a,b)=>(a.pct??99)-(b.pct??99)};
@@ -944,8 +1101,9 @@ $("#coffeeCopy").textContent=`The scoreboard is run by one person and a spreadsh
 /* portraits: one in-world treatment (grayscale, amber multiply, LED dots); initials if the image fails */
 $$(".portrait[data-person]").forEach(el=>{
  const p=window.PORTRAITS[el.dataset.person],ini=()=>{el.innerHTML=`<span class="ini" aria-hidden="true">${el.dataset.initials}</span>`};
- const [f,z]=CROPS[el.dataset.person]||["50% 25%",1];
- const im=new Image();im.alt="";im.loading="lazy";im.decoding="async";im.onerror=ini;im.src=p.url;
+ const [f,z0,tz]=CROPS[el.dataset.person]||["50% 25%",1],z=el.classList.contains("thumb")&&tz?tz:z0; // tz: optional extra zoom for 48px thumbnails only
+ // eager on purpose: lazy images inside the horizontal reel were never requested, which left replay frames blank
+ const im=new Image();im.alt="";im.decoding="async";im.onerror=ini;im.src=p.url;
  Object.assign(im.style,{objectPosition:f,transformOrigin:f,transform:`scale(${z})`});el.appendChild(im);
 });
 $$("[data-credit]").forEach(el=>{const p=window.PORTRAITS&&window.PORTRAITS[el.dataset.credit];
@@ -957,52 +1115,79 @@ let twP;
 const loadTw=()=>twP||(twP=new Promise((res,rej)=>{const s=document.createElement("script");s.src="https://platform.twitter.com/widgets.js";s.async=true;s.onload=()=>res(window.twttr);s.onerror=rej;document.head.appendChild(s)}));
 const tapeFail=(box,t)=>{box.innerHTML=`<p>The tape would not roll here. <a href="${t.url}" rel="noopener" target="_blank">See it at ${t.label}</a>.</p>`};
 document.addEventListener("error",e=>{if(e.target.matches&&e.target.matches(".poster img"))e.target.closest(".replaybox").hidden=true},true);
-document.addEventListener("click",e=>{const b=e.target.closest(".poster");if(!b)return;
- const c=byId[b.closest(".replaybox").dataset.tape],box=b.parentElement;
- box.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${ytId(c.tape.url)}?autoplay=1" title="${c.name}: clip from ${c.tape.label}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;box.firstElementChild.focus()});
-const xio=new IntersectionObserver(es=>es.forEach(async e=>{if(!e.isIntersecting)return;xio.unobserve(e.target);
- const box=e.target,t=byId[box.closest(".replaybox").dataset.tape].tape;
- box.innerHTML=`<blockquote class="twitter-tweet" data-theme="dark" data-dnt="true"><a href="${t.url}"></a></blockquote>`;
- try{const tw=await loadTw();await tw.widgets.load(box);setTimeout(()=>{if(!box.querySelector("iframe"))tapeFail(box,t)},8000)}catch{tapeFail(box,t)}
-}),{rootMargin:"300px 300px"});
-$$(".tapebox.x").forEach(b=>xio.observe(b));
+document.addEventListener("click",e=>{const b=e.target.closest(".poster");if(!b||b.classList.contains("rolling"))return;
+ const c=byId[b.closest(".replaybox").dataset.tape],box=b.parentElement,f=document.createElement("iframe");b.classList.add("rolling");
+ Object.assign(f,{className:"loading",src:`https://www.youtube-nocookie.com/embed/${ytId(c.tape.url)}?autoplay=1`,title:`${c.name}: clip from ${c.tape.label}`,allow:"autoplay; encrypted-media; picture-in-picture",allowFullscreen:true});
+ const fail=setTimeout(()=>tapeFail(box,c.tape),15000);
+ f.onload=()=>{clearTimeout(fail);b.remove();f.className="";f.focus()};box.appendChild(f)});
+/* X posts: the replays load theirs shortly after the page does; roster rows load theirs when opened.
+   No IntersectionObserver, so a background tab or a sideways reel cannot leave a box stuck on "Loading". */
+const loadX=async box=>{if(!box||box.dataset.on)return;box.dataset.on=1;const t=byId[box.closest(".replaybox").dataset.tape].tape;
+ box.innerHTML=`<blockquote class="twitter-tweet" data-theme="dark" data-dnt="true"><p>Loading the post from ${t.label}…</p><a href="${t.url}"></a></blockquote>`;
+ const fail=setTimeout(()=>{if(!box.querySelector("iframe"))tapeFail(box,t)},10000);
+ try{const tw=await loadTw();await tw.widgets.load(box)}catch{clearTimeout(fail);tapeFail(box,t)}};
+addEventListener("load",()=>setTimeout(()=>$$("#reel .tapebox.x").forEach(loadX),600));
 
-/* carousel */
-const reel=$("#reel"),step=()=>reel.firstElementChild.offsetWidth+parseFloat(getComputedStyle(reel).columnGap||20);
-const go=d=>reel.scrollBy({left:d*step(),behavior:reduce?"auto":"smooth"});
-$("#prev").onclick=()=>go(-1);$("#next").onclick=()=>go(1);
-reel.addEventListener("keydown",e=>{if(e.target===reel&&(e.key==="ArrowRight"||e.key==="ArrowLeft")){e.preventDefault();go(e.key==="ArrowRight"?1:-1)}});
-const navState=()=>{const i=Math.round(reel.scrollLeft/step());$("#pos").textContent=`${String(Math.min(i+1,feat.length)).padStart(2,"0")} / ${String(feat.length).padStart(2,"0")}`;
- $("#prev").disabled=reel.scrollLeft<4;$("#next").disabled=reel.scrollLeft+reel.clientWidth>=reel.scrollWidth-4};
-reel.addEventListener("scroll",navState,{passive:true});addEventListener("resize",navState);navState();
+/* carousel: the active replay is the one nearest the centre; neighbours dim (desktop) */
+const reel=$("#reel"),cards=[...reel.children];let cur=-1;
+function setActive(i,wipe){i=Math.max(0,Math.min(cards.length-1,i));if(i===cur)return;
+ if(cards[cur])cards[cur].classList.remove("on");cur=i;const c=cards[i];c.classList.add("on");
+ $("#pos").textContent=`Replay ${String(i+1).padStart(2,"0")}/${String(cards.length).padStart(2,"0")}`;
+ $("#prev").disabled=i===0;$("#next").disabled=i===cards.length-1;
+ if(wipe&&!reduce&&document.visibilityState==="visible"){c.classList.add("wiping");setTimeout(()=>c.classList.remove("wiping"),600)}}
+const nearest=()=>{const mid=reel.scrollLeft+reel.clientWidth/2;let b=0,bd=1e9;cards.forEach((c,i)=>{const d=Math.abs(c.offsetLeft+c.offsetWidth/2-mid);if(d<bd){bd=d;b=i}});return b};
+const centred=()=>matchMedia("(min-width:1001px)").matches;
+const goTo=i=>{i=Math.max(0,Math.min(cards.length-1,i));const c=cards[i];
+ const left=centred()?c.offsetLeft+c.offsetWidth/2-reel.clientWidth/2:c.offsetLeft-parseFloat(getComputedStyle(reel).paddingLeft);
+ reel.scrollTo({left,behavior:reduce?"auto":"smooth"});setActive(i,true)};
+$("#prev").onclick=()=>goTo(nearest()-1);$("#next").onclick=()=>goTo(nearest()+1); // from the live scroll position, never a stale index
+reel.addEventListener("keydown",e=>{if(e.target.closest("button,a,input,summary,iframe"))return;
+ const n=nearest(),k={ArrowRight:n+1,ArrowLeft:n-1,Home:0,End:cards.length-1}[e.key];if(k===undefined)return;e.preventDefault();goTo(k)});
+reel.addEventListener("scroll",()=>setActive(nearest()),{passive:true}); // immediate; the REPLAY wipe only plays on prev/next/keys
+addEventListener("resize",()=>{const i=cur;cur=-1;setActive(i)});
+setActive(0);
 
-/* sharing: native share sheet, else copy the deep link */
+/* sharing: native share sheet, else copy this case's own deep link, else hand over a selectable link */
 document.addEventListener("click",async e=>{const b=e.target.closest(".share");if(!b)return;
  const c=byId[b.dataset.id],url=`${SITE_URL}#${c.id}`,say=b.closest(".foot,.actions").nextElementSibling;
+ const flash=t=>{if(!b.dataset.label)b.dataset.label=b.textContent;b.textContent=t;clearTimeout(b._t);b._t=setTimeout(()=>b.textContent=b.dataset.label,2600)};
  if(navigator.share){try{await navigator.share({title:`${c.name}, ${c.co} | Kiss Cam Capital`,text:c.joke,url});return}catch(err){if(err.name==="AbortError")return}}
- try{await navigator.clipboard.writeText(url);say.textContent="Link copied. Paste it in the group chat."}
- catch{say.textContent=`Copy this link: ${url}`}
+ try{await navigator.clipboard.writeText(url);say.textContent=`Copied ${url}. Paste it in the group chat.`;flash("Link copied")}
+ catch{say.innerHTML=`<label>Copy this link<br><input class="linkbox" readonly value="${url}"></label>`;const i=$("input",say);i.focus();i.select();flash("Link ready below")}
 });
 
 /* deep links: #id scrolls to and highlights that case (replay for the nine, roster row for the rest) */
 function openCase(id){
  const el=document.getElementById(id);if(!el||!byId[id])return;
  if(el.classList.contains("row")){if(el.hidden)$('.chip[data-type="all"]').click();toggle(el,true)}
- el.scrollIntoView({behavior:reduce?"auto":"smooth",block:el.classList.contains("row")?"center":"start",inline:"start"});
+ const isRow=el.classList.contains("row");
+ if(isRow)el.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});
+ else{reel.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});goTo(cards.indexOf(el))}
  el.classList.remove("hl");void el.offsetWidth;el.classList.add("hl");
  (el.classList.contains("row")?$(".row-btn",el):el).focus({preventScroll:true});
 }
 addEventListener("hashchange",()=>openCase(decodeURIComponent(location.hash.slice(1))));
 if(location.hash)requestAnimationFrame(()=>openCase(decodeURIComponent(location.hash.slice(1))));
 
-/* announcer: placeholder until audio/<id>.mp3 exists and its id is in AUDIO_READY */
-const ab=$("#announcer"),aid=ab.dataset.audio;
+/* the narrator: a stock documentary voice reads the lead case. Never autoplays; captions run in the board's
+   conversion slot so it works muted. Line timings are fractions of the clip, so a re-recorded file still lines up. */
+const NARRATION=[[0,"Here, on the open plains of the technology sector,"],[.19,"we find a chief executive in his natural habitat."],
+ [.36,"He has just sent an all-staff email."],[.48,"Watch closely…"],[.56,"as four hundred billion dollars of market value quietly leaves the herd."],
+ [.79,"Eleven zeros."],[.86,"Nature, as ever, is unsentimental."]];
+let narrating=false;
+const nb=$("#narrator"),aid=nb.dataset.audio;
+$("#ann").hidden=!AUDIO_READY.includes(aid); // the narrator appears once audio/<id>.mp3 is listed
 if(AUDIO_READY.includes(aid)){
  const a=new Audio(`audio/${aid}.mp3`);a.preload="none";
- const off=()=>{ab.disabled=true;$("span",ab).textContent="Announcer: audio coming";$("#ann").classList.remove("talk")};
- ab.disabled=false;$("span",ab).textContent="Play the announcer";
- ab.onclick=()=>a.paused?a.play().catch(off):a.pause();
- a.onplay=()=>$("#ann").classList.add("talk");a.onpause=a.onended=()=>$("#ann").classList.remove("talk");a.onerror=off;
+ const label=t=>$(".nl",nb).textContent=t;
+ const caption=()=>{if(!a.duration)return;const f=a.currentTime/a.duration;let line=NARRATION[0][1];NARRATION.forEach(([t,l])=>{if(f>=t)line=l});
+  if(cv.textContent!==line){cv.textContent=line;cv.classList.add("narrating")}};
+ const stop=()=>{narrating=false;nb.classList.remove("talk");cv.classList.remove("narrating")};
+ nb.onclick=()=>{if(a.paused){a.play().then(()=>{narrating=true;nb.classList.add("talk");label("Pause the narrator");caption()}).catch(()=>{label("Narrator unavailable");nb.disabled=true})}
+  else{a.pause();nb.classList.remove("talk");label("Resume the narrator")}};
+ a.ontimeupdate=caption;
+ a.onended=()=>{stop();label("Play the narrator")};
+ a.onerror=()=>{stop();label("Narrator unavailable");nb.disabled=true};
 }
 
 /* the concession stand only appears once a real coffee link is set */

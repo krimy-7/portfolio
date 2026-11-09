@@ -15,20 +15,20 @@
 body{width:1200px;height:630px;overflow:hidden;background:#050505;color:var(--ink);font-family:"Barlow Condensed",sans-serif;
   background-image:radial-gradient(circle,#17130c 0 1.2px,transparent 1.7px);background-size:6px 6px}
 .og{position:relative;width:1200px;height:630px;padding:34px 44px 0}
-.top{display:grid;grid-template-columns:430px 1fr;gap:40px;align-items:start}
+.top{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:start}
 .cam{position:relative;border:4px solid var(--red);height:300px}
 .cam::before{content:"";position:absolute;inset:-16px;background:var(--heart) 0 0/32px no-repeat,var(--heart) 100% 0/32px no-repeat,var(--heart) 0 100%/32px no-repeat,var(--heart) 100% 100%/32px no-repeat;z-index:6}
 .tag{position:absolute;top:0;left:50%;transform:translate(-50%,-55%);z-index:7;background:var(--red);color:#000;font:700 20px/1 Silkscreen;letter-spacing:.12em;padding:7px 16px;white-space:nowrap}
-.photo{position:absolute;inset:0;background:var(--amber);overflow:hidden}
-.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(1) contrast(1.2);mix-blend-mode:multiply}
-.photo::after{content:"";position:absolute;inset:0;background:var(--dot);background-size:5px 5px}
-.l3{position:absolute;left:0;bottom:16px;z-index:5}
-.l3 b{display:block;background:var(--amber);color:#000;font:400 34px/1.1 DotGothic16;padding:4px 14px 2px;width:max-content}
-.l3 span{display:block;background:#000;color:var(--amber);font:700 22px/1.2 "Barlow Condensed";padding:4px 14px;width:max-content}
+.photo{position:absolute;inset:0 0 50px 0;background:var(--amber);overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 4%;filter:grayscale(1) contrast(1.2);mix-blend-mode:multiply}
+.photo::after{content:"";position:absolute;inset:0;background:var(--dot);background-size:5px 5px;opacity:.45}
+.l3{position:absolute;left:0;right:0;bottom:0;height:50px;z-index:5;display:flex;background:#000}
+.l3 b{display:flex;align-items:center;background:var(--amber);color:#000;font:400 30px/1 DotGothic16;padding:0 12px}
+.l3 span{display:flex;align-items:center;color:var(--amber);font:700 22px/1 "Barlow Condensed";padding:0 12px}
 .sign{display:inline-block;border:3px solid var(--amber);background:#000;padding:10px 22px 6px;box-shadow:inset 0 0 0 6px #000,inset 0 0 0 7px var(--line);position:relative}
-.sign h1{font:400 72px/1 DotGothic16;color:var(--amber);text-transform:uppercase;white-space:nowrap}
+.sign h1{font:400 80px/1 DotGothic16;color:var(--amber);text-transform:uppercase;white-space:nowrap}
 .sign::after{content:"";position:absolute;inset:0;background:var(--dot);background-size:4px 4px}
-.dead{margin-top:26px;font:700 50px/1.08 "Barlow Condensed";color:var(--ink)}
+.dead{margin-top:24px;font:700 54px/1.08 "Barlow Condensed";color:var(--ink)}
 .sub{margin-top:16px;font:700 20px/1.3 Silkscreen;letter-spacing:.06em;color:var(--mute);text-transform:uppercase}
 .strip{position:absolute;left:44px;right:44px;top:376px;height:178px;background:#000;border:4px solid var(--red);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .num{display:flex;gap:4px;font:400 134px/1 DotGothic16;color:var(--red);white-space:nowrap}
@@ -47,7 +47,7 @@ body{width:1200px;height:630px;overflow:hidden;background:#050505;color:var(--in
     <div class="cam">
       <span class="tag">Kiss cam</span>
       <div class="photo" id="p"></div>
-      <div class="l3"><b>Jensen Huang</b><span>Nvidia · Nov 2026</span></div>
+      <div class="l3"><b>Jensen Huang</b><span>Nvidia</span></div>
     </div>
     <div>
       <div class="sign"><h1>Kiss Cam Capital</h1></div>
@@ -60,7 +60,7 @@ body{width:1200px;height:630px;overflow:hidden;background:#050505;color:var(--in
 </div>
 <script src="../kiss-cam/portraits.js"></script>
 <script>
-const im=new Image();im.alt="";im.src=window.PORTRAITS.huang.url;document.getElementById("p").appendChild(im);
+const im=new Image();im.alt="";const u=window.PORTRAITS.huang.url;im.src=/^https?:/.test(u)?u:"../kiss-cam/"+u;document.getElementById("p").appendChild(im);
 document.getElementById("n").innerHTML=[..."\u2212$400,000,000,000"].map(ch=>`<i class="${ch===","?"c":""}">${ch}</i>`).join("")+"<sup>*</sup>";
 const n=document.getElementById("n"),room=1080;n.style.fontSize=Math.floor(134*room/n.scrollWidth)+"px";
 </script>
