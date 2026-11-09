@@ -93,7 +93,9 @@ check("User-agent: *" in robots and f"Sitemap: {ORIGIN}/sitemap.xml" in robots, 
 check(not re.search(r"^Disallow:\s*/\s*$", robots, re.M), "robots.txt blocks the whole site")
 try:
     locs = [e.text for e in ET.parse(ROOT / "sitemap.xml").iter("{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
-    check(locs == [ORIGIN + "/"], f"sitemap locs should be [{ORIGIN}/], got {locs}")
+    want = [ORIGIN + "/", ORIGIN + "/kiss-cam/"]
+    check(locs == want, f"sitemap locs should be {want}, got {locs}")
+    check((ROOT / "kiss-cam/index.html").exists() and (ROOT / "kiss-cam/og.png").exists(), "kiss-cam/index.html or og.png missing")
 except (FileNotFoundError, ET.ParseError) as e:
     fails.append(f"sitemap.xml invalid: {e}")
 
